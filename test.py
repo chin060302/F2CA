@@ -12,7 +12,7 @@ driver.get('https://accounts.google.com/')
 username_input = driver.find_element_by_name('username')
 username_input.send_keys('acs109144@gm.ntcu.edu.tw')
 password_input = driver.find_element_by_name('password')
-password_input.send_keys('atwert8232')
+password_input.send_keys('')
 
 # 提交表單
 password_input.send_keys(Keys.ENTER)
