@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": [
+    "./src/**/*"
+  ],
+  "compilerOptions": {
+    "lib": [
+      "ES2021",
+    ],
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types",
+      "../../node_modules/@types"
+    ],
+    "experimentalDecorators": true
+  }
+}
