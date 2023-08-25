@@ -98,9 +98,11 @@ export let expectedOrigin = '';
  *
  * Here, the example server assumes the following user has completed login:
  */
-const loggedInUserId = 'internalUserId';
 
-const inMemoryUserDeviceDB: { [loggedInUserId: string]: LoggedInUser } = {
+
+let loggedInUserId = 'internalUserId';
+
+let inMemoryUserDeviceDB: { [loggedInUserId: string]: LoggedInUser } = {
   [loggedInUserId]: {
     id: loggedInUserId,
     username: `user@${rpID}`,
@@ -111,7 +113,25 @@ const inMemoryUserDeviceDB: { [loggedInUserId: string]: LoggedInUser } = {
 /**
  * Registration (a.k.a. "Registration")
  */
-app.get('/generate-registration-options', (req, res) => {
+
+app.post('/testuser', (req, res) => {
+  loggedInUserId = req.body.username;
+  if (inMemoryUserDeviceDB[loggedInUserId]) {
+    inMemoryUserDeviceDB[loggedInUserId].id = loggedInUserId;
+    inMemoryUserDeviceDB[loggedInUserId].username = `${loggedInUserId}@${rpID}`;
+    inMemoryUserDeviceDB[loggedInUserId].devices = [];
+  }
+});
+
+app.post('/generate-registration-options', (req, res) => {
+  loggedInUserId = req.body.username;
+  let inMemoryUserDeviceDB: { [loggedInUserId: string]: LoggedInUser } = {
+    [loggedInUserId]: {
+      id: loggedInUserId,
+      username: `user@${rpID}`,
+      devices: [],
+    },
+  };
   const user = inMemoryUserDeviceDB[loggedInUserId];
 
   const {
