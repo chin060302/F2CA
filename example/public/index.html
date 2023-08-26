@@ -91,10 +91,11 @@
 
       <div class="controls">
         <section id="registration">
+<!--
           <button id="btnRegBegin">
             <strong>🚪&nbsp;Register</strong>
           </button>
-
+-->
           <button id="signup">
             <strong>🚪&nbsp;SignUp</strong>
           </button>
@@ -109,6 +110,7 @@
 
         <section id="authentication">
           <form onsubmit="stopSubmit(event)">
+<!--
             <section id="inputUsername">
               <label for="username">Username</label>
               <input type="text" name="username" autocomplete="webauthn" autofocus />
@@ -117,6 +119,7 @@
               <input type="password" name="password" autocomplete="webauthn" />
               <br />
             </section>
+-->
             <button id="btnAuthBegin">
               <strong>🔐&nbsp;Authenticate</strong>
             </button>
@@ -162,7 +165,7 @@
 
         /**
          * Registration
-         */
+         
         document.querySelector('#btnRegBegin').addEventListener('click', async () => {
           const elemSuccess = document.querySelector('#regSuccess');
           const elemError = document.querySelector('#regError');
@@ -214,7 +217,7 @@
             )}</pre>`;
           }
         });
-
+*/
         /**
          * Authentication
          */
