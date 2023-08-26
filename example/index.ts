@@ -114,24 +114,23 @@ let inMemoryUserDeviceDB: { [loggedInUserId: string]: LoggedInUser } = {
  * Registration (a.k.a. "Registration")
  */
 
-app.post('/testuser', (req, res) => {
+/*app.post('/testuser', (req, res) => {
   loggedInUserId = req.body.username;
   if (inMemoryUserDeviceDB[loggedInUserId]) {
     inMemoryUserDeviceDB[loggedInUserId].id = loggedInUserId;
     inMemoryUserDeviceDB[loggedInUserId].username = `${loggedInUserId}@${rpID}`;
     inMemoryUserDeviceDB[loggedInUserId].devices = [];
   }
-});
+});*/
 
 app.post('/generate-registration-options', (req, res) => {
   loggedInUserId = req.body.username;
-  let inMemoryUserDeviceDB: { [loggedInUserId: string]: LoggedInUser } = {
-    [loggedInUserId]: {
-      id: loggedInUserId,
-      username: `user@${rpID}`,
-      devices: [],
-    },
+  const newLoggedInUser: LoggedInUser = {
+    id: loggedInUserId,
+    username: `${loggedInUserId}@${rpID}`,
+    devices: [],
   };
+  inMemoryUserDeviceDB[loggedInUserId] = newLoggedInUser;
   const user = inMemoryUserDeviceDB[loggedInUserId];
 
   const {

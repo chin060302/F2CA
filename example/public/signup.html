@@ -42,7 +42,7 @@
       const { browserSupportsWebAuthn, startRegistration } = SimpleWebAuthnBrowser;
       document.querySelector('#btnRegBegin').addEventListener('click', async () => {
 console.log(document.getElementById("username").value)
-        /*
+/*     
           const elemSuccess = document.querySelector('#regSuccess');
           const elemError = document.querySelector('#regError');
           const elemDebug = document.querySelector('#regDebug');
@@ -51,20 +51,20 @@ console.log(document.getElementById("username").value)
           elemSuccess.innerHTML = '';
           elemError.innerHTML = '';
           elemDebug.innerHTML = '';
-          */
+*/
           const sendvalue = {
             username: document.getElementById("username").value,
             password: document.getElementById("email").value
           };
-
-          //await fetch('/testuser', {
-            //method: 'POST',
-            //headers: {
-              //'Content-Type': 'application/json',
-            //},
-            //body: JSON.stringify(sendvalue),
-          //});
-
+/*
+          await fetch('/testuser', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(sendvalue),
+          });
+*/
           const resp = await fetch('/generate-registration-options', {
             method: 'POST',
             headers: {
