@@ -110,8 +110,9 @@
 
         <section id="authentication">
           <form onsubmit="stopSubmit(event)">
-<!--
+
             <section id="inputUsername">
+      <!--
               <label for="username">Username</label>
               <input type="text" name="username" autocomplete="webauthn" autofocus />
               <br />
@@ -267,14 +268,14 @@
           }
         });
       }
-    </script>
-
-    <script>
       const button = document.querySelector('#signup');
       button.addEventListener('click', e => {
         location.href = '/signup.html';
       });
+      
     </script>
+    
+    
 
   </body>
 </html>
