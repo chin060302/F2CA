@@ -44,10 +44,11 @@
             .then(async asseResp => {
               // We can assume the DOM has loaded by now because it had to for the user to be able
               // to interact with an input to choose a credential from the autofill
+            
               const elemSuccess = document.querySelector('#authSuccess');
               const elemError = document.querySelector('#authError');
-              const elemDebug = document.querySelector('#authDebug');
-
+              //const elemDebug = document.querySelector('#authDebug');
+            
               printDebug(
                 elemDebug,
                 'Authentication Response (Autofill)',
@@ -87,8 +88,9 @@
   </head>
   <body>
     <div class="container">
-      <h1>F2CA</h1>
-
+      
+      <h1 style = "display:inline">F2CA</h1>
+      
       <div class="controls">
         <section id="registration">
 <!--
@@ -96,9 +98,9 @@
             <strong>🚪&nbsp;Register</strong>
           </button>
 -->
-          <button id="signup">
-            <strong>🚪&nbsp;SignUp</strong>
-          </button>
+          <button class="btn" id="signup">
+            <strong><span>🚪&nbsp;SignUp</span></strong>
+            </button>
 
           <p id="regSuccess" class="success"></p>
           <p id="regError" class="error"></p>
@@ -123,21 +125,22 @@
       -->
             </section>
 
-            <button id="btnAuthBegin">
-              <strong>🔐&nbsp;Authenticate</strong>
+            <button class="btn" id="btnAuthBegin">
+              <strong><span>🔐&nbsp;Authenticate </span></strong>
             </button>
           </form>
           <p id="authSuccess" class="success"></p>
           <p id="authError" class="error"></p>
-          <details open>
+   <!--       <details open>
             <summary>Console</summary>
             <textarea id="authDebug" spellcheck="false"></textarea>
-          </details>
+            </details>
+          -->
         </section>
       </div>
 
       <p class="systemError"></p>
-    </div>
+    
     <script>
       const { browserSupportsWebAuthn, startRegistration } = SimpleWebAuthnBrowser;
 
@@ -225,28 +228,29 @@
          * Authentication
          */
         document.querySelector('#btnAuthBegin').addEventListener('click', async () => {
+        
           const elemSuccess = document.querySelector('#authSuccess');
           const elemError = document.querySelector('#authError');
-          const elemDebug = document.querySelector('#authDebug');
+          //const elemDebug = document.querySelector('#authDebug');
 
           // Reset success/error messages
           elemSuccess.innerHTML = '';
           elemError.innerHTML = '';
-          elemDebug.innerHTML = '';
-
+          //elemDebug.innerHTML = '';
+        
           const resp = await fetch('/generate-authentication-options');
 
           let asseResp;
           try {
             const opts = await resp.json();
-            printDebug(elemDebug, 'Authentication Options', JSON.stringify(opts, null, 2));
+            //printDebug(elemDebug, 'Authentication Options', JSON.stringify(opts, null, 2));
 
-            hideAuthForm();
+            //hideAuthForm();
 
             asseResp = await startAuthentication(opts);
-            printDebug(elemDebug, 'Authentication Response', JSON.stringify(asseResp, null, 2));
+            //printDebug(elemDebug, 'Authentication Response', JSON.stringify(asseResp, null, 2));
           } catch (error) {
-            elemError.innerText = error;
+            //elemError.innerText = error;
             throw new Error(error);
           }
 
@@ -259,10 +263,11 @@
           });
 
           const verificationJSON = await verificationResp.json();
-          printDebug(elemDebug, 'Server Response', JSON.stringify(verificationJSON, null, 2));
+          //printDebug(elemDebug, 'Server Response', JSON.stringify(verificationJSON, null, 2));
 
           if (verificationJSON && verificationJSON.verified) {
-            elemSuccess.innerHTML = `User authenticated!`;
+            //elemSuccess.innerHTML = `User authenticated!`;
+            alert('Authenticate success!');
           } else {
             elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
               verificationJSON,
@@ -277,7 +282,7 @@
       
     </script>
     
-    
+  </div>
 
   </body>
 </html>
