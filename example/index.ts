@@ -110,6 +110,46 @@ let inMemoryUserDeviceDB: { [loggedInUserId: string]: LoggedInUser } = {
   },
 };
 
+import mysql from 'mysql2';
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "atwert8232"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  con.query("CREATE DATABASE IF NOT EXISTS mydb", function (err, result) {
+    if (err) throw err;
+    console.log("Database created");
+  });
+  con.query("USE mydb", function (err, result) {
+    if (err) throw err;
+    console.log("USE mydb");
+  });
+  var sql = "CREATE TABLE IF NOT EXISTS `inMemoryUserDeviceDB` (id VARCHAR(255), username VARCHAR(255), devices json)";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table created");
+  });
+});
+
+app.get('/storeloggedInUserId', (req, res) => {
+  const user = inMemoryUserDeviceDB[loggedInUserId];
+  con.connect(function(err) {
+    var sql = "INSERT INTO `inMemoryUserDeviceDB` (`id`, `username`, `devices`) VALUES ?";
+    const value = [[user.id,user.username,JSON.stringify(user.devices)]];
+    con.query(sql, [value], function (err, result) {
+      if (err) throw err;
+    console.log("Record Inserted");
+    });
+  });
+  console.log(user);
+  res.send(user);
+});
+
 /**
  * Registration (a.k.a. "Registration")
  */
@@ -160,7 +200,7 @@ app.post('/generate-registration-options', (req, res) => {
       transports: dev.transports,
     })),
     authenticatorSelection: {
-      residentKey: 'discouraged',
+      requireResidentKey: true,
     },
     /**
      * Support the two most common algorithms: ES256, and RS256
@@ -237,11 +277,12 @@ app.get('/generate-authentication-options', (req, res) => {
 
   const opts: GenerateAuthenticationOptionsOpts = {
     timeout: 60000,
-    allowCredentials: user.devices.map(dev => ({
+    allowCredentials: [],
+    /*allowCredentials: user.devices.map(dev => ({
       id: dev.credentialID,
       type: 'public-key',
       transports: dev.transports,
-    })),
+    })),*/
     userVerification: 'required',
     rpID,
   };
@@ -253,6 +294,7 @@ app.get('/generate-authentication-options', (req, res) => {
    * after you verify an authenticator response.
    */
   req.session.currentChallenge = options.challenge;
+  console.log(options);
 
   res.send(options);
 });

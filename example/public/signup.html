@@ -102,12 +102,14 @@ console.log(opts)
             body: JSON.stringify(attResp),
           });
 
+          console.log(attResp);
           const verificationJSON = await verificationResp.json();
 //          printDebug(elemDebug, 'Server Response', JSON.stringify(verificationJSON, null, 2));
 
           if (verificationJSON && verificationJSON.verified) {
 //            elemSuccess.innerHTML = `Authenticator registered!`;
 alert('Authenticator register success!');
+fetch('/storeloggedInUserId');
             location.href = "/index.html";
           } else {
 //            elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
