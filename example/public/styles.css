@@ -1,0 +1,161 @@
+:root {
+  --background: #f7f7f7;
+  --text: black;
+  --button: white;
+  --button-active: #eeeeee;
+  --button-hover: #efefef;
+  
+}
+
+* {
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  
+}
+
+
+body {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-image: url("backend.jpg");
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  
+  
+}
+
+
+
+.btn
+{
+  position: relative;
+    min-width: 160px;
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 20px;
+}
+.btn span {
+  color: #FFFFFF;
+  mix-blend-mode: difference;
+}
+.btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 100%;
+  border-radius: 50px;
+  background: black;
+  transition: all 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.btn:hover:before {
+  background: black;
+  width: 100%;
+}
+
+
+h1 {
+  color: white;
+  
+  font-size: 120px;
+  text-shadow: 0 0 20px orange;
+  
+  /*background-color:oldlace;
+  */
+  
+}
+
+button {
+  padding: 0.5rem;
+  background: var(--button);
+  color: var(--text);
+  border-radius: 0.25rem;
+  width: 18rem;
+  
+  justify-content: center;
+}
+
+button:active {
+  background: var(--button-active);
+}
+
+button:hover {
+  background: var(--button-hover);
+}
+
+details {
+  margin: 0.75rem 0;
+}
+
+.container {
+  
+  width: 95%;
+  margin: auto;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+
+
+
+
+.error {
+  color: red;
+}
+
+.success {
+  color: #11a000;
+}
+
+#regDebug, #authDebug {
+  background: var(--button-hover);
+  color: var(--text);
+  border-radius: 0.25rem;
+  text-align: left;
+  font-size: 0.7rem;
+  padding: 0.5rem;
+  height: 15rem;
+  width: 95%;
+  overflow-y: auto;
+}
+
+/* Desktop Styles */
+@media (min-width: 75rem) {
+  * {
+    font-size: 20px;
+    margin-top:40px;
+    
+    
+  }
+
+  .container {
+    width: 45rem;
+    margin-top:85px;
+    
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1c2128;
+    --text: #adbac7;
+    --button: #373e47;
+    --button-active: #eeeeee;
+    --button-hover: #444c56;
+    
+  }
+}

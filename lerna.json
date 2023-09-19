@@ -1,0 +1,18 @@
+{
+  "version": "7.4.0",
+  "npmClient": "npm",
+  "useNx": true,
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "*.config.js",
+        ".eslintrc.js",
+        ".prettierignore",
+        ".gitignore",
+        ".eslintignore"
+      ],
+      "message": "chore(release): publish %s"
+    }
+  },
+  "packages": ["packages/*"]
+}
