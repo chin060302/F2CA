@@ -150,6 +150,10 @@ app.get('/storeloggedInUserId', (req, res) => {
   res.send(user);
 });
 
+let selectcredfrondb = async (req:{ body: AuthenticationResponseJSON; }) => {
+  const body: AuthenticationResponseJSON = req.body;
+  
+};
 /**
  * Registration (a.k.a. "Registration")
  */
@@ -273,7 +277,7 @@ app.post('/verify-registration', async (req, res) => {
  */
 app.get('/generate-authentication-options', (req, res) => {
   // You need to know the user by this point
-  const user = inMemoryUserDeviceDB[loggedInUserId];
+  //const user = inMemoryUserDeviceDB[loggedInUserId];
 
   const opts: GenerateAuthenticationOptionsOpts = {
     timeout: 60000,
@@ -315,6 +319,20 @@ app.post('/verify-authentication', async (req, res) => {
       break;
     }
   }
+  
+  con.connect(function(err) {
+    var sql = "SELECT * FROM inMemoryUserDeviceDB WHERE id = '?'";
+    const value = body.response.userHandle;
+    //console.log(value);
+    con.query(sql,value, function (err, result) {
+      if (err) throw err;
+    console.log(result);
+    });
+  });
+
+  //let dbres = selectcredfrondb(req);
+
+  //console.log(dbres);
 
   if (!dbAuthenticator) {
     return res.status(400).send({ error: 'Authenticator is not registered with this site' });
@@ -327,8 +345,8 @@ app.post('/verify-authentication', async (req, res) => {
       expectedChallenge: `${expectedChallenge}`,
       expectedOrigin,
       expectedRPID: rpID,
-      authenticator: dbAuthenticator,
       requireUserVerification: true,
+      authenticator: dbAuthenticator
     };
     verification = await verifyAuthenticationResponse(opts);
   } catch (error) {
