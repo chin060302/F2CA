@@ -115,7 +115,7 @@ import mysql from 'mysql2';
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "atwert8232"
+  password: "yourpassword"
 });
 
 con.connect(function(err) {
