@@ -129,7 +129,7 @@ con.connect(function(err) {
     if (err) throw err;
     console.log("USE mydb");
   });
-  var sql = "CREATE TABLE IF NOT EXISTS `inMemoryUserDeviceDB` (id VARCHAR(255), username VARCHAR(255), devices json)";
+  var sql = "CREATE TABLE IF NOT EXISTS `inMemoryUserDeviceDB` (id VARCHAR(255), username VARCHAR(255), devices JSON)";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table created");
@@ -150,10 +150,6 @@ app.get('/storeloggedInUserId', (req, res) => {
   res.send(user);
 });
 
-let selectcredfrondb = async (req:{ body: AuthenticationResponseJSON; }) => {
-  const body: AuthenticationResponseJSON = req.body;
-  
-};
 /**
  * Registration (a.k.a. "Registration")
  */
@@ -303,15 +299,22 @@ app.get('/generate-authentication-options', (req, res) => {
   res.send(options);
 });
 
-app.post('/verify-authentication', async (req, res) => {
+app.post('/verify-authentication',async (req, res) => {
   const body: AuthenticationResponseJSON = req.body;
 
-  const user = inMemoryUserDeviceDB[loggedInUserId];
+  
+  let dbres : LoggedInUser = JSON.parse(await selectcredfrondb(body))[0];
+  
+  console.log(inMemoryUserDeviceDB[loggedInUserId]);
+  const user = dbres;
+  console.log(user);
+  //console.log(new Uint8Array(Object.values(user.devices[0].credentialID)));
 
   const expectedChallenge = req.session.currentChallenge;
 
   let dbAuthenticator;
   const bodyCredIDBuffer = isoBase64URL.toBuffer(body.rawId);
+  //console.log(bodyCredIDBuffer);
   // "Query the DB" here for an authenticator matching `credentialID`
   for (const dev of user.devices) {
     if (isoUint8Array.areEqual(dev.credentialID, bodyCredIDBuffer)) {
@@ -319,20 +322,16 @@ app.post('/verify-authentication', async (req, res) => {
       break;
     }
   }
-  
-  con.connect(function(err) {
-    var sql = "SELECT * FROM inMemoryUserDeviceDB WHERE id = '?'";
+  /*con.connect(async function(err) {
+    var sql = "SELECT * FROM inMemoryUserDeviceDB WHERE id = ?";
     const value = body.response.userHandle;
     //console.log(value);
-    con.query(sql,value, function (err, result) {
+    await con.query(sql,value, function (err, result) {
       if (err) throw err;
-    console.log(result);
+    return result;
     });
-  });
+  });*/
 
-  //let dbres = selectcredfrondb(req);
-
-  //console.log(dbres);
 
   if (!dbAuthenticator) {
     return res.status(400).send({ error: 'Authenticator is not registered with this site' });
@@ -366,6 +365,18 @@ app.post('/verify-authentication', async (req, res) => {
 
   res.send({ verified });
 });
+
+let selectcredfrondb = (body: AuthenticationResponseJSON) =>{
+  return new Promise<string>((resolve, reject)=>{
+    const value = body.response.userHandle;
+      con.query("SELECT * FROM inMemoryUserDeviceDB WHERE id = ? LIMIT 1", value ,(error, result)=>{
+          if(error){
+              return reject(error);
+          }
+          return resolve(JSON.stringify(result));
+      });
+  });
+};
 
 if (ENABLE_HTTPS) {
   const host = '0.0.0.0';
