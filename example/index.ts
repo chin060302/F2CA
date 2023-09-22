@@ -336,7 +336,7 @@ app.post('/verify-authentication',async (req, res) => {
   
   let dbres : LoggedInUser = JSON.parse(await selectcredfrondb(body.response.userHandle))[0];
   
-  if(JSON.stringify(dbres)=='{}'){
+  if(!dbres){
     return res.status(400).send({ error: 'User is not registered with this site' });
   };
   //const user = dbres;
