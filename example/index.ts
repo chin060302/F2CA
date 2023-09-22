@@ -102,20 +102,20 @@ export let expectedOrigin = '';
 
 let loggedInUserId = 'internalUserId';
 
-let inMemoryUserDeviceDB: { [loggedInUserId: string]: LoggedInUser } = {
+/*let inMemoryUserDeviceDB: { [loggedInUserId: string]: LoggedInUser } = {
   [loggedInUserId]: {
     id: loggedInUserId,
     username: `user@${rpID}`,
     devices: [],
   },
-};
+};*/
 
 import mysql from 'mysql2';
 
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "yourpassword"
+  password: "password"
 });
 
 con.connect(function(err) {
@@ -129,14 +129,14 @@ con.connect(function(err) {
     if (err) throw err;
     console.log("USE mydb");
   });
-  var sql = "CREATE TABLE IF NOT EXISTS `inMemoryUserDeviceDB` (id VARCHAR(255), username VARCHAR(255), devices JSON)";
+  var sql = "CREATE TABLE IF NOT EXISTS `inMemoryUserDeviceDB` (id VARCHAR(255) NOT NULL PRIMARY KEY, username VARCHAR(255), devices JSON)";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table created");
   });
 });
 
-app.get('/storeloggedInUserId', (req, res) => {
+/*app.get('/storeloggedInUserId', (req, res) => {
   const user = inMemoryUserDeviceDB[loggedInUserId];
   con.connect(function(err) {
     var sql = "INSERT INTO `inMemoryUserDeviceDB` (`id`, `username`, `devices`) VALUES ?";
@@ -148,7 +148,7 @@ app.get('/storeloggedInUserId', (req, res) => {
   });
   console.log(user);
   res.send(user);
-});
+});*/
 
 /**
  * Registration (a.k.a. "Registration")
@@ -163,15 +163,24 @@ app.get('/storeloggedInUserId', (req, res) => {
   }
 });*/
 
-app.post('/generate-registration-options', (req, res) => {
+app.post('/generate-registration-options', async (req, res) => {
   loggedInUserId = req.body.username;
-  const newLoggedInUser: LoggedInUser = {
+  let dbres : LoggedInUser = JSON.parse(await selectcredfrondb(loggedInUserId))[0];
+  let user : LoggedInUser= {
     id: loggedInUserId,
     username: `${loggedInUserId}@${rpID}`,
     devices: [],
   };
-  inMemoryUserDeviceDB[loggedInUserId] = newLoggedInUser;
-  const user = inMemoryUserDeviceDB[loggedInUserId];
+  if(dbres){
+    for (let dev of dbres.devices){
+      user.devices.push({
+        credentialID: new Uint8Array(Object.values(dev.credentialID)),
+        credentialPublicKey: new Uint8Array(Object.values(dev.credentialPublicKey)),
+        counter: dev.counter,
+        transports : dev.transports
+      })
+    }
+  }
 
   const {
     /**
@@ -215,15 +224,32 @@ app.post('/generate-registration-options', (req, res) => {
    * after you verify an authenticator response.
    */
   req.session.currentChallenge = options.challenge;
-
+  var sql = "INSERT INTO `inMemoryUserDeviceDB` (`id`, `username`, `devices`) VALUES (?,?,?) ON DUPLICATE KEY UPDATE `devices` = ?";
+  const value = [user.id,user.username,JSON.stringify(user.devices),JSON.stringify(user.devices)];
+  con.query(sql, value, function (err, result) {
+    if (err) throw err;
+    console.log("User Inserted");
+  });
   res.send(options);
 });
 
 app.post('/verify-registration', async (req, res) => {
   const body: RegistrationResponseJSON = req.body;
-
-  const user = inMemoryUserDeviceDB[loggedInUserId];
-
+  let dbres : LoggedInUser = JSON.parse(await selectcredfrondb(loggedInUserId))[0];
+  let user : LoggedInUser= {
+    id : dbres.id,
+    username : dbres.username,
+    devices: []
+  }
+  for (let dev of dbres.devices){
+    user.devices.push({
+      credentialID: new Uint8Array(Object.values(dev.credentialID)),
+      credentialPublicKey: new Uint8Array(Object.values(dev.credentialPublicKey)),
+      counter: dev.counter,
+      transports : dev.transports
+    })
+  }
+  //console.log(inMemoryUserDeviceDB);
   const expectedChallenge = req.session.currentChallenge;
 
   let verification: VerifiedRegistrationResponse;
@@ -261,10 +287,15 @@ app.post('/verify-registration', async (req, res) => {
       };
       user.devices.push(newDevice);
     }
+    var sql = "UPDATE inMemoryUserDeviceDB SET devices = ? WHERE id = ?";
+    const value = [JSON.stringify(user.devices),user.id];
+    con.query(sql, value, function (err, result) {
+      if (err) throw err;
+      console.log("devices Inserted");
+    });
   }
-
   req.session.currentChallenge = undefined;
-
+  //console.log(inMemoryUserDeviceDB);
   res.send({ verified });
 });
 
@@ -294,7 +325,7 @@ app.get('/generate-authentication-options', (req, res) => {
    * after you verify an authenticator response.
    */
   req.session.currentChallenge = options.challenge;
-  console.log(options);
+  //console.log(options);
 
   res.send(options);
 });
@@ -303,11 +334,26 @@ app.post('/verify-authentication',async (req, res) => {
   const body: AuthenticationResponseJSON = req.body;
 
   
-  let dbres : LoggedInUser = JSON.parse(await selectcredfrondb(body))[0];
+  let dbres : LoggedInUser = JSON.parse(await selectcredfrondb(body.response.userHandle))[0];
   
-  console.log(inMemoryUserDeviceDB[loggedInUserId]);
-  const user = dbres;
-  console.log(user);
+  if(JSON.stringify(dbres)=='{}'){
+    return res.status(400).send({ error: 'User is not registered with this site' });
+  };
+  //const user = dbres;
+  let user : LoggedInUser= {
+    id : dbres.id,
+    username : dbres.username,
+    devices: []
+  }
+  for (let dev of dbres.devices){
+    user.devices.push({
+      credentialID: new Uint8Array(Object.values(dev.credentialID)),
+      credentialPublicKey: new Uint8Array(Object.values(dev.credentialPublicKey)),
+      counter: dev.counter,
+      transports : dev.transports
+    })
+  }
+  //console.log(user);
   //console.log(new Uint8Array(Object.values(user.devices[0].credentialID)));
 
   const expectedChallenge = req.session.currentChallenge;
@@ -322,16 +368,6 @@ app.post('/verify-authentication',async (req, res) => {
       break;
     }
   }
-  /*con.connect(async function(err) {
-    var sql = "SELECT * FROM inMemoryUserDeviceDB WHERE id = ?";
-    const value = body.response.userHandle;
-    //console.log(value);
-    await con.query(sql,value, function (err, result) {
-      if (err) throw err;
-    return result;
-    });
-  });*/
-
 
   if (!dbAuthenticator) {
     return res.status(400).send({ error: 'Authenticator is not registered with this site' });
@@ -359,6 +395,12 @@ app.post('/verify-authentication',async (req, res) => {
   if (verified) {
     // Update the authenticator's counter in the DB to the newest count in the authentication
     dbAuthenticator.counter = authenticationInfo.newCounter;
+    var sql = "UPDATE inMemoryUserDeviceDB SET devices = ? WHERE id = ?";
+    const value = [JSON.stringify(user.devices),user.id];
+    con.query(sql, value, function (err, result) {
+      if (err) throw err;
+      console.log("devices Inserted");
+    });
   }
 
   req.session.currentChallenge = undefined;
@@ -366,15 +408,14 @@ app.post('/verify-authentication',async (req, res) => {
   res.send({ verified });
 });
 
-let selectcredfrondb = (body: AuthenticationResponseJSON) =>{
+let selectcredfrondb = (value? : string) =>{
   return new Promise<string>((resolve, reject)=>{
-    const value = body.response.userHandle;
-      con.query("SELECT * FROM inMemoryUserDeviceDB WHERE id = ? LIMIT 1", value ,(error, result)=>{
-          if(error){
-              return reject(error);
-          }
-          return resolve(JSON.stringify(result));
-      });
+    con.query("SELECT * FROM inMemoryUserDeviceDB WHERE id = ? LIMIT 1", value ,(error, result)=>{
+      if(error){
+        return reject(error);
+      }
+      return resolve(JSON.stringify(result));
+    });
   });
 };
 

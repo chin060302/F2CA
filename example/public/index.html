@@ -36,7 +36,7 @@
        * to include this just before </body> as we'd typically do. And at that point we can
        * probably use async/await as well for more sane-looking code.
        */
-      fetch('/generate-authentication-options')
+      /*fetch('/generate-authentication-options')
         .then(resp => resp.json())
         .then(opts => {
           console.log('Authentication Options (Autofill)', opts);
@@ -80,7 +80,7 @@
             .catch(err => {
               console.error('(Autofill)', err);
             });
-        });
+        });*/
     </script>
     <link rel="stylesheet" href="./styles.css" />
     <title>F2CA</title>
@@ -228,13 +228,13 @@
          */
         document.querySelector('#btnAuthBegin').addEventListener('click', async () => {
         
-          const elemSuccess = document.querySelector('#authSuccess');
-          const elemError = document.querySelector('#authError');
+          //const elemSuccess = document.querySelector('#authSuccess');
+          //const elemError = document.querySelector('#authError');
           //const elemDebug = document.querySelector('#authDebug');
 
           // Reset success/error messages
-          elemSuccess.innerHTML = '';
-          elemError.innerHTML = '';
+          //elemSuccess.innerHTML = '';
+          //elemError.innerHTML = '';
           //elemDebug.innerHTML = '';
         
           const resp = await fetch('/generate-authentication-options');
@@ -247,7 +247,7 @@
             //hideAuthForm();
 
             asseResp = await startAuthentication(opts);
-            console.log(asseResp);
+            //console.log(asseResp);
             //printDebug(elemDebug, 'Authentication Response', JSON.stringify(asseResp, null, 2));
           } catch (error) {
             //elemError.innerText = error;
