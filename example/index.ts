@@ -47,10 +47,11 @@ const MemoryStore = memoryStore(session);
 
 const {
   ENABLE_CONFORMANCE,
-  ENABLE_HTTPS,
-  RP_ID = 'localhost',
+  ENABLE_HTTPS = 'true',
+  RP_ID = 'f2ca.com',
 } = process.env;
 
+//console.log(process.env);
 app.use(express.static('./public/'));
 app.use(express.json());
 app.use(
@@ -115,7 +116,7 @@ import mysql from 'mysql2';
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "atwert8232"
+  password: "password"
 });
 
 con.connect(function(err) {
@@ -154,24 +155,22 @@ con.connect(function(err) {
  * Registration (a.k.a. "Registration")
  */
 
-/*app.post('/testuser', (req, res) => {
+app.post('/testuser', async (req, res) => {
   loggedInUserId = req.body.username;
-  if (inMemoryUserDeviceDB[loggedInUserId]) {
-    inMemoryUserDeviceDB[loggedInUserId].id = loggedInUserId;
-    inMemoryUserDeviceDB[loggedInUserId].username = `${loggedInUserId}@${rpID}`;
-    inMemoryUserDeviceDB[loggedInUserId].devices = [];
-  }
-});*/
+  let dbres : LoggedInUser = JSON.parse(await selectcredfrondb(loggedInUserId))[0];
+  if(dbres) {res.send(true)}
+  else {res.send(false)};
+});
 
 app.post('/generate-registration-options', async (req, res) => {
   loggedInUserId = req.body.username;
-  let dbres : LoggedInUser = JSON.parse(await selectcredfrondb(loggedInUserId))[0];
+  //let dbres : LoggedInUser = JSON.parse(await selectcredfrondb(loggedInUserId))[0];
   let user : LoggedInUser= {
     id: loggedInUserId,
     username: `${loggedInUserId}@${rpID}`,
     devices: [],
   };
-  if(dbres){
+  /*if(dbres){
     for (let dev of dbres.devices){
       user.devices.push({
         credentialID: new Uint8Array(Object.values(dev.credentialID)),
@@ -180,7 +179,7 @@ app.post('/generate-registration-options', async (req, res) => {
         transports : dev.transports
       })
     }
-  }
+  }*/
 
   const {
     /**
@@ -191,7 +190,7 @@ app.post('/generate-registration-options', async (req, res) => {
   } = user;
 
   const opts: GenerateRegistrationOptionsOpts = {
-    rpName: 'SimpleWebAuthn Example',
+    rpName: 'f2ca.com',
     rpID,
     userID: loggedInUserId,
     userName: username,
@@ -241,6 +240,7 @@ app.post('/verify-registration', async (req, res) => {
     username : dbres.username,
     devices: []
   }
+  console.log(typeof dbres.devices);
   for (let dev of dbres.devices){
     user.devices.push({
       credentialID: new Uint8Array(Object.values(dev.credentialID)),
@@ -420,7 +420,7 @@ let selectcredfrondb = (value? : string) =>{
 };
 
 if (ENABLE_HTTPS) {
-  const host = '0.0.0.0';
+  const host = 'f2ca.com';
   const port = 443;
   expectedOrigin = `https://${rpID}`;
 
@@ -430,8 +430,9 @@ if (ENABLE_HTTPS) {
         /**
          * See the README on how to generate this SSL cert and key pair using mkcert
          */
-        key: fs.readFileSync(`./${rpID}.key`),
-        cert: fs.readFileSync(`./${rpID}.crt`),
+        key: fs.readFileSync('./server.key.pem'),
+        //ca: [fs.readFileSync('./cert.pem')],
+        cert: fs.readFileSync('./server.crt.pem')
       },
       app,
     )
@@ -439,7 +440,7 @@ if (ENABLE_HTTPS) {
       console.log(`🚀 Server ready at ${expectedOrigin} (${host}:${port})`);
     });
 } else {
-  const host = '127.0.0.1';
+  const host = 'localhost';
   const port = 8000;
   expectedOrigin = `http://localhost:${port}`;
 

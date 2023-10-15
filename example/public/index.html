@@ -124,9 +124,24 @@
       -->
             </section>
 
-            <button class="btn" id="btnAuthBegin">
+            <!--<button class="btn" id="btnAuthBegin">
               <strong><span>🔐&nbsp;Authenticate </span></strong>
-            </button>
+            </button>-->
+            <section>
+              <button class="btn" id="toschoolgate" onclick="document.location='./SchoolGate/outside.html'">
+                <strong><span>🔐&nbsp;School Gate </span></strong>
+              </button>
+            
+
+              <button class="btn" id="btnAuthBegin">
+                <strong><span>🔐&nbsp;Authenticate </span></strong>
+              </button>
+
+              <button class="btn" id="btnAuthBegin">
+                <strong><span>🔐&nbsp;Authenticate </span></strong>
+              </button>
+            </section>
+
           </form>
           <p id="authSuccess" class="success"></p>
           <p id="authError" class="error"></p>
@@ -251,9 +266,11 @@
             //printDebug(elemDebug, 'Authentication Response', JSON.stringify(asseResp, null, 2));
           } catch (error) {
             //elemError.innerText = error;
+            location.href = '/signup.html';
             throw new Error(error);
           }
 
+          
           const verificationResp = await fetch('/verify-authentication', {
             method: 'POST',
             headers: {
@@ -264,7 +281,6 @@
 
           const verificationJSON = await verificationResp.json();
           //printDebug(elemDebug, 'Server Response', JSON.stringify(verificationJSON, null, 2));
-
           if (verificationJSON && verificationJSON.verified) {
             //elemSuccess.innerHTML = `User authenticated!`;
             alert('Authenticate success!');
