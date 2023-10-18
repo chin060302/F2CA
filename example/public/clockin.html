@@ -4,16 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.es5.umd.min.js"></script>
+    <script src="./clockin.mjs"></script>
+    <audio id="BeepIn" >
+      <source src="https://www.soundjay.com/buttons/sounds/beep-23.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="BeepOut" >
+      <source src="https://www.soundjay.com/buttons/sounds/beep-24.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="BeepFail" >
+      <source src="https://www.soundjay.com/buttons/sounds/beep-05.mp3" type="audio/mpeg">
+    </audio>
     <script>
       const { startAuthentication } = SimpleWebAuthnBrowser;
     </script>
     <link rel="stylesheet" href="./styles.css" />
-    <title>School Gate</title>
+    <title>Clock in / Clock out</title>
   </head>
   <body>
     <div class="container">
       
-      <h1 style = "display:inline">School Gate</h1>
+      <h1 style = "display:inline">Clock in / Clock out</h1>
       
       <div class="controls">
 
@@ -29,10 +39,14 @@
       </div>
 
       <p class="systemError"></p>
-    
+      <button type="button" class="btn" onclick="history.back()"><strong>Cancel</strong></button>
     <script>
       const { browserSupportsWebAuthn, startRegistration } = SimpleWebAuthnBrowser;
-
+      let list = [];
+      if (localStorage.getItem('clockin')){
+        list = localStorage.getItem('clockin').split(",");
+      }
+      let counter = list.length;
       function stopSubmit(event) {
         event.preventDefault();
       }
@@ -79,19 +93,33 @@
             },
             body: JSON.stringify(asseResp),
           });
-
           const verificationJSON = await verificationResp.json();
           if (verificationJSON && verificationJSON.verified) {
-            console.log('Goodbye! '+ asseResp.response.userHandle);
-            alert('Authenticate success!');
+            const user = asseResp.response.userHandle;
+            const time = new Date();
+            if(list.includes(user)){
+              await document.getElementById('BeepOut').play();
+              alert(time.toLocaleString() +'\n\nGoodbye! '+ user);
+              list.splice(list.indexOf(user),1);
+              //writefile(time.toLocaleString() +'  User'+ user + ' Clock In')
+            }
+            else{
+              await document.getElementById('BeepIn').play();
+              alert(time.toLocaleString() +'\n\nWelcome! '+ user);
+              list.push(user)
+            }
+            counter = list.length
+            localStorage.setItem('clockin',list);
+            //alert('Authenticate success!');
           } else {
+            await document.getElementById('BeepFail').play();
             elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
               verificationJSON,
             )}</pre>`;
           }
+          //location.reload();
         });
       }
-      
     </script>
     
   </div>

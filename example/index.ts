@@ -223,31 +223,16 @@ app.post('/generate-registration-options', async (req, res) => {
    * after you verify an authenticator response.
    */
   req.session.currentChallenge = options.challenge;
-  var sql = "INSERT INTO `inMemoryUserDeviceDB` (`id`, `username`, `devices`) VALUES (?,?,?) ON DUPLICATE KEY UPDATE `devices` = ?";
-  const value = [user.id,user.username,JSON.stringify(user.devices),JSON.stringify(user.devices)];
-  con.query(sql, value, function (err, result) {
-    if (err) throw err;
-    console.log("User Inserted");
-  });
+  
   res.send(options);
 });
 
 app.post('/verify-registration', async (req, res) => {
   const body: RegistrationResponseJSON = req.body;
-  let dbres : LoggedInUser = JSON.parse(await selectcredfrondb(loggedInUserId))[0];
   let user : LoggedInUser= {
-    id : dbres.id,
-    username : dbres.username,
+    id : loggedInUserId,
+    username : `${loggedInUserId}@${rpID}`,
     devices: []
-  }
-  console.log(typeof dbres.devices);
-  for (let dev of dbres.devices){
-    user.devices.push({
-      credentialID: new Uint8Array(Object.values(dev.credentialID)),
-      credentialPublicKey: new Uint8Array(Object.values(dev.credentialPublicKey)),
-      counter: dev.counter,
-      transports : dev.transports
-    })
   }
   //console.log(inMemoryUserDeviceDB);
   const expectedChallenge = req.session.currentChallenge;
@@ -287,11 +272,11 @@ app.post('/verify-registration', async (req, res) => {
       };
       user.devices.push(newDevice);
     }
-    var sql = "UPDATE inMemoryUserDeviceDB SET devices = ? WHERE id = ?";
-    const value = [JSON.stringify(user.devices),user.id];
+    var sql = "INSERT INTO `inMemoryUserDeviceDB` (`id`, `username`, `devices`) VALUES (?,?,?)";
+    const value = [user.id,user.username,JSON.stringify(user.devices)];
     con.query(sql, value, function (err, result) {
       if (err) throw err;
-      console.log("devices Inserted");
+      console.log("User Inserted");
     });
   }
   req.session.currentChallenge = undefined;
