@@ -114,7 +114,7 @@ let loggedInUserId = 'internalUserId';
 import mysql from 'mysql2';
 
 var con = mysql.createConnection({
-  host: "localhost",
+  host: "127.0.0.1",
   user: "root",
   password: "password"
 });
@@ -384,9 +384,10 @@ app.post('/verify-authentication',async (req, res) => {
     const value = [JSON.stringify(user.devices),user.id];
     con.query(sql, value, function (err, result) {
       if (err) throw err;
-      console.log("devices Inserted");
+      console.log("devices Inserted\n" + user.id);
     });
   }
+  
 
   req.session.currentChallenge = undefined;
 

@@ -12,7 +12,7 @@
       <hr>
       <br>
       <label for="username"><b>User Name</b></label>
-      <input type="text" id="username" placeholder="Enter User Name" name="username" required>
+      <input type="text" id="username" placeholder="Enter User Name" name="username" oninput="validateModuleCode()" required>
       <!--
       <label for="email"><b>Email</b></label>
       <input type="text" id="email" placeholder="Enter Email" name="email" required>
@@ -38,7 +38,18 @@
     </div>
   </form>
   
+  
   <script>
+    function validateModuleCode() {
+      var m = document.getElementById("username").value;
+      if (m && (/^[A,B,P]\w{5,17}$/.test(m) === false)) {
+        
+        return false;
+      } else {
+        
+        return true;
+      }   
+    }
     const { startAuthentication } = SimpleWebAuthnBrowser;
     const { browserSupportsWebAuthn, startRegistration } = SimpleWebAuthnBrowser;
     document.querySelector('#btnRegBegin').addEventListener('click', async () => {
@@ -52,7 +63,7 @@
       elemSuccess.innerHTML = '';
       elemError.innerHTML = '';
       elemDebug.innerHTML = '';
-*/
+*/if(validateModuleCode()){
       const sendvalue = {
         username: document.getElementById("username").value
       };
@@ -116,7 +127,12 @@ alert('Authenticator register success!');
 //            )}</pre>`;
         }
       }
+    }
+    else{
+      alert('Please Enter correct ID!');
+    }
     });
+  
   </script>
 
 </html>

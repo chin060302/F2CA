@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.es5.umd.min.js"></script>
-    <script src="./clockin.mjs"></script>
+    <!--<script src="./clockin.mjs"></script>-->
     <audio id="BeepIn" >
       <source src="https://www.soundjay.com/buttons/sounds/beep-23.mp3" type="audio/mpeg">
     </audio>
@@ -18,14 +18,12 @@
       const { startAuthentication } = SimpleWebAuthnBrowser;
     </script>
     <link rel="stylesheet" href="./styles.css" />
-    <title>Clock in / Clock out</title>
-    
+    <title>Permission</title>
   </head>
   <body>
     <div class="container">
       
-      <h1 style = "display:inline">Clock in / Clock out</h1>
-      
+      <h1 style = "display:inline">Permission for Professor</h1>
       
       <div class="controls">
 
@@ -45,15 +43,14 @@
     <script>
       const { browserSupportsWebAuthn, startRegistration } = SimpleWebAuthnBrowser;
       let list = [];
-      if (localStorage.getItem('clockin')){
-        list = localStorage.getItem('clockin').split(",");
+      if (localStorage.getItem('professor')){
+        list = localStorage.getItem('professor').split(",");
       }
       let counter = list.length;
       function stopSubmit(event) {
         event.preventDefault();
       }
 
-      //console.log(list);
       /**
        * A simple way to control how debug content is written to a debug console element
        */
@@ -97,29 +94,44 @@
             body: JSON.stringify(asseResp),
           });
           const verificationJSON = await verificationResp.json();
-          if (verificationJSON && verificationJSON.verified) {
-            const user = asseResp.response.userHandle;
-            const time = new Date();
-            if(list.includes(user)){
-              await document.getElementById('BeepOut').play();
-              alert(time.toLocaleString() +'\n\nGoodbye! '+ user);
-              list.splice(list.indexOf(user),1);
-              //writefile(time.toLocaleString() +'  User'+ user + ' Clock In')
-            }
-            else{
+          const user = asseResp.response.userHandle;
+          if (verificationJSON && verificationJSON.verified && user[0] == 'P') {
+            
+            
+            if(!list.includes(user) ){
               await document.getElementById('BeepIn').play();
-              alert(time.toLocaleString() +'\n\nWelcome! '+ user);
+              alert('Professor : ' + user + '\n\nWelcome to your laboratory!');
               list.push(user)
             }
+            else{
+              await document.getElementById('BeepOut').play();
+              alert('Professor : ' + user +'\n\nGoodbye! ');
+              list.splice(list.indexOf(user),1);
+
+            }
             counter = list.length
-            localStorage.setItem('clockin',list);
+            localStorage.setItem('professor',list);
             //alert('Authenticate success!');
           } else {
+            
+            if(user[0] == 'A'){
+              await document.getElementById('BeepFail').play();
+              alert('Student : ' + user + '\n\n Laboratory area, no entrance without permittion!');
+              
+              //writefile(time.toLocaleString() +'  User'+ user + ' Clock In')
+            }
+            else if(user[0] == 'B'){
+              await document.getElementById('BeepFail').play();
+              alert('Graduate Student : ' + user + '\n\n Laboratory area, no entrance without permittion!');
+              
+            }
+            else{
             await document.getElementById('BeepFail').play();
             elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
               verificationJSON,
             )}</pre>`;
           }
+        }
           //location.reload();
         });
       }
