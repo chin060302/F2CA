@@ -1,0 +1,566 @@
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+
+
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+
+
+
+
+
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.clearfix {
+    /* display: inline-block; */
+}
+html[xmlns] .clearfix {
+    display: block;
+}
+
+
+
+
+a {
+    text-decoration: none;
+}
+
+
+
+
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+.container-1200 {
+    width: 1200px;
+    margin: 0 auto;
+}
+.container-1024 {
+    width: 1024px;
+    margin: 0 auto;
+}
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+
+
+
+
+
+h2 {
+    font-size: 1.4rem;
+}
+
+
+
+.ml-1 {
+    margin-left: 1rem;
+}
+
+
+
+ul.decimal {
+    list-style: decimal;
+}
+#nav {
+    color: #bf9300;
+    padding: 0.8rem;
+    box-shadow: 0px 0px 10px #727272;
+    background: white;
+    background: -moz-linear-gradient(top, white 0%, #fbf4df 100%);
+    background: -webkit-linear-gradient(top, white 0%, #fbf4df 100%);
+    background: linear-gradient(to bottom, white 0%, #fbf4df 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fbf4df',GradientType=0 );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#login {
+    margin: 3rem auto 1rem auto;
+}#login .flex {
+    justify-content: space-between;
+}#login .flex .block {
+    width: 48%;
+}#login .flex.panel .block:first-child {
+    background: white;
+    box-shadow: 0px 4px 10px #727272;
+}#login .flex.panel .block:first-child .title {
+    color: white;
+    padding: 0.8rem 1rem;
+    background: #074889;
+    background: -moz-linear-gradient(left, #074889 0%, #4990c5 70%, #427aa1 100%);
+    background: -webkit-linear-gradient(left, #074889 0%, #4990c5 70%, #427aa1 100%);
+    background: linear-gradient(to right, #074889 0%, #4990c5 70%, #427aa1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#074889', endColorstr='#427aa1',GradientType=1 );
+}
+
+
+
+
+
+#login .flex.panel .block:first-child .form {
+    margin-top: 1rem;
+    padding: 0 1rem;
+}#login .flex.panel .block:first-child .form .input {
+    padding: 0.5rem 1.4rem;
+}#login .flex.panel .block:first-child .form .input div.label {
+    width: 20%;
+    margin-right: 3%;
+    display: inline-block;
+    text-align: justify;
+    text-align-last: justify;
+}#login .flex.panel .block:first-child .form .input select, #login .flex.panel .block:first-child .form .input input {
+    width: 75%;
+    padding: 7px;
+}#login .flex.panel .block:first-child .form .input select {
+    height: 33px;
+}#login .flex.panel .block:first-child button {
+    width: 80%;
+    display: block;
+    cursor: pointer;
+    padding: 0.3rem;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    margin: 1rem auto;
+}#login .flex.panel .block:first-child button.login {
+    color: white;
+    background: #4078a0;
+    background: -moz-linear-gradient(top, #4078a0 0%, #064789 100%);
+    background: -webkit-linear-gradient(top, #4078a0 0%, #064789 100%);
+    background: linear-gradient(to bottom, #4078a0 0%, #064789 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4078a0', endColorstr='#064789',GradientType=0 );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#login .flex.panel .block:last-child {
+    flex-wrap: wrap;
+}#login .flex.panel .block:last-child img {
+    width: 50%;
+    padding: 2px;
+    align-self: baseline;
+}#login .flex.panel .block:last-child img:last-child {
+    width: 100%;
+}#login .flex.word {
+    flex-wrap: wrap;
+    color: #666;
+}#login .flex.word .block {
+    width: 49%;
+    padding: 0.3rem 1rem 0rem 1rem;
+}#login .flex.word .line {
+    padding: 0.1rem;
+}#login .flex.word .line .title {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}#login .flex.word .line .banner {
+    background-image: url(https://ecsb.ntcu.edu.tw/Images/banner.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 117px;
+    height: 88px;
+    line-height: 88px;
+    text-align: center;
+    float: left;
+}#login .flex.word .line .content {
+    margin-left: 130px;
+    line-height: 30px;
+}
+
+#login .flex.word .line .label {
+    width: 25%;
+    display: inline-block;
+}#login .flex.word .line .label img {
+    display: inline-block;
+    width: 20px;
+    position: relative;
+    top: 4px;
+}#login .flex.word .line .label div.info-title {
+    width: calc(100% - 30px);
+    display: inline-block;
+    margin-left: 5px;
+    text-align: justify;
+    text-align-last: justify;
+}#login .flex.word .line .info {
+    width: 70%;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html {
+    background: #fff7eb;
+}
+body {
+    background-image: url(https://ecsb.ntcu.edu.tw/Images/background.png);
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+.WaitingOff {
+    display: none;
+}
+
+.container-60 {
+    width: 60px;
+}
+
+.container-100 {
+    width: 100px;
+}
+
+
+
+
+
+.container-200 {
+    width: 200px;
+}
+
+.container-1000 {
+    width: 1000px;
+}
+
+.Login_Field {
+    width: 310px;
+}
+
+.Login_Lb {
+    color: #FF0000;
+    font-size: Small;
+}
+
+.Login_Lb_Margin_left {
+    margin-left: 10px;
+}
+
+.Login_Lb_Times {
+    width: auto !important;
+    margin: 0px auto;
+}
+
+.PC_Info {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.Forget_PWD_On {
+    visibility: visible;
+}
+
+
+
+
+
+.div_center {
+    display: flex;
+    align-items: center;
+}
+
+.TdMiddle {
+    vertical-align: middle;
+}

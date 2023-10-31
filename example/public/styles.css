@@ -23,7 +23,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  background-image: url("backend.jpg");
+  background-image: url(https://ecsb.ntcu.edu.tw/Images/background.png);
   height: 100vh;
   margin: 0;
   padding: 0;
