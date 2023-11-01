@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="zh-tw">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+    <title>國立臺中教育大學  </title>
+    <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="https://elearning.ntcu.edu.tw//lib/jquery/jquery-o.sev.t.min.js"></script>
+    <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="https://elearning.ntcu.edu.tw//lib/detectzoom.js"></script>
+    <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="https://elearning.ntcu.edu.tw//lib/xmlextras.js"></script>
+    <script type="text/javascript" language="javascript">
+    <!--
+        var xmlHttp = null; function FrameExpand(val, resize, extra) { var obj = null; var objName = ""; obj = document.getElementById("s_catalog"); if ((obj != null) && (obj.noResize == resize)) { obj.noResize = !resize; } obj = document.getElementById("envClassRoom"); if (obj != null) { switch (val) { case 0 : obj.cols = "0,*"; break; case 2 : obj.cols = extra + ",*"; break; default: obj.cols = "200,*"; } } } function rebuildMenu(lang) { this.s_sysbar.lang = lang; chgCourse(csid, 1, 1); } window.onload = function () { if ((typeof(xmlHttp) != "object") || (xmlHttp == null)) xmlHttp = XmlHttp.create(); }; var reloadKey = false; window.document.onkeydown = function (evnt) { if (typeof evnt == "object") event = evnt; reloadKey = (event.keyCode == 116) ? true : false; }; window.onbeforeunload = function (evnt) { if (reloadKey) return; if (typeof evnt == "object") { if ((evnt.rangeParent == null) && (navigator.userAgent.search(/MSIE [567]/) < 0)) { window.onbeforeunload = null; } } else { if ((event.clientY < 0 && event.clientY > -150) && (document.body.clientWidth - event.clientX) < 24 || event.altKey) { window.onbeforeunload = null; xmlHttp.open("POST", "/logout.php", false); xmlHttp.send(null); } } }; function logout() { if(typeof(s_main.notSave) == 'boolean' && s_main.notSave) { if (!confirm(s_main.MSG_EXIT)) { return; } else s_main.notSave = false; } window.location.replace("/logout.php"); } var csid = '0' == '' ? 10000000 : parseInt(0); function chgCourse(val, nEnv, gEnv, func) { if(typeof(s_main.notSave) == 'boolean' && s_main.notSave) { if (!confirm(s_main.MSG_EXIT)) { if (csid != val) parent.s_sysbar.document.getElementById('selcourse').value = csid; return; } else s_main.notSave = false; } if (nEnv == gEnv) { if ((typeof(s_sysbar) == "object") && (typeof(s_sysbar.goCourse) == "function")) { window.onbeforeunload = null; s_main.location.replace("about:blank"); s_catalog.location.replace("about:blank"); s_sysbar.goCourse(val, "", func); } csid = parseInt(val); if (isNaN(csid) || (csid < 10000000) || (csid > 100000000)) { csid = 10000000; } } else { window.onbeforeunload = null; s_sysbar.goEnv(val, gEnv, func); } } function showOnline(val, v1, v2, v3) { if (typeof(s_sysbar) == "object") { if (typeof(s_sysbar.showSysTime) == "function") s_sysbar.showSysTime(val); if (typeof(s_sysbar.showOnline)  == "function") s_sysbar.showOnline(v1, v2, v3); } }  
+    //-->
+    </script>
+    <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="path/SCORM_adapter131.js"></script>
+    <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="path/SCOPlayerWrapper.js"></script>
+    <script type="text/javascript" language="javascript">
+    <!--
+     function refresh() { var resize_zoom=detectZoom(); var sysbar_zoom = 90; sysbar_zoom  = (sysbar_zoom * resize_zoom)/100 +',*'; $('#envStudent').attr('rows',sysbar_zoom); } var sysbar_zoom = 0; var original_sysbar_zoom = 0; $(document).ready(function () { ua = navigator.userAgent.toLowerCase(); sysbar_zoom = ($('#envStudent').attr('rows').split(','))[0]; original_sysbar_zoom = sysbar_zoom; if(navigator.userAgent.match(/Android/i)){ original_sysbar_zoom=sysbar_zoom*2+15; } }); var previousActivity = ''; var errorcode12 = null; var result = ""; function APIObject() { this.LMSInitialize = LMSInitialize; this.LMSFinish = LMSFinish; this.LMSGetValue = LMSGetValue; this.LMSSetValue = LMSSetValue; this.LMSCommit = LMSCommit; this.LMSGetLastError = LMSGetLastError; this.LMSGetErrorString = LMSGetErrorString; this.LMSGetDiagnostic = LMSGetDiagnostic; } function LMSInitialize(para) { result = doLMSInitialize(para); return result.toString(); } function LMSFinish(para) { result = doLMSFinish(para); return result.toString(); } function LMSGetValue(name) { result = doLMSGetValue(name); return (result == null) ? '' : result.toString(); } function LMSSetValue(name, value) { result = doLMSSetValue(name, value); return result.toString(); } function LMSCommit(para) { var result = doLMSCommit(para); return result.toString(); } function LMSGetLastError() { if ( _InternalErrorCode == 1 ) { return 0; } else { errorcode12 = doLMSGetLastError(); return errorcode12; } } function LMSGetErrorString(errorCode) { var errString = doLMSGetErrorString(errorCode); return errString; } function LMSGetDiagnostic(errorCode) { var errString = getErrorString(errorCode); return errString; } var API, API_1484_11;  
+    //-->
+    </script>
+    
+    </head>
+    <frameset rows="*,0,0,0,0,0,0,0,0" framespacing="0" frameborder="No" id="envAll">
+        <frameset rows="90,*" frameborder="No" id="envStudent">
+            <frame src="https://elearning.ntcu.edu.tw/learn/sysbar.php" name="s_sysbar" frameborder="No" id="s_sysbar" scrolling="no" noresize="">
+            <frameset cols="200,*" framespacing="3" frameborder="Yes" border="3" id="envClassRoom" bordercolor="#FFFFFF">
+                <frame src="about:blank" name="s_catalog" id="s_catalog" frameborder="No" scrolling="Auto">
+                <frame src="about:blank" name="s_main" id="s_main" frameborder="No" scrolling="Auto">
+            </frameset>
+        </frameset>
+        <frame src="https://elearning.ntcu.edu.tw/online/online.php" name="session" id="session" frameborder="No" scrolling="No" noresize="">
+        <frame name="record" id="record" frameborder="No" scrolling="No" noresize="">
+        <frame src="" name="empty" id="empty" frameborder="No" scrolling="No" noresize="">
+        <!-- SCORM2004 Start -->
+        <frame name="sequencing" src="">
+        <frame name="tocstatus" src="">
+        <frame name="check" src="">
+        <frame name="functions" src="">
+        <frame name="engine" src="">
+        <!-- SCORM2004 End -->
+        <noframes>
+            <body>
+                <p>此網頁使用框架，但是您的瀏覽器並不支援。</p>
+            <script src="https://elearning.ntcu.edu.tw/lib/enable.js" type="text/javascript"></script></body>
+        </noframes>
+    </frameset>
+    </html>

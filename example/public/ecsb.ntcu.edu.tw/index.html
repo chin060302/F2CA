@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;"><head id="Head1"><title>
+	國立臺中教育大學
+</title>
+    
+<style type="text/css">
+    <!--
+    @import url("https://ecsb.ntcu.edu.tw/Inc/stylec.css");
+    @import url("https://ecsb.ntcu.edu.tw/Inc/table.css");
+    @import url("https://ecsb.ntcu.edu.tw/Inc/background.css");
+    @import url("https://ecsb.ntcu.edu.tw/Inc/FooterBottom.css");
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(../images/all_bg.gif);
+}
+-->
+</style>
+<!--<script type="text/javascript" src="../Inc/PubJScript.js"></script>
+<script type="text/javascript">
+    var speed = 35;
+    var pic = document.getElementById('myDiv');
+    var pic2 = document.getElementById('pic2');
+    var pic1 = document.getElementById('pic1');
+
+    pic2.innerHTML = pic1.innerHTML;
+    pic.scrollTop = pic.scrollTop;
+
+    var MyMar = setInterval(Marquee, speed)
+    pic.onmouseover = function () { clearInterval(MyMar); }
+    pic.onmouseout = function () { MyMar = setInterval(Marquee, speed); }
+
+    function Marquee() {
+        if (pic.scrollTop <= 0)
+            pic.scrollTop += pic2.offsetHeight;
+        else {
+            pic.scrollTop--;
+        }
+    }
+
+    function init() {
+        SDRAlert();
+        if (document.getElementById('PortalLanguage') != undefined) {
+            document.getElementById('PortalLanguage').style.visibility = 'visible';
+            var sLanguage = 'ch';
+
+            if (sLanguage == 'en') {
+                InitLanguageList();
+            }
+
+            search_selectByValue(document.getElementById('PortalLanguage'), sLanguage);
+        }
+
+        
+    }
+
+
+    function doSetLink() {
+        showFullIFrame('myframe', true, 'ReLinkSTD.aspx', '100%', '100%');
+    }
+
+    function doClose2(Type) {
+        closeFullIFrame();
+        if (Type == 'R') {
+            window.location = '../STDWEB/STDW233.aspx';
+        } else if (Type == 'W') {
+            window.location = '../STDWEB/STDW234.aspx';
+        } else if (Type == 'S') {
+            window.location = '../STDWEB/STDW235.aspx';
+        }
+    }
+
+    function SDRAlert() {
+        
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function ()    
+        {
+            if (xhttp.readyState == 4) {
+                if (xhttp.status == 200) {
+                                                
+                    var jdata = JSON.parse(xhttp.responseText);
+                    console.log(jdata);
+
+                    if (jdata == "3") {
+                        alert("已排床位完成，請到宿舍系統確認");
+                    }
+                }
+            }
+        };
+
+        xhttp.open('Get', '../Portal/SDRAlert.ashx', true);         
+
+        xhttp.send();     
+    
+    } 
+
+</script>-->
+<link href="https://ecsb.ntcu.edu.tw/JsScripts/datePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css"><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.qhDXWpKopYk.L.W.O/am=CAM/d=0/rs=AN8SPfqeKn8wA30q4viup18yaci8udUjKQ/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.zh_TW.8yHohDKjR54.O/d=1/exm=el_conf/ed=1/rs=AN8SPfp3w_d_Wfh7fZIC58CiZcNQzZw3OA/m=el_main"></script></head>
+
+<body onload="init();OpenVisible();" style="position: relative; min-height: 100%; top: 0px;">
+<form name="myform" method="post" action="ReLinkSTD.aspx" id="myform" target="myframe">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="0nb6KjjdnsQ5Ket09dsCsHlOnvLkbeOP+twV+eluCBbr5HIdFUydZMmTif7b2BZ2KpOcwU2a+1GhnAJn5eoiqGHIX6O6ZHlPThGFFLla1ybAjpi/RpZFLr1VcVOx8siD9dgKNGRJcdsXvatLuphs+1vi4o+Mr+sBJ6OA7uQPWtLkESiHfLadQekIdwxvgxYtttqxugoEXdH8IubXysLDUw==">
+</div>
+
+<!--<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['myform'];
+if (!theForm) {
+    theForm = document.myform;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>-->
+
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="25D419D6">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+</div>
+    <div id="wrap"> 
+        <div id="main_bottom">
+            <table width="1003" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tbody><tr>
+                    <td>
+                        <table width="1003" border="0" cellspacing="0" cellpadding="0">
+                            <tbody><tr>
+                                <td align="left">
+                                    
+<link id="LinkMasterPage" href="https://ecsb.ntcu.edu.tw/Styles/MasterPage.css" rel="stylesheet" type="text/css">
+<link id="Link3" href="https://ecsb.ntcu.edu.tw/Styles/thickbox.css" rel="stylesheet" type="text/css">
+<link id="Link2" href="https://ecsb.ntcu.edu.tw/Styles/JSCookMenu.css" rel="stylesheet" type="text/css">
+<link id="Link1" href="https://ecsb.ntcu.edu.tw/Styles/public.css" rel="stylesheet" type="text/css">
+<link id="tabsJ" href="https://ecsb.ntcu.edu.tw/Styles/tabsJ.css" rel="Stylesheet" type="text/css">
+<link id="Link4" href="https://ecsb.ntcu.edu.tw/Styles/SysSubMenu.css" rel="Stylesheet" type="text/css">
+<link id="Link6" href="https://ecsb.ntcu.edu.tw/Inc/stylec.css" rel="Stylesheet" type="text/css">
+<link id="Link7" href="https://ecsb.ntcu.edu.tw/Inc/css_menuTitle.css" rel="Stylesheet" type="text/css">
+<link id="Link5" href="https://ecsb.ntcu.edu.tw/Inc/buttonStyle.css" rel="Stylesheet" type="text/css">
+<link id="Link8" href="https://ecsb.ntcu.edu.tw/Inc/GridStyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript">    var the_web_path = "https://ecsb.ntcu.edu.tw/";</script>
+<!--<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//JsScripts/thickbox/jquery.js"></script>-->
+<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//JsScripts/thickbox/thickbox.js"></script>
+<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//JsScripts/MyUtility.js"></script>
+<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//JsScripts/Date.js"></script>
+<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//JsScripts/Inc/SysSubMenut.js"></script>
+<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//JsScripts/datePicker/WdatePicker.js"></script>
+<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//JsScripts/JSCookMenu/JSCookMenu.js"></script>
+<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//JsScripts/JSCookMenu/theme.js"></script>
+<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//JsScripts/jquery/jquery.min.js"></script>
+<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//JsScripts/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//Inc/GridScroll.js?ver=2023/11/1 上午 09:36:04"></script>
+<script type="text/javascript" language="JavaScript" src="https://ecsb.ntcu.edu.tw//Inc/PubJScript.js?ver=2023/11/1 上午 09:36:04"></script>
+<script type="text/javascript"> 
+    function OpenVisible() {//首頁不顯示'開啟功能表'
+        // alert(location.pathname);
+        var path = location.pathname.split("/");
+        for (var i in path) {
+            if (path[i] == 'index.aspx' || path[i] == 'indexSTD.aspx' || path[i] == 'indexParents.aspx') {
+                document.getElementById('thisSubmaster_OpenMenuLink').style.visibility = "hidden";
+            }
+            if (path[i] == 'WebSite.aspx') {
+                document.getElementById('thisSubmaster_OpenMenuLink').style.visibility = "hidden";
+//                document.getElementById('thisSubmaster_lb_Location').InnerHTML = '使用手冊及網站地圖';
+                //                alert(document.getElementById('thisSubmaster_lb_Location').innerHTML);
+                document.getElementById('thisSubmaster_lb_Location').innerHTML = '使用手冊及網站地圖';
+            }
+        }
+    }
+
+
+    function OpenFunWin(sURL, sTarget) {
+        var objform = document.getElementById('form1') || document.getElementById('myform') || document.getElementById('aspnetform');
+
+        objform.action = sURL;
+        objform.target = sTarget;
+        objform.submit();
+    }
+</script>
+<script type="text/javascript">
+    var objRequest = createHttpRequestObject();
+    var blnProcess = false;
+
+    function OpenUrl(FunID, sUrl, sTarget, sFunName) {
+        wirteUrlLog(FunID, sUrl, sTarget, sFunName);
+    }
+
+    function wirteUrlLog(FunID, sUrl, sTarget, sFunName) {
+        var params = 'ModuleName=WriteLogData&FunURL=' + sUrl + '&FunID=' + FunID + '&FunName=' + sFunName;
+        var main_path = (the_web_path == '/') ? '..' : the_web_path;
+
+        //console.log('the_web_path=' + the_web_path + ',main_path=' + main_path);
+
+        blnProcess = true;
+        objRequest.onreadystatechange = function () { showLogResult(sUrl, sTarget); };
+        sendHttpRequestSyn(main_path +'/Portal/Main_total.aspx', params, true);
+    }
+
+    function showLogResult(sUrl, sTarget) {
+        if (objRequest.readyState == 4) {
+            blnProcess = false;
+            window.open(sUrl, sTarget);
+        }
+    }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'zh-TW', includedLanguages: 'zh-TW,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+    }
+</script>
+<style type="text/css">
+iframe.goog-te-banner-frame{ 
+    display: none !important;
+}
+body {
+    position: static !important; top:0px !important;
+}
+.goog-te-gadget-simple {
+    background-color: transparent !important;
+    white-space: nowrap !important;
+    height:0px;
+    font-family: font_2 !important;
+    font-size:10px !important;
+    border:none;
+}
+</style>
+
+
+
+<div style="display: none; visibility: visible; background-color: #E6E6E6;" id="PleaseWaitForMeDiv">
+    <table border="0" width="100%">
+        <tbody><tr>
+            <td style="font-size: 13px; font-weight: bold; text-align: center; height: 100px; vertical-align: middle; color: Black;">
+                <img id="PleaseWaitForMeImg" src="https://ecsb.ntcu.edu.tw/images/thickbox/loadingAnimation.gif" alt="處理中">
+                <br><br><div id="PleaseWaitForMeMessage">處理中，請稍候...</div>
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+<input type="hidden" name="thisSubmaster$hidSchname" id="thisSubmaster_hidSchname" value="國立臺中教育大學">
+<div id="outer_main1">
+    <div id="main">
+        <div id="header">
+            <div id="logo">
+                <table border="0" cellspacing="0" cellpadding="0" style="width: 100%; height: 15px;">
+                    
+                    <tbody><tr>
+                        <td class="top_word01" style="text-align: left;">
+                            <span id="thisSubmaster_SchoolName">國立臺中教育大學</span>
+                        </td>
+                        <td style="width:600px;">
+                            <div style="width:600px;">
+                                <div class="top_word03" style="text-align:right; border-style:none;">
+                                    <div style="width:100%; border-style:none; text-align:center; vertical-align:middle; font-family:微軟正黑體; font-size:13px; overflow:hidden; ">
+                                        <table border="0" style="border:0px solid #ffffff;float:right;">
+                                            <tbody><tr>
+                                                <td style="text-align:right;"><span id="thisSubmaster_thisSubmaster_Name">黃川赫</span></td>
+                                                <td>&nbsp;&nbsp;&nbsp;</td>
+                                                
+                                                <td style="text-align:center;">
+                                                    <p style="margin:3px;"><a href="https://ecsb.ntcu.edu.tw//login.aspx" id="thisSubmaster_logout">登出</a></p>
+                                                </td>
+                                                <td style="width:40px;text-align:center;">
+                                                    <input src="https://ecsb.ntcu.edu.tw/Images/homeicon.png" name="thisSubmaster$thisSubmaster_home" type="image" id="thisSubmaster_thisSubmaster_home" onclick="location.href = the_web_path + 'Portal/indexSTD.aspx'; return false;" style="border-width: 0px;">
+                                                </td>
+                                                
+                                                <td id="google_translate_element" style="width:90px;text-align:center;vertical-align:top;">
+								<div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" class="goog-te-gadget-simple" style="white-space: nowrap;"><img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="VIpgJd-ZVi9od-xl07Ob-lTBxed" href="#"><span>請選取語言</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span aria-hidden="true" style="color: rgb(118, 118, 118);">▼</span></a></span></div></div></td>
+                                            </tr>
+                                        </tbody></table>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div id="site_content">
+                
+                <div id="thisSubmaster_stm_menubar" class="stm_menubar" style="height: 27px;" align="left">
+                    <div id="ShowHeaderMenuDiv"><table summary="main menu" class="ThemePanelMenu" cellspacing="0"><tbody><tr><td class="ThemePanelMainItem" onmouseover="cmItemMouseOverOpenSub (this,1,null,0,0)" onmousedown="cmItemMouseDown (this,1,null,0,0)" onmouseout="cmItemMouseOut (this,1,null,0,0)" onmouseup="cmItemMouseUp (this,1,null,0,0)"><span class="ThemePanelMainItemLeft"><img alt="" src="https://ecsb.ntcu.edu.tw//images/JSCookMenu/blank.gif"></span><span class="ThemePanelMainItemText">進入學生資訊系統</span><span class="ThemePanelMainItemRight"><img alt="" src="https://ecsb.ntcu.edu.tw//images/JSCookMenu/blank.gif"></span></td></tr></tbody></table></div>
+                    <span id="thisSubmaster_TagHeaderMenu_MenuList">
+<script language="javascript" type="text/javascript">
+
+                            var demoMenu = [
+	                    [null, '進入學生資訊系統', the_web_path + 'Portal/Main_total.aspx?SysID=STDWEB', '_self', '進入學生資訊系統']
+                    ];
+cmDraw('ShowHeaderMenuDiv', demoMenu, 'hbr', cmThemePanel, 'ThemePanel');
+</script>
+</span>
+                </div>
+                
+                
+                <div id="MyLocation" style="height: 28px;">
+                    <table id="thisSubmaster_LocationTable" border="0" style="width: 100%;font-family:微軟正黑體;font-size:14px;">
+	<tbody><tr>
+		<td style="width: 17px;height: 28px; text-align: left;vertical-align:middle;">
+                                <img src="https://ecsb.ntcu.edu.tw/images/roadicon.png" id="thisSubmaster_Img1" width="16" height="18" alt="現在位置">
+                            </td>
+		<td style="text-align: left;vertical-align:middle;">
+                                <span style="color: #132b79;">現在位置：</span><span id="thisSubmaster_lb_Location">首頁</span>
+                            </td>
+		<td style="text-align: right; font-weight: bold;vertical-align:middle;">
+                                <a href="javascript:;" id="thisSubmaster_OpenMenuLink" style="font-family: 微軟正黑體; font-size: 14px; visibility: hidden;">&nbsp;+&nbsp;開啟功能表</a>
+                            </td>
+	</tr>
+</tbody></table>
+
+                </div>
+                
+                
+                <div id="thisSubmaster_SysSubMenuDiv" style="display:none;">
+                    <p style="margin:6px;font-size:0px;">&nbsp;</p>
+                    <table align="center" width="900" height="650" border="0" cellpadding="0" cellspacing="0" style="background-repeat: no-repeat; background-position: bottom; background-image: url('/Images/con_allbg.gif');">
+                        <tbody><tr>
+                            <td valign="top">
+                                <div id="thisSubmaster_div_content" align="left" width="1000"></div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    <table>
+                        
+                        <tbody><tr>
+                            <td>
+                                <!--
+                                選擇子系統：
+                                <select name="thisSubmaster$REC_SysID" id="thisSubmaster_REC_SysID">
+</select>-->
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr style="vertical-align: top;">
+                            <td>
+                                <div id="thisSubmaster_DivBlock" class="blockDiv" style="width: 100%; overflow: auto;"></div>
+                            </td>
+                            <td>&nbsp;
+                            </td>
+                            <td>
+                                <div id="thisSubmaster_DivMenuBlock" style="width: 99%; overflow: auto; text-align: left;"><table border="0" width="95%"><tbody><tr style="font-size: 20px; height: 150px; text-align: center; color: red; vertical-align: middle; font-weight: bold;"><td id="no_data">很抱歉，並沒有功能可使用!!</td></tr></tbody></table></div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    <br>
+                    <script language="javascript" type="text/javascript">
+                        InitialSysSubMenu("thisSubmaster");
+                    </script>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table width="1003" height="500" border="0" cellpadding="0" cellspacing="0">
+                                        <tbody><tr>
+                                            <td height="10" valign="top">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td height="491" valign="top">
+                                                <table width="1003" border="0" cellspacing="0" cellpadding="0">
+                                                    <tbody><tr>
+                                                        <td width="230" valign="top">
+                                                            <table width="220" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                <tbody><tr>
+                                                                    <td>
+                                                                        <table width="220" height="250" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC" style="border:1px solid #CCCCCC;">
+                                                                            <tbody><tr>
+                                                                                <td bgcolor="#FBFBFB">
+                                                                                    <table width="121" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                                                        <tbody><tr>
+                                                                                            <td>
+                                                                                                <table width="121" height="174" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC" style="border:1px solid #CCCCCC;">
+                                                                                                    <tbody><tr>
+                                                                                                        <td bgcolor="#FBFBFB">
+                                                                                                            <img id="photo" src="https://ecsb.ntcu.edu.tw/Inc/ShowIndexStdImg.ashx?dataPic=29293127272827282846287681109" style="height:174px;width:121px;border-width:0px;">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody></table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>&nbsp;</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="indexword02">
+                                                                                                <table width="100%">
+                                                                                                    <tbody><tr>
+                                                                                                        <td colspan="2">
+                                                                                                            <span id="ClassName">資工系四年級甲班</span></td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td width="50%">
+                                                                                                            <span id="StdNo">ACS109144</span></td>
+                                                                                                        <td width="50%">
+                                                                                                            <span id="Name">黃川赫</span></td>
+                                                                                                    </tr>
+                                                                                                </tbody></table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody></table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <iframe frameborder="0" height="180" marginheight="0" marginwidth="0" scrolling="auto" src="https://ecsb.ntcu.edu.tw/pub/CalendarSTD.aspx" width="225"></iframe>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                        <td valign="top" class="style1">
+                                                            <table width="521" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                                <tbody><tr>
+                                                                    <td>
+                                                                        <table width="521" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+                                                                            <tbody><tr>
+                                                                                <td bgcolor="#FBFBFB">
+                                                                                    <img id="ImgSeaSon" src="https://ecsb.ntcu.edu.tw/Images/pic_autumn.jpg" style="height:199px;width:519px;border-width:0px;">
+
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <table width="521" border="0" cellspacing="0" cellpadding="0">
+                                                                            <tbody><tr>
+                                                                                <td>
+                                                                                    <img src="https://ecsb.ntcu.edu.tw/images/cen_newstitile.jpg" width="521" height="30"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <table width="521" height="187" border="0" cellpadding="0" cellspacing="0" background="https://ecsb.ntcu.edu.tw/images/cen_newsbg.jpg">
+                                                                                        <tbody><tr>
+                                                                                            <td valign="top">
+                                                                                                <table width="502" border="0" align="center" cellpadding="0" cellspacing="0">
+
+                                                                                                    <tbody><tr>
+                                                                                                        <td>
+                                                                                                            <div id="myDiv" style="overflow: hidden; height: 170px">
+                                                                                                                <table>
+                                                                                                                    <tbody><tr>
+                                                                                                                        <td id="pic1">
+                                                                                                                            <table>
+                                                                                                                                <tbody><tr>
+                                                                                                                                    <td>
+                                                                                                                                        
+
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+
+                                                                                                                            </tbody></table>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                    <tr>
+                                                                                                                        <td id="pic2"></td>
+                                                                                                                    </tr>
+                                                                                                                </tbody></table>
+                                                                                                            </div>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>&nbsp;</td>
+                                                                                                    </tr>
+                                                                                                </tbody></table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody></table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                        <td width="230" valign="top">
+                                                            <table width="219" border="0" align="right" cellpadding="0" cellspacing="0">
+                                                                
+                                                                
+                                                                <tbody><tr>
+                                                                    <td>
+                                                                        <table width="219" border="0" cellspacing="0" cellpadding="0">
+                                                                            <tbody><tr>
+                                                                                <td>
+                                                                                    <img src="https://ecsb.ntcu.edu.tw/images/right_t02.jpg" width="219" height="31"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td height="10">
+                                                                                    <img src="https://ecsb.ntcu.edu.tw/images/space.gif" width="1" height="1"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <table width="219" height="30" border="0" cellspacing="0" cellpadding="0">
+                                                                                        <tbody><tr>
+                                                                                            <td width="17">&nbsp;</td>
+                                                                                            <td width="202">
+                                                                                                <table width="202" border="0" cellspacing="0" cellpadding="0">
+                                                                                                    
+                                                                                                      <tbody><tr>
+                                                                                                        <td width="13">
+                                                                                                            <img src="https://ecsb.ntcu.edu.tw/images/right_icon.gif" width="5" height="5"></td>
+                                                                                                        <td width="189" class="indexword02"><a href="https://ecsb.ntcu.edu.tw/Portal/Main_total.aspx?SysID=STDWEB">系統功能表</a></td>
+                                                                                                        
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td width="13">
+                                                                                                            <img src="https://ecsb.ntcu.edu.tw/images/right_icon.gif" width="5" height="5"></td>
+                                                                                                        <td width="189" class="indexword02"><a href="https://ecsb.ntcu.edu.tw/pub/WebStdSite.aspx">使用手冊及網站地圖</a></td>
+                                                                                                        
+                                                                                                    </tr>
+                                                                                                </tbody></table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody></table>
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="10" valign="top">&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3" align="center">
+                                                            <table width="86%">
+                                                                <tbody><tr>
+                                                                    <td>
+                                                                        <iframe frameborder="0" height="150" marginheight="0" marginwidth="0" width="100%" scrolling="auto" src="https://ecsb.ntcu.edu.tw/TchWeb/Post_STDList.aspx"></iframe>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="10" valign="top">&nbsp;</td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+         </div>
+     </div>
+    <div id="footer_bottom">
+        
+<link id="LinkMasterPage" href="https://ecsb.ntcu.edu.tw/Styles/MasterPage.css" rel="stylesheet" type="text/css">
+<div style="height: 15px;"></div>  
+<div id="footer">
+    <table width="100%" border="0" style="text-align: center;" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+        <td>
+            <table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tbody><tr>
+                <td height="26" class="foot_word01"></td>
+                </tr>
+                <tr>
+                <td height="37" style="text-align: left; vertical-align: bottom;">
+                    <img src="https://ecsb.ntcu.edu.tw/images/foot_copy.gif" id="MySubmasterFooter_Img1" width="295" height="16">
+                </td>
+                </tr>
+            </tbody></table>
+        </td>
+        </tr>
+    </tbody></table>
+</div> 
+    </div> 
+
+<script type="text/javascript">window.document.onkeypress=function(){return EnterDisable(event);};</script>
+<script type="text/javascript">
+//<![CDATA[
+doSetLink();//]]>
+</script>
+<script type="text/javascript">window.document.onkeypress=function(){return EnterDisable(event);};</script></form><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class=" VIpgJd-yAWNEb-hvhgNd-l4eHX-i3jM8c"><img src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24" alt=""></div><div class=" VIpgJd-yAWNEb-hvhgNd-k77Iif-i3jM8c"><div class="VIpgJd-yAWNEb-hvhgNd-IuizWc" dir="ltr">原文</div><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">為這個翻譯評分</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">你的意見回饋將用於協助改善 Google 翻譯品質</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="良好的翻譯" aria-label="良好的翻譯" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="不佳的翻譯" aria-label="不佳的翻譯" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0"></iframe></div></div></div>
+
+
+<div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><iframe frameborder="0" class="VIpgJd-ZVi9od-xl07Ob-OEVmcd skiptranslate" title="語言翻譯小工具" style="visibility: visible; box-sizing: content-box; width: 89px; height: 60px; display: none;"></iframe></body></html>
