@@ -409,7 +409,7 @@
                         </div>
                     </div>
                 </div>
-                <button id="Client_Login" class="login">登入</button>
+                <button id="btnAuthBegin" class="login">登入</button>
                 <button id="Client_Forget_PWD" class="Forget_PWD_On">忘記密碼</button>
             </div>
             <div class="flex block">
@@ -491,5 +491,57 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.es5.umd.min.js"></script>
+<script>
+	const { startAuthentication } = SimpleWebAuthnBrowser;
+	document.querySelector('#btnAuthBegin').addEventListener('click', async () => {
+        
+        //const elemSuccess = document.querySelector('#authSuccess');
+        const elemError = document.querySelector('#authError');
+        //const elemDebug = document.querySelector('#authDebug');
 
+        // Reset success/error messages
+        //elemSuccess.innerHTML = '';
+        //elemError.innerHTML = '';
+        //elemDebug.innerHTML = '';
+      
+        const resp = await fetch('/generate-authentication-options');
+
+        let asseResp;
+        try {
+          const opts = await resp.json();
+          //printDebug(elemDebug, 'Authentication Options', JSON.stringify(opts, null, 2));
+
+          //hideAuthForm();
+
+          asseResp = await startAuthentication(opts);
+          //console.log(asseResp);
+          //printDebug(elemDebug, 'Authentication Response', JSON.stringify(asseResp, null, 2));
+        } catch (error) {
+          //elemError.innerText = error;
+          location.href = '/signup.html';
+          throw new Error(error);
+        }
+
+        
+        const verificationResp = await fetch('/verify-authentication', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(asseResp),
+        });
+
+        const verificationJSON = await verificationResp.json();
+        //printDebug(elemDebug, 'Server Response', JSON.stringify(verificationJSON, null, 2));
+        if (verificationJSON && verificationJSON.verified) {
+          //elemSuccess.innerHTML = `User authenticated!`;
+          alert('Authenticate success!');
+        } else {
+          elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
+            verificationJSON,
+          )}</pre>`;
+        }
+      });
+</script>
 </body></html>

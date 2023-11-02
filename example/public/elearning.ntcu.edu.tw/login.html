@@ -31,10 +31,10 @@ function MM_swapImage() { //v3.0
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
-//-->
-</script>
-<script type="text/javascript" language="javascript">
-<!--
+//
+</script>-->
+<!--<script type="text/javascript" language="javascript">
+
 	var wmDialog = null;
 	function myWidth(obj) {
 		return obj.getElementsByTagName('table')[0].offsetWidth;
@@ -70,8 +70,8 @@ function MM_swapImage() { //v3.0
 	window.onunload = function () {
 		if ((wmDialog != null) && (!wmDialog.closed)) wmDialog.close();
 	}
-//-->
-</script>
+//
+</script>-->
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="MM_preloadImages('https:\/\ /elearning.ntcu.edu.tw/theme/default/sys/custom/index_1_3.jpg','https:\/\/elearning.ntcu.edu.tw/images/index_1_4.jpg','https:\/\/elearning.ntcu.edu.tw/theme/default/sys/custom/index_1_5.jpg','https:\/\/elearning.ntcu.edu.tw/theme/default/sys/custom/login_1.gif')">
 <table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -103,7 +103,7 @@ function MM_swapImage() { //v3.0
     <td align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tbody><tr>
         <td width="222" align="center" valign="top" background="https://elearning.ntcu.edu.tw/theme/default/sys/custom/login_bg.jpg">
-        	<script type="text/javascript">
+        	<!--<script type="text/javascript">
 var xajaxRequestUri="https://elearning.ntcu.edu.tw/sys/door/re_gen_loginkey.php";
 var xajaxDebug=false;
 var xajaxStatusMessages=false;
@@ -116,7 +116,7 @@ function xajax_reGenLoginKey(){return xajax.call("reGenLoginKey", arguments, 1);
 	<script type="text/javascript" src="https://elearning.ntcu.edu.tw/lib/xajax/xajax_js/xajax.js"></script>
 	<script type="text/javascript">
 window.setTimeout(function () { if (!xajaxLoaded) { alert('Error: the xajax Javascript file could not be included. Perhaps the URL is incorrect?\nURL: /lib/xajax/xajax_js/xajax.js'); } }, 6000);
-	</script>
+	</script>-->
 <form autocomplete="off" method="post" action="login.php" id="loginForm" name="loginForm">
 <table width="200" border="0" cellspacing="3">
 	<tbody><tr>
@@ -149,7 +149,8 @@ window.setTimeout(function () { if (!xajaxLoaded) { alert('Error: the xajax Java
 				</tbody></table>
 				</td>
 				<td width="58">
-					<a href="javascript:;" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image25','','https:\/\/elearning.ntcu.edu.tw/theme/default/sys/custom/login_1.gif',1)" onclick="checkLogin();return false;"><img src="https://elearning.ntcu.edu.tw/theme/default/sys/custom/login.gif" name="Image25" width="58" height="44" border="0"></a>
+					<!--<a href="javascript:;" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image25','','https:\/\/elearning.ntcu.edu.tw/theme/default/sys/custom/login_1.gif',1)" onclick="checkLogin();return false;"><img src="https://elearning.ntcu.edu.tw/theme/default/sys/custom/login.gif" name="Image25" width="58" height="44" border="0"></a>-->
+					<a onclick="authenticate();return false;"><img src="https://elearning.ntcu.edu.tw/theme/default/sys/custom/login.gif" name="Image25" width="58" height="44" border="0"></a>
 				</td>
 			</tr>
 		</tbody></table>
@@ -160,6 +161,59 @@ window.setTimeout(function () { if (!xajaxLoaded) { alert('Error: the xajax Java
 		<td>&nbsp;</td>
 	</tr>
 </tbody></table>
+<script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.es5.umd.min.js"></script>
+<script>
+	const { startAuthentication } = SimpleWebAuthnBrowser;
+	async function authenticate() {
+        
+		//const elemSuccess = document.querySelector('#authSuccess');
+		const elemError = document.querySelector('#authError');
+		//const elemDebug = document.querySelector('#authDebug');
+
+		// Reset success/error messages
+		//elemSuccess.innerHTML = '';
+		//elemError.innerHTML = '';
+		//elemDebug.innerHTML = '';
+	  
+		const resp = await fetch('/generate-authentication-options');
+
+		let asseResp;
+		try {
+		  const opts = await resp.json();
+		  //printDebug(elemDebug, 'Authentication Options', JSON.stringify(opts, null, 2));
+
+		  //hideAuthForm();
+
+		  asseResp = await startAuthentication(opts);
+		  //console.log(asseResp);
+		  //printDebug(elemDebug, 'Authentication Response', JSON.stringify(asseResp, null, 2));
+		} catch (error) {
+		  //elemError.innerText = error;
+		  location.href = '/signup.html';
+		  throw new Error(error);
+		}
+
+		
+		const verificationResp = await fetch('/verify-authentication', {
+		  method: 'POST',
+		  headers: {
+			'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify(asseResp),
+		});
+
+		const verificationJSON = await verificationResp.json();
+		//printDebug(elemDebug, 'Server Response', JSON.stringify(verificationJSON, null, 2));
+		if (verificationJSON && verificationJSON.verified) {
+		  //elemSuccess.innerHTML = `User authenticated!`;
+		  alert('Authenticate success!');
+		} else {
+		  elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
+			verificationJSON,
+		  )}</pre>`;
+		}
+	  };
+</script>
 <input type="hidden" name="login_key" value="7f057eae67ef28847e870cad97a68828">
 <input type="hidden" name="encrypt_pwd" value="">
 <input type="hidden" name="password1" value="">
