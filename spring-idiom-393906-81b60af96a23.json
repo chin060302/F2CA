@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "spring-idiom-393906",
+  "private_key_id": "81b60af96a2331f462ab880e14511c59a6ac8161",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCyZ5SdPJF7sYXq\nfL9ZzS7XTHkkbQNh6f03dZg8dRC2dbkIAb3RHgLP7IFijtInxJBzAFAmpQ7CDky1\nwzO/uHvkShhhAIGyD1d2jX903WeMObq356n/GGs+cfYLaXuLEzT+tcAaFNsj0qjs\ng4kDghngXyl7KoYyiaMyuC4zNnqXGT8eT0u9ejTbCy+aOinfxmyppNAJCG18QpYt\nk9bG8b2MEfaWmTUsbs2E/hokOwCRCB7wuwEoGmJUKP0AVFJzpCK8LNyJMyl6XOp9\nyvV53+0eapE3Y6gD8CbO3Qblb10k+I+PiJOeJl7Ao9nzRHmIhBXXBhD4Rz5lsHbr\novTJnSWTAgMBAAECggEAJquQCZMO39Zndh/LJE522EEhwxUEFi2vbt2E/ZnMYRhc\nXpFuEQ1lw6b6lp/piqgvPVY0iWPeso6B7yYcKfL1m9K5vRDsi+mKZk6ecXjqUHlU\n8Tb8YKhs2pC+KdQX7Nnhc1J3DNA3fejUJ8wNH18Md9d4uNNLWln+L2i/zucApI59\npYSLuZ9J+mcxiRR1gxZBS2B6gkML913LgiYTbl1TTcU1sDKY0EKSz91LWP1GpL7E\nbD+8m+ITgUcwmPSKlBNSzeLi0UkPTJNjWZ7WhWKcVpKN+FpEC4v0dQMv8lJrSF2N\nYjVKWJ/LkJebmCHnsGnzeRwVAG/mOBJIHCl3Dg8UmQKBgQDvK6rz53OE64abQUvp\n/LTU9SrtUWm+k1Mrt4F4qJeQktQnKPsxmJF6Quo9dGFvCpGGjEvk8+Qjd9q4rbfU\nLXnxgxIjWMA/PrZlu8xoRAfs7fL3655yTzDWnObL4fcpsHT/wVevG1gsNqihFefJ\nrE+Gg+CNZ/I56xhQYm1UcZsTaQKBgQC+9Uvvj/o95zBitkxtN+z5xh95scetZc7v\nV2qLPFW6/OP3ZFAr1uoXiXnCURnrc1p4Xk3PQFY55frG5tCnrPfsoXGSpdmiXLBe\nViJW0X/Yl+3DUrRKLCfc9ZH6uQkSSoAfzI6TJZabjzs9MchG07Jgd/Z8UaWtcjJK\nn9oMOimdmwKBgQCLrGPUtskmyek9R//OcS8l4tuj5lSr4BvFPxCUZ1jELItLJ0qz\nJxdmYCetpga0s2ZTPiGgXrJP6FHKYmElvz0kxtfT3qO/C5+3f9oa1ggO3NN055wL\nw6WQ3+aFELyoEw3wwnezonN2tqD6GfHYPBHhS6jay+aQ3nO/lgulMgdPaQKBgQCV\nvMekvKOfcu/wF77qTdZXLdJ0nMFU6OZRq5xyPgeDrtYbod9z4PyDJFwD0ZCfnj6s\n8FXXVD3I/NueqFOph+qI9TeXpNF5jXEHKEeZCIJVlxzr8qhJGULQ8wdbMUk5vI2n\nYcHTBMCKjtAG9khzsYDIQIlZhrSBw3BIL/zNZbZITQKBgQCQJw9vjFRSEu9M9Lv+\njPJ/0skUJ2KdotGBw5A9GIeqfvg8VSAmI9J4tdJFuHNoKVybDk5HXE5+JVZEKgSV\ntaRjCx95zpAbh8bz4c5OGFym4gJNsaqKjMhjF1DOU7iAoSWewnMyB/eccJ1VYS//\ndNYhp5ZF4mx8UxcVWTpYpZLwpg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "acs109144@spring-idiom-393906.iam.gserviceaccount.com",
+  "client_id": "104754311985145838832",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/acs109144%40spring-idiom-393906.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
