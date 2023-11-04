@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.es5.umd.min.js"></script>
+    <!--<script src="./clockin.mjs"></script>-->
+    <audio id="BeepIn" >
+      <source src="https://www.soundjay.com/buttons/sounds/beep-23.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="BeepOut" >
+      <source src="https://www.soundjay.com/buttons/sounds/beep-24.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="BeepFail" >
+      <source src="https://www.soundjay.com/buttons/sounds/beep-05.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+      const { startAuthentication } = SimpleWebAuthnBrowser;
+    </script>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="permission.css" />
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Permission for library</title>
+  </head>
+
+  <body>
+    <!-- Header Section Start -->
+        <header id="home" class="hero-area-2"> 
+               
+          <div class="overlay"></div>
+          
+          <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
+            <div class="container">
+              <!--<a href="index.html" class="navbar-brand"><img src="img/logo.png" alt=""></a> -->  
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="lni-menu"></i>
+              </button>
+              <h1>F2CA</h1>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto w-100 justify-content-end">
+                    
+                        
+                        
+                  <li class="nav-item">
+                    <a class="nav-link page-scroll" href="../index.html">Home</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#app-features">Features</a>
+                  </li>  
+                  <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#screenshots">Borrow</a>
+                  </li>                            
+                  <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#testimonial">Return</a>
+                  </li> 
+                  <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#pricing">Plans</a>
+                  </li>
+                  <!--
+                  <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#download"></a>
+                  </li>
+                -->
+                  <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#map-area">Contact</a>
+                  </li>
+                
+                
+                </ul>
+              </div>
+            </div>
+          </nav>  
+          <div class="container">      
+            <div class="row space-100">
+              <div class="col-lg-7 col-md-12 col-xs-12">
+                <div class="contents">
+                  <h2 class="head-title">Library Access Control <br></h2>
+                  <p>Welcome to the library, please use your phone to scan the barcode for access verification!</p>
+                  <div class="header-button">
+                    <a href="permission.html" class="btn btn-border-filled">Cancel</a>
+                    
+                    <a class="btn btn-border" id="btnAuthBegin">Get Started</a>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-12 col-xs-12">
+                <div class="intro-img">
+                  <img src="../img/library.jpg" alt="">
+                </div>            
+              </div>
+            </div> 
+          </div>             
+        </header>
+    
+        <script>
+          const { browserSupportsWebAuthn, startRegistration } = SimpleWebAuthnBrowser;
+          let list = [];
+          if (localStorage.getItem('library')){
+            list = localStorage.getItem('library').split(",");
+          }
+          let counter = list.length;
+          function stopSubmit(event) {
+            event.preventDefault();
+          }
+    
+          /**
+           * A simple way to control how debug content is written to a debug console element
+           */
+          function printDebug(elemDebug, title, output) {
+            if (elemDebug.innerHTML !== '') {
+              elemDebug.innerHTML += '\n';
+            }
+            elemDebug.innerHTML += `// ${title}\n`;
+            elemDebug.innerHTML += `${output}\n`;
+          }
+    
+          // Hide the Begin button if the browser is incapable of using WebAuthn
+          if (!browserSupportsWebAuthn()) {
+            document.querySelector('.controls').style.display = 'none';
+            document.querySelector('.systemError').innerText =
+              "It seems this browser doesn't support WebAuthn...";
+          } else {
+            function hideAuthForm() {
+              document.getElementById('inputUsername').style.display = 'none';
+            }
+            document.querySelector('#btnAuthBegin').addEventListener('click', async () => {
+            
+              const elemError = document.querySelector('#authError');
+              const resp = await fetch('/generate-authentication-options');
+    
+              let asseResp;
+              try {
+                const opts = await resp.json();
+    
+                asseResp = await startAuthentication(opts);
+              } catch (error) {
+                throw new Error(error);
+              }
+    
+              
+              const verificationResp = await fetch('/verify-authentication', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(asseResp),
+              });
+              const verificationJSON = await verificationResp.json();
+              const user = asseResp.response.userHandle;
+              if (verificationJSON && verificationJSON.verified ) {
+                
+                if(!list.includes(user))
+                  
+                {
+                  list.push(user)
+                  if(user[0] == 'P'){
+                  await document.getElementById('BeepIn').play();
+                  alert('Professor : ' + user + '\n\nWelcome library!');
+                  
+                  }
+                  else if(user[0] == 'A'){
+                    await document.getElementById('BeepIn').play();
+                    alert('College Student : ' + user + '\n\n Welcome library!');
+                    
+                    //writefile(time.toLocaleString() +'  User'+ user + ' Clock In')
+                  }
+                  else if(user[0] == 'B'){
+                    await document.getElementById('BeepIn').play();
+                    alert('Graduate Student : ' + user + '\n\nWelcome library!');
+                    
+                  }
+                }
+                else{
+                  await document.getElementById('BeepOut').play();
+                  alert('User Name : ' + user +'\n\nGoodbye! ');
+                  list.splice(list.indexOf(user),1);
+    
+                }
+                counter = list.length
+                localStorage.setItem('library',list);
+                //alert('Authenticate success!');
+              } else {
+                await document.getElementById('BeepFail').play();
+                elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
+                  verificationJSON,
+                )}</pre>`;
+                
+                
+            }
+              //location.reload();
+            });
+          }
+        </script>
+        
+      
+        <!--</div>
+        -->
+      </body>
+    </html>
+    
+  
+
+  

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.es5.umd.min.js"></script>
+    <!--<script src="./clockin.mjs"></script>-->
+    <audio id="BeepIn" >
+      <source src="https://www.soundjay.com/buttons/sounds/beep-23.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="BeepOut" >
+      <source src="https://www.soundjay.com/buttons/sounds/beep-24.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="BeepFail" >
+      <source src="https://www.soundjay.com/buttons/sounds/beep-05.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+      const { startAuthentication } = SimpleWebAuthnBrowser;
+    </script>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="LineIcons.css">
+    <link rel="stylesheet" href="magnific-popup.css">
+    <link rel="stylesheet" href="slick.css">
+    <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Permission for dormitory</title>
+  </head>
+
+  <body>
+    <div class="preloader">
+      <div class="loader">
+          <div class="ytp-spinner">
+              <div class="ytp-spinner-container">
+                  <div class="ytp-spinner-rotator">
+                      <div class="ytp-spinner-left">
+                          <div class="ytp-spinner-circle"></div>
+                      </div>
+                      <div class="ytp-spinner-right">
+                          <div class="ytp-spinner-circle"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!--====== PRELOADER PART ENDS ======-->
+
+  <!--====== NAVBAR PART START ======-->
+
+  <section class="header-area">
+      <div class="navbar-area">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <nav class="navbar navbar-expand-lg">
+                          <a class="navbar-brand" href="#">
+                              <img src="../img/f2ca-title.png" alt="Logo">
+                          </a>
+
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                              <span class="toggler-icon"></span>
+                              <span class="toggler-icon"></span>
+                              <span class="toggler-icon"></span>
+                          </button>
+
+                          <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                              <ul class="navbar-nav ml-auto">
+                                <!--
+                                  <li class="nav-item active">
+                                      <a class="page-scroll" href="#home">HOME</a>
+                                  </li>
+                                -->
+                                  <li class="nav-item">
+                                      <a class="page-scroll" href="../index.html">HOME</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="page-scroll" href="#portfolio">INFORMATION</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="page-scroll" href="#pricing">ABOUT</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="page-scroll" href="#testimonial">HELPS</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="page-scroll" href="#contact">CONTACT</a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <!--
+                          <div class="navbar-btn d-none mt-15 d-lg-inline-block">
+                              <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
+                          </div>
+                        -->
+                      </nav> <!-- navbar -->
+                  </div>
+              </div> <!-- row -->
+          </div> <!-- container -->
+      </div> <!-- navbar area -->
+      
+      <div id="home" class="slider-area">
+          <div class="bd-example">
+              <div id="carouselOne" class="carousel slide" data-ride="carousel">
+                <!--
+                  <ol class="carousel-indicators">
+                      <li data-target="#carouselOne" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselOne" data-slide-to="1"></li>
+                      <li data-target="#carouselOne" data-slide-to="2"></li>
+                  </ol>
+                -->
+
+                  <div class="carousel-inner">
+                      <div class="carousel-item bg_cover active" style="background-image: url(../img/dormitory2.jpg)">
+                          <div class="carousel-caption">
+                              <div class="container">
+                                  <div class="row justify-content-center">
+                                      <div class="col-xl-6 col-lg-7 col-sm-10">
+                                          <h2 class="carousel-title">Dormitory Access Control </h2>
+                                          <p><br>Welcome to the dormitory, please use your phone to scan the barcode for access verification!</p>
+                                          <ul class="carousel-btn rounded-buttons">
+                                              <li><a class="main-btn rounded-three" href="dormitory.html">CANCEL</a></li>
+                                              <li><a class="main-btn rounded-one" id="btnAuthBegin">GET STARTED</a></li>
+                                          </ul>
+                                      </div>
+                                  </div> <!-- row -->
+                              </div> <!-- container -->
+                          </div> <!-- carousel caption -->
+                      </div> <!-- carousel-item -->
+                    <!--
+                      <div class="carousel-item bg_cover" style="background-image: url(../img/slider-2.jpg)">
+                          <div class="carousel-caption">
+                              <div class="container">
+                                  <div class="row justify-content-center">
+                                      <div class="col-xl-6 col-lg-7 col-sm-10">
+                                          <h2 class="carousel-title">Based on Latest Bootstrap & HTML5</h2>
+                                          <ul class="carousel-btn rounded-buttons">
+                                              <li><a class="main-btn rounded-three" href="#">GET STARTED</a></li>
+                                              <li><a class="main-btn rounded-one" href="#">DOWNLOAD</a></li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </div> 
+                          </div> 
+                      </div> 
+
+                      <div class="carousel-item bg_cover" style="background-image: url(../img/slider-3.jpg)">
+                          <div class="carousel-caption">
+                              <div class="container">
+                                  <div class="row justify-content-center">
+                                      <div class="col-xl-6 col-lg-7 col-sm-10">
+                                          <h2 class="carousel-title">Multi-purpose Landing Page Template</h2>
+                                          <ul class="carousel-btn rounded-buttons">
+                                              <li><a class="main-btn rounded-three" href="#">GET STARTED</a></li>
+                                              <li><a class="main-btn rounded-one" href="#">DOWNLOAD</a></li>
+                                          </ul>
+                                      </div>
+                                  </div> 
+                              </div> 
+                          </div> 
+                      </div> 
+                    -->
+                  </div> 
+
+                  <!--<a class="carousel-control-prev" href="#carouselOne" role="button" data-slide="prev">
+                      <i class="lni-arrow-left-circle"></i>
+                  </a>
+
+                  <a class="carousel-control-next" href="#carouselOne" role="button" data-slide="next">
+                      <i class="lni-arrow-right-circle"></i>
+                  </a>
+                -->
+              </div> <!-- carousel -->
+          </div> <!-- bd-example -->
+      </div>
+
+  </section>
+
+  <!--====== NAVBAR PART ENDS ======-->
+
+  <!--====== SAIDEBAR PART START ======-->
+  <!--
+  <div class="sidebar-right">
+      <div class="sidebar-close">
+          <a class="close" href="#close"><i class="lni-close"></i></a>
+      </div>
+      <div class="sidebar-content">
+          <div class="sidebar-logo text-center">
+              <a href="#"><img src="assets/images/logo-alt.png" alt="Logo"></a>
+          </div> 
+          <div class="sidebar-menu">
+              <ul>
+                  <li><a href="#">ABOUT</a></li>
+                  <li><a href="#">SERVICES</a></li>
+                  <li><a href="#">RESOURCES</a></li>
+                  <li><a href="#">CONTACT</a></li>
+              </ul>
+          </div> 
+          <div class="sidebar-social d-flex align-items-center justify-content-center">
+              <span>FOLLOW US</span>
+              <ul>
+                  <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                  <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+              </ul>
+          </div> 
+      </div> 
+  </div>
+-->
+  <div class="overlay-right"></div>
+
+        <script>
+          const { browserSupportsWebAuthn, startRegistration } = SimpleWebAuthnBrowser;
+          
+          let list = [];
+          if (localStorage.getItem('dormitory')){
+            list = localStorage.getItem('dormitory').split(",");
+          }
+          let counter = list.length;
+          function stopSubmit(event) {
+            event.preventDefault();
+          }
+         
+    
+          /**
+           * A simple way to control how debug content is written to a debug console element
+           */
+          function printDebug(elemDebug, title, output) {
+            if (elemDebug.innerHTML !== '') {
+              elemDebug.innerHTML += '\n';
+            }
+            elemDebug.innerHTML += `// ${title}\n`;
+            elemDebug.innerHTML += `${output}\n`;
+          }
+    
+          // Hide the Begin button if the browser is incapable of using WebAuthn
+          if (!browserSupportsWebAuthn()) {
+            document.querySelector('.controls').style.display = 'none';
+            document.querySelector('.systemError').innerText =
+              "It seems this browser doesn't support WebAuthn...";
+          } else {
+            function hideAuthForm() {
+              document.getElementById('inputUsername').style.display = 'none';
+            }
+            document.querySelector('#btnAuthBegin').addEventListener('click', async () => {
+            
+              const elemError = document.querySelector('#authError');
+              const resp = await fetch('/generate-authentication-options');
+    
+              let asseResp;
+              try {
+                const opts = await resp.json();
+    
+                asseResp = await startAuthentication(opts);
+              } catch (error) {
+                throw new Error(error);
+              }
+    
+              
+              const verificationResp = await fetch('/verify-authentication', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(asseResp),
+              });
+              const verificationJSON = await verificationResp.json();
+              const user = asseResp.response.userHandle;
+              if (verificationJSON && verificationJSON.verified && user[0] != 'P' ) {
+                
+                if(!list.includes(user))
+                  
+                {
+                  list.push(user)
+                  if(user[0] == 'A'){
+                    await document.getElementById('BeepIn').play();
+                    alert('College Student : ' + user + '\n\n Welcome dormitory!');
+                    
+                    //writefile(time.toLocaleString() +'  User'+ user + ' Clock In')
+                  }
+                  else if(user[0] == 'B'){
+                    await document.getElementById('BeepIn').play();
+                    alert('Graduate Student : ' + user + '\n\nWelcome dormitory!');
+                    
+                  }
+                }
+                else{
+                  await document.getElementById('BeepOut').play();
+                  alert('User Name : ' + user +'\n\nGoodbye! ');
+                  list.splice(list.indexOf(user),1);
+    
+                }
+                counter = list.length
+                localStorage.setItem('dormitory',list);
+                //alert('Authenticate success!');
+              } else {
+                if(user[0] == 'P'){
+                  await document.getElementById('BeepFail').play();
+                  alert('Professor : ' + user + '\n\nYou don\'t have the authority to access!');
+                }
+                else{
+                await document.getElementById('BeepFail').play();
+                elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
+                  verificationJSON,
+                )}</pre>`;
+                }
+                
+                
+            }
+              //location.reload();
+            });
+          }
+        </script>
+        
+      
+        <!--</div>
+        -->
+      <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>    
+    <script src="js/scrolling-nav.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/main.js"></script>
+      </body>
+    </html>
+    
+  
+
+  
