@@ -1,336 +1,10 @@
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>國立臺中教育大學</title>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>國立臺中教育大學 這只是一個demo網站</title>
     <style type="text/css" nonce="">
         <!--
         @import url("https://ecsb.ntcu.edu.tw/Inc/main.css?ver=202311194835779");
         -->
     </style>
-    <!--<script nonce="">
-        let MD5_EnCode = '';
-        let SHA1_EnCode = '';
-        let Code = '';
-        let User_Type = '';
-        const Total_Count = 60;
-        let Count = Total_Count;
-        let Tmp_Word = '';
-        let Waiting_Style = 'Waiting';
-    </script>
-    <script nonce="">
-        window.onload = function () {
-            document.getElementById('Waiting').setAttribute('class', Waiting_Style);
-            Init_Control(function () {
-                document.getElementById('Waiting').setAttribute('class', 'WaitingOff');
-            });
-        };
-    </script>
-    <script nonce="">
-        function Init_Control(callback) {
-            document.getElementById('User_Type').onchange = function () {
-                User_Type = document.getElementById('User_Type').value;
-
-                document.getElementById('Label_UserAccount').innerText = '帳號';
-                document.getElementById('Label_UserPassword').innerText = '密碼';
-                document.getElementById('User_Password').setAttribute('Type', 'password');
-                document.getElementById('Client_Forget_PWD').setAttribute('class', 'Forget_PWD_On');
-                document.getElementById('LaTape').innerHTML = '&nbsp;';
-                document.getElementById('Label_PWD_Tape').innerHTML = '&nbsp;';
-
-                switch (User_Type) {
-                    case '2':
-                        document.getElementById('Label_UserAccount').innerText = '學號';
-                        document.getElementById('Label_UserPassword').innerText = '身分證';
-                        document.getElementById('User_Password').setAttribute('Type', 'text');
-                        document.getElementById('User_Password').value = '';
-                        document.getElementById('Client_Forget_PWD').setAttribute('class', 'Forget_PWD_Off');
-                        break;
-                    case '3':
-                        document.getElementById('Label_UserPassword').innerText = '出生年月日';
-                        document.getElementById('User_Password').setAttribute('Type', 'text');
-                        document.getElementById('User_Password').value = '';
-                        document.getElementById('Client_Forget_PWD').setAttribute('class', 'Forget_PWD_Off');
-                        document.getElementById('Label_PWD_Tape').innerText = '(1911/01/01)';
-                        break;
-                    case '4':
-                        document.getElementById('Label_UserAccount').innerText = '學號';
-                        document.getElementById('Label_UserPassword').innerText = '出生年月日';
-                        document.getElementById('User_Password').setAttribute('Type', 'text');
-                        document.getElementById('User_Password').value = '';
-                        document.getElementById('Client_Forget_PWD').setAttribute('class', 'Forget_PWD_Off');
-                        document.getElementById('LaTape').innerText = '說明：畢業生僅供大五實習學生登入列印繳費單';
-                        document.getElementById('Label_PWD_Tape').innerText = '(1911/01/01)';
-                        break;
-                };
-
-            };
-
-            document.getElementById('Client_Change').onclick = function () {
-                Count = Total_Count;
-                document.getElementById('td_times').innerText = Count.toString() + '秒後驗證碼將重新產生';
-                Get_Check_Code(function () {
-
-                });
-            };
-
-            document.getElementById('Client_Login').onclick = function () {
-                document.getElementById('Waiting').setAttribute('style', Waiting_Style);
-                Do_Login(function () {
-                    document.getElementById('Waiting').setAttribute('style', 'display:none;');
-                });
-            };
-
-            document.getElementById('Check_Code').onkeypress = function () {
-                if (event.keyCode == 13) {
-                    document.getElementById("Client_Login").onclick();
-                }
-            };
-
-            document.getElementById('Client_Forget_PWD').onclick = function () {
-                Go_Next_Page('SYS/ForgetPwdTS.aspx');
-            };
-
-            Init_Information(function () {
-                Get_Check_Code(function () {
-                    Get_Type_List(function () {
-                        document.getElementById('User_Type').onchange();
-                        CountDown();
-                        callback();
-                    });
-
-                });
-            });
-        }
-    </script>
-    <script nonce="">
-        function CountDown() {
-            document.getElementById('td_times').innerText = Count.toString() + '秒後驗證碼將重新產生';
-            Count = Count - 1;
-            if (Count < 0) {
-                Get_Check_Code(function () {
-                    Count = Total_Count;
-                    document.getElementById('td_times').innerText = Count.toString() + '秒後驗證碼將重新產生';
-                    CountDown();
-                });
-            } else {
-                setTimeout(function () {
-                    CountDown();
-                }, 1000);
-            }
-        }
-    </script>
-    <script nonce="">
-        function Init_Information(callback) {
-            let xhttp = new XMLHttpRequest();
-
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        Show_Information(this.responseText, callback);
-                    } else {
-                        return alert('Server Error');
-                    }
-                }
-            };
-
-            xhttp.open('Post', 'login.aspx', true);
-
-            let formdata = new FormData();
-            formdata.enctype = "text/plain";
-            formdata.append('Model', 'Get_School_Name');
-
-            xhttp.send(formdata);
-        }
-
-        function Show_Information(JData, callback) {
-            let ErrorMsg = JSON.parse(JData)[0].ErrorMsg;
-
-            if (ErrorMsg == null) {
-                let Data = JSON.parse(JData)[0].Data;
-
-                document.title = unescape(Data[0].Sch_Name);
-                document.getElementById('Label_Sch_Name').innerText = unescape(Data[0].Sch_Name);
-                document.getElementById('Label_UpdateTime').innerText = unescape(Data[0].Update_Time);
-
-
-                callback();
-            } else {
-                return alert(unescape(ErrorMsg));
-            }
-        }
-    </script>
-    <script nonce="">
-        function Get_Check_Code(callback) {
-            let xhttp = new XMLHttpRequest();
-
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        Show_Check_Code(this.responseText, callback);
-                    } else {
-                        return alert('Server Error');
-                    }
-                }
-            };
-
-            xhttp.open('Post', '/HttpRequest/Get_Check_Code.ashx', true);
-
-            let formdata = new FormData();
-
-            formdata.enctype = "text/plain";
-            formdata.append('csrf_token', document.getElementById('csrf_token').value);
-
-            xhttp.send(formdata);
-        }
-
-        function Show_Check_Code(JData, callback) {
-            Check_Json_Data(JData, function () {
-                let Data = JSON.parse(JData)[0];
-
-                MD5_EnCode = Data.MD5_EnCode;
-                SHA1_EnCode = Data.SHA1_EnCode;
-                let Code_Image = Data.Code_Image;
-
-                document.getElementById('Check_Code_Img').setAttribute('src', Code_Image);
-
-                callback();
-            });
-        }
-    </script>
-    <script nonce="">
-        function Get_Type_List(callback) {
-            let xhttp = new XMLHttpRequest();
-
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        Show_Type_List(this.responseText, callback);
-                    } else {
-                        return alert('Server Error');
-                    }
-                }
-            };
-
-            xhttp.open('Post', 'login.aspx', true);
-
-            let formdata = new FormData();
-            formdata.enctype = "text/plain";
-            formdata.append('Model', 'Get_Type_List');
-
-            xhttp.send(formdata);
-        }
-
-        function Show_Type_List(JData, callback) {
-            let ErrorMsg = JSON.parse(JData)[0].ErrorMsg;
-            let Data = JSON.parse(JData)[0].Data;
-
-            if (ErrorMsg == null) {
-                let Sel = document.getElementById('User_Type');
-                Sel.options.length = 0;
-
-                let Data_Length = 0;
-                if (Data != null) {
-                    Data_Length = Data.length;
-                }
-                let first_for = 0;
-
-                for (let i = first_for; i < Data_Length; i++) {
-                    let new_option = new Option();
-
-                    new_option.value = unescape(Data[i].Value);
-                    new_option.text = unescape(Data[i].Text);
-
-                    Sel.options.add(new_option);
-                }
-
-            }
-
-            callback();
-        }
-    </script>
-    <script nonce="">
-        function Do_Login(callback) {
-            let xhttp = new XMLHttpRequest();
-
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        Show_Login(this.responseText, callback);
-                    } else {
-                        return alert('Server Error');
-                    }
-                }
-            };
-
-            xhttp.open('Post', 'login.aspx', true);
-
-            let formdata = new FormData();
-            formdata.enctype = "text/plain";
-            formdata.append('Model', 'Do_Login');
-            formdata.append('Type', document.getElementById('User_Type').value);
-            formdata.append('MD5_EnCode', MD5_EnCode);
-            formdata.append('csrf_token', document.getElementById('csrf_token').value);
-            formdata.append('SHA1_EnCode', SHA1_EnCode);
-            formdata.append('User_Account', document.getElementById('User_Account').value);
-            formdata.append('User_Password', document.getElementById('User_Password').value);
-            formdata.append('Check_Code', document.getElementById('Check_Code').value);
-
-            xhttp.send(formdata);
-        }
-
-        function Show_Login(JData, callback) {
-            let ErrorMsg = JSON.parse(JData)[0].ErrorMsg;
-            let URL = JSON.parse(JData)[0].URL;
-            let Msg = JSON.parse(JData)[0].Msg;
-
-            if (ErrorMsg == null) {
-                if (Msg != null) {
-                    alert(unescape(Msg));
-                }
-
-                if (URL != null) {
-                    Go_Next_Page(unescape(URL));
-                } else {
-                    Clear_Data(function () {
-
-                    });
-                }
-            } else {
-                Clear_Data(function () {
-
-                });
-
-                alert(unescape(ErrorMsg));
-            }
-
-            callback();
-        }
-    </script>
-    <script nonce="">
-        function Go_Next_Page(URL) {
-            document.getElementById('Waiting').setAttribute('style', Waiting_Style);
-            let form2 = document.createElement('form');
-            form2.id = 'form2';
-            form2.target = '_self';
-            form2.method = 'post';
-            form2.action = URL;
-
-            document.body.appendChild(form2);
-
-            form2.submit();
-
-            document.body.removeChild(form2);
-        }
-    </script>
-    <script nonce="">
-        function Clear_Data(callback) {
-            document.getElementById('User_Account').value = '';
-            document.getElementById('User_Password').value = '';
-            document.getElementById('Check_Code').value = '';
-            Count = Total_Count;
-            Get_Check_Code(function () {
-                callback();
-            });
-        }
-    </script>
-     <script src="https://ecsb.ntcu.edu.tw/Inc/PubJScript.js" nonce=""></script>-->
+    
 </head>
 <body>
     <form name="form1" method="post" action="./" id="form1" enctype="text/plain">
@@ -354,7 +28,7 @@
                 <tbody><tr>
                     <td class="container-1000">
                         <h2>
-                            <label id="Label_Sch_Name">國立臺中教育大學</label>
+                            <label id="Label_Sch_Name" style="color:#bf9300;">國立臺中教育大學</label>
                         </h2>
                     </td>
                     <td class="container-200" id="google_translate_element">
@@ -405,7 +79,7 @@
                     <div class="input">
                         <div class="label"></div>
                         <div class="label Login_Lb_Times">
-                            <label id="td_times">58秒後驗證碼將重新產生</label>
+                            <label id="td_times">60秒後驗證碼將重新產生</label>
                         </div>
                     </div>
                 </div>
@@ -467,24 +141,13 @@
                         校外 Web
                     </div>
                     <div class="content">
-                        <!--
-                        <a href="javascript:;" onclick="javascript: window.open('/STDWEB/STDW0032.aspx','學雜費公告','scrollbars=no,resizable=no')">學雜費公告(校外Web)</a>
-                        <br />
-                        <a href="javascript:;" onclick="javascript: window.open('TFCS/TFCS0900.aspx','收費系統','scrollbars=no,resizable=no')">收費系統(校外Web)</a>
-                        <br />
-                        <a href="javascript:;" onclick="javascript: window.open('CNC/CNC_ForSelect.aspx','場地課表','scrollbars=no,resizable=no')">場地課表查詢(校外Web)</a>
-                        
-                        
-                        <br />
-                        <a href="javascript:;" onclick="javascript: window.open('pub/TchSchedule_Search.aspx','課程查詢','scrollbars=no,resizable=no')">課程查詢(校外Web)</a>
-                        -->
-                        <a href="https://ecsb.ntcu.edu.tw/STDWEB/STDW0032.aspx" target="_STDW0032">學雜費公告(校外Web)</a>
+                        <a style="color: blue;">學雜費公告(校外Web)</a>
                         <br>
-                        <a href="https://ecsb.ntcu.edu.tw/TFCS/TFCS0900.aspx" target="_TFCS0900">收費系統(校外Web)</a>
+                        <a style="color: blue;">收費系統(校外Web)</a>
                         <br>
-                        <a href="https://ecsb.ntcu.edu.tw/CNC/CNC_ForSelect.aspx" target="_CNCForSelect">場地課表查詢(校外Web)</a>
+                        <a style="color: blue;">場地課表查詢(校外Web)</a>
                         <br>
-                        <a href="https://ecsb.ntcu.edu.tw/pub/TchSchedule_Search.aspx" target="_TchScheduleSearch">課程查詢(校外Web)</a>
+                        <a style="color: blue;">課程查詢(校外Web)</a>
                     </div>
                 </div>
             </div>
@@ -495,7 +158,7 @@
 <script>
 	const { startAuthentication } = SimpleWebAuthnBrowser;
 	document.querySelector('#btnAuthBegin').addEventListener('click', async () => {
-        
+        sessionStorage.clear();
         //const elemSuccess = document.querySelector('#authSuccess');
         const elemError = document.querySelector('#authError');
         //const elemDebug = document.querySelector('#authDebug');
@@ -536,7 +199,10 @@
         //printDebug(elemDebug, 'Server Response', JSON.stringify(verificationJSON, null, 2));
         if (verificationJSON && verificationJSON.verified) {
           //elemSuccess.innerHTML = `User authenticated!`;
-          alert('Authenticate success!');
+          sessionStorage.setItem("user",asseResp.response.userHandle);
+          //console.log(sessionStorage.getItem(asseResp.response.userHandle));
+          //sessionStorage.removeItem(asseResp.response.userHandle);
+          location.href = './index.html';
         } else {
           elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
             verificationJSON,
