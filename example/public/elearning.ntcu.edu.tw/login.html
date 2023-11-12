@@ -165,7 +165,7 @@ window.setTimeout(function () { if (!xajaxLoaded) { alert('Error: the xajax Java
 <script>
 	const { startAuthentication } = SimpleWebAuthnBrowser;
 	async function authenticate() {
-        
+        sessionStorage.clear();
 		//const elemSuccess = document.querySelector('#authSuccess');
 		const elemError = document.querySelector('#authError');
 		//const elemDebug = document.querySelector('#authDebug');
@@ -205,8 +205,8 @@ window.setTimeout(function () { if (!xajaxLoaded) { alert('Error: the xajax Java
 		const verificationJSON = await verificationResp.json();
 		//printDebug(elemDebug, 'Server Response', JSON.stringify(verificationJSON, null, 2));
 		if (verificationJSON && verificationJSON.verified) {
-		  //elemSuccess.innerHTML = `User authenticated!`;
-		  alert('Authenticate success!');
+			sessionStorage.setItem("user",asseResp.response.userHandle);
+			location.href = './index.html';
 		} else {
 		  elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
 			verificationJSON,
@@ -542,7 +542,7 @@ window.setTimeout(function () { if (!xajaxLoaded) { alert('Error: the xajax Java
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tbody><tr>
 					<td><img width="25" height="30" border="0" src="https://elearning.ntcu.edu.tw/theme/default/sys/title_on_01.gif" align="absbottom" alt=""></td>
-					<td align="center" valign="bottom" nowrap="noWrap" style="cursor: default; background-image: url('/theme/default/sys/title_on_02.gif');" class="cssTabs">新開課程</td>
+					<td align="center" valign="bottom" nowrap="noWrap" style="cursor: default; background-image: url('https://elearning.ntcu.edu.tw/theme/default/sys/title_on_02.gif');" class="cssTabs">新開課程</td>
 					<td><img width="28" height="30" border="0" src="https://elearning.ntcu.edu.tw/theme/default/sys/title_on_03.gif" align="absbottom"></td>
 					<td width="100%">&nbsp;</td>
 				</tr>

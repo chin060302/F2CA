@@ -3,545 +3,448 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Language" content="zh-tw">
         <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-        <title>國立臺中教育大學  </title>
-        <!--<script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="/lib/jquery/jquery-o.sev.t.min.js"></script>
-        <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="/lib/detectzoom.js"></script>
-        <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="/lib/xmlextras.js"></script>
-        <script type="text/javascript" language="javascript">
-        
-            var xmlHttp = null; function FrameExpand(val, resize, extra) { var obj = null; var objName = ""; obj = document.getElementById("s_catalog"); if ((obj != null) && (obj.noResize == resize)) { obj.noResize = !resize; } obj = document.getElementById("envClassRoom"); if (obj != null) { switch (val) { case 0 : obj.cols = "0,*"; break; case 2 : obj.cols = extra + ",*"; break; default: obj.cols = "200,*"; } } } function rebuildMenu(lang) { this.s_sysbar.lang = lang; chgCourse(csid, 1, 1); } window.onload = function () { if ((typeof(xmlHttp) != "object") || (xmlHttp == null)) xmlHttp = XmlHttp.create(); }; var reloadKey = false; window.document.onkeydown = function (evnt) { if (typeof evnt == "object") event = evnt; reloadKey = (event.keyCode == 116) ? true : false; }; window.onbeforeunload = function (evnt) { if (reloadKey) return; if (typeof evnt == "object") { if ((evnt.rangeParent == null) && (navigator.userAgent.search(/MSIE [567]/) < 0)) { window.onbeforeunload = null; } } else { if ((event.clientY < 0 && event.clientY > -150) && (document.body.clientWidth - event.clientX) < 24 || event.altKey) { window.onbeforeunload = null; xmlHttp.open("POST", "/logout.php", false); xmlHttp.send(null); } } }; function logout() { if(typeof(s_main.notSave) == 'boolean' && s_main.notSave) { if (!confirm(s_main.MSG_EXIT)) { return; } else s_main.notSave = false; } window.location.replace("/logout.php"); } var csid = '0' == '' ? 10000000 : parseInt(0); function chgCourse(val, nEnv, gEnv, func) { if(typeof(s_main.notSave) == 'boolean' && s_main.notSave) { if (!confirm(s_main.MSG_EXIT)) { if (csid != val) parent.s_sysbar.document.getElementById('selcourse').value = csid; return; } else s_main.notSave = false; } if (nEnv == gEnv) { if ((typeof(s_sysbar) == "object") && (typeof(s_sysbar.goCourse) == "function")) { window.onbeforeunload = null; s_main.location.replace("about:blank"); s_catalog.location.replace("about:blank"); s_sysbar.goCourse(val, "", func); } csid = parseInt(val); if (isNaN(csid) || (csid < 10000000) || (csid > 100000000)) { csid = 10000000; } } else { window.onbeforeunload = null; s_sysbar.goEnv(val, gEnv, func); } } function showOnline(val, v1, v2, v3) { if (typeof(s_sysbar) == "object") { if (typeof(s_sysbar.showSysTime) == "function") s_sysbar.showSysTime(val); if (typeof(s_sysbar.showOnline)  == "function") s_sysbar.showOnline(v1, v2, v3); } }  
-        //
-        </script>
-        <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="path/SCORM_adapter131.js"></script>
-        <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="path/SCOPlayerWrapper.js"></script>
-        <script type="text/javascript" language="javascript">
-        
-        function refresh() { var resize_zoom=detectZoom(); var sysbar_zoom = 90; sysbar_zoom  = (sysbar_zoom * resize_zoom)/100 +',*'; $('#envStudent').attr('rows',sysbar_zoom); } var sysbar_zoom = 0; var original_sysbar_zoom = 0; $(document).ready(function () { ua = navigator.userAgent.toLowerCase(); sysbar_zoom = ($('#envStudent').attr('rows').split(','))[0]; original_sysbar_zoom = sysbar_zoom; if(navigator.userAgent.match(/Android/i)){ original_sysbar_zoom=sysbar_zoom*2+15; } }); var previousActivity = ''; var errorcode12 = null; var result = ""; function APIObject() { this.LMSInitialize = LMSInitialize; this.LMSFinish = LMSFinish; this.LMSGetValue = LMSGetValue; this.LMSSetValue = LMSSetValue; this.LMSCommit = LMSCommit; this.LMSGetLastError = LMSGetLastError; this.LMSGetErrorString = LMSGetErrorString; this.LMSGetDiagnostic = LMSGetDiagnostic; } function LMSInitialize(para) { result = doLMSInitialize(para); return result.toString(); } function LMSFinish(para) { result = doLMSFinish(para); return result.toString(); } function LMSGetValue(name) { result = doLMSGetValue(name); return (result == null) ? '' : result.toString(); } function LMSSetValue(name, value) { result = doLMSSetValue(name, value); return result.toString(); } function LMSCommit(para) { var result = doLMSCommit(para); return result.toString(); } function LMSGetLastError() { if ( _InternalErrorCode == 1 ) { return 0; } else { errorcode12 = doLMSGetLastError(); return errorcode12; } } function LMSGetErrorString(errorCode) { var errString = doLMSGetErrorString(errorCode); return errString; } function LMSGetDiagnostic(errorCode) { var errString = getErrorString(errorCode); return errString; } var API, API_1484_11;  
-        //
-        </script>-->
-    
+        <title>國立臺中教育大學 這只是一個demo網站</title>
     </head>
-    <div >
-        <div >
-            <div>
-                <html><head>
+    <script>
+        if(sessionStorage.length==0){
+            location.href = "./login.html" ;
+        }
+        function logout(){
+            sessionStorage.clear();
+            location.href = "./login.html" ;
+        }
+    </script>
+    <body leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" style="height: 100%;">
+    <div border="No" style="height: 90px; width: 100%; padding: 0 0 0 0;">
+        <html><head>
 
-                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                    <meta http-equiv="Content-Language" content="zh-tw">
-                    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-                    <title>教室工具列 </title>
-                    <link rel="stylesheet" type="text/css" href="https://elearning.ntcu.edu.tw/theme/default/learn/sysbar.css">
-                    <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="/lib/xmlextras.js"></script>
-                    <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="/lib/sysbar.js"></script>
-                    <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="/lib/common.js"></script>
-                    <script type="text/javascript" language="javascript">
-                    <!--
-                        var session_hash = 'reload'; var username = "ACS109144"; var lang = 'big5'; var MSG_SysError          = "程式發生錯誤"; var MSG_NotSupportBrowser = "不支援此版本的瀏覽器。"; var MSG_CantLoadLib       = "無法載入所需的函式。"; var MSG_NoTitle           = "[未命名]"; var MSG_NEED_VARS         = "缺少必要的資料"; var MSG_DATA_ERROR        = "傳送的資料的格式不正確"; var MSG_IP_DENY           = "所使用的 IP 不在授權進入的範圍中 "; var MSG_ADMIN_ROLE        = "您不具備管理者的權限 "; var MSG_DIRECTOR_ROLE     = "您不具備導師的權限 "; var MSG_TEACHER_ROLE      = "您不具備教師的權限 "; var MSG_STUEDNT_ROLE      = "您非本門課的學生 "; var MSG_SLID_ERROR        = "學校編號不符合規定"; var MSG_CAID_ERROR        = "班級編號不符合規定"; var MSG_CSID_ERROR        = "課程編號不符合規定"; var MSG_CS_DELTET         = "課程已經刪除 "; var MSG_CS_NOT_OPEN       = "尚未開始上課"; var MSG_BAD_BOARD_ID      = "錯誤的討論板編號"; var MSG_BAD_BOARD_RANGE   = "錯誤的討論板編號"; var MSG_BOARD_NOTOPEN     = "討論板尚未開放"; var MSG_BOARD_CLOSE       = "本討論板目前關閉中"; var MSG_BOARD_DISABLE     = "本討論板目前停用中"; var MSG_BOARD_TAONLY      = "此討論板為教師專用"; var MSG_IN_CHAT_ROOM      = "目前您正在討論室中，請先登出討論室。"; var fmDefault    = "s_main"; var sysGotoLabel = ""; var cal_count    = 0; var login_alert  = ""; var alert_num    = ""; var alert_date   = ""; var sys_date     = "2023-11-11"; var CalWin       = null; var isPopCal     = "Y"; function showCalList() { if ((CalWin != null) && !CalWin.closed) { CalWin.focus(); } else { CalWin = showDialog("calender_alert.php", false , "", true, "200px", "300px", "500px", "400px", "status=0, resizable=1, scrollbars=1"); } } function go_evn(val) { if (typeof(parent.s_main.notSave) == 'boolean' && parent.s_main.notSave) { if (!confirm(parent.s_main.MSG_EXIT)) return; else parent.s_main.notSave = false; } parent.window.onbeforeunload = null; switch (val) { case 1: parent.location.replace("/academic/index.php"); break; case 2: parent.location.replace("/direct/index.php"); break; } } window.onload = function () { showSysTime('PM 00:00:00'); initSysbar("goto_course.php"); if ((typeof(parent.session) == "object") && (typeof(parent.session.touchSession) == "function")) { parent.session.touchSession(); } if (isPopCal == 'Y') { if (login_alert == 'Y') { if (cal_count > 0){ showCalList(); } } else if ((alert_num == 0) || (sys_date != alert_date)) { if (cal_count > 0) { showCalList(); } } } rePosition(); }; window.document.onkeydown = function (evnt) { if (typeof evnt == "object") event = evnt; parent.reloadKey = (event.keyCode == 116) ? true : false; };  
-                    //-->
-                    </script>
-                    
-                    </head>
-                    <body leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0">
-                    <div style="height: 90px; overflow: hidden;"><table width="1359" border="0" cellspacing="0" cellpadding="0" id="SysLayout" style="">
-                        <tbody><tr class="cssBg01">
-                    <td id="logoTd"><div id="logoDiv" style="width: 200px; height: 66px; overflow: hidden;"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/logo.gif" border="0" id="logoImg"></div></td>		<td class="cssTd" valign="top" id="mainTd">
-                    <div class="sysUsername">ACS109144 您好！您正在<b>[教室環境]</b>中</div>		</td>
-                        </tr>
-                        <tr class="cssBg02">
-                            <td width="200" height="24" align="center" valign="middle" class="SMenuItemOut">
-                    <select size="1" name="selcourse" id="selcourse" class="cssInput" style="width:188px;" onchange="parent.chgCourse(this.value, 1, 1)" onclick="event.cancelBubble = true;"><option value="10000000">我的課程</option><option value="10028960">112-1資訊專題(II)(資四甲)</option><option value="10028920">112-1網際網路原理概論(資二甲)</option><option value="10028886">112-1健康生活－體重管理(大二通識)</option><option value="10028746">112-1資料庫系統(資二甲)</option><option value="10028258">111-2機器學習(資三甲)</option><option value="10028257">111-2程式能力檢定(資三甲)</option><option value="10028256">111-2資訊專題(I)(資三甲)</option><option value="10028167">111-2經典的智慧(大三通識)</option><option value="10028023">111-2資訊專題(I)(資三甲)</option><option value="10027231">110-2大二體育(二)(大二體育)</option><option value="10027090">110-2軟體工程(資二甲)</option><option value="10027070">110-2資料庫程式設計(資二甲)</option><option value="10027069">110-2視窗程式設計(資二甲)</option><option value="10026738">110-2機率(資二甲)</option><option value="10026458">110-1物件導向程式設計(資二甲)</option><option value="10026445">110-1系統分析與設計(資二甲)</option><option value="10026108">110-1當代社會議題(大二通識)</option><option value="10025866">109-2大一體育(二)(大一體育)</option><option value="10025759">109-2當代社會議題(大一通識)</option><option value="10025571">109-2網頁程式設計(資一甲)</option><option value="10025478">109-2數位邏輯設計(資一甲)</option><option value="10025477">109-2數位邏輯設計實驗(資一甲)</option><option value="10025461">109-2英文(大一英文)F12</option><option value="10025312">109-2進階程式設計(資一甲)</option><option value="10025308">109-2離散數學(資一甲)</option><option value="10025246">109-1大一體育(一)(大一體育)</option><option value="10025066">109-1程式設計(資一甲)</option><option value="10024899">109-1邏輯思考與應用(大一通識)</option><option value="10024782">109-1英文(大一英文)F12</option><option value="10024556">109-1微積分(I)(資一甲)</option></select>		</td>
-                            <td class="cssTd">&nbsp; </td>
-                        </tr>
-                    </tbody></table>
-                    <div class="MContainer" id="MContainer" style="top: 44px; width: 953px;"><div class="MMenu" id="MMenu" style="left: 0px;"><table id="mngp_10000" border="0" cellspacing="2" cellpadding="2" style="display: block;"><tbody><tr><td nowrap="" id="mnItem_10001" class="MMenuItemOver"><a title="個人區" href="javascript:;" class="MMenuItemFont" sysid="SYS_06_01_000">個人區<button id="mmnBtn_10000" style="display:none"></button></a></td><td nowrap="" id="mnItem_10002" class="MMenuItemOut"><a title="校園廣場" href="javascript:;" class="MMenuItemFont" sysid="SYS_07_01_000">校園廣場<button id="mmnBtn_10001" style="display:none"></button></a></td></tr></tbody></table></div></div><div class="SContainer" id="SContainer" style="width: 953px;"><div class="SMenu" id="SMenu" style="left: 0px;"><table id="mngp_10001" border="0" cellspacing="0" cellpadding="0" style="display: block;"><tbody><tr><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的課程" href="/learn/mycourse/index.php" target="s_main" class="SMenuItemOver" id="smnItem_10001" sysid="SYS_06_01_002">我的課程<button id="smnBtn_10001" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的學習中心" href="/learn/mycourse/mycourse.php" target="s_main" class="SMenuItemOut" id="smnItem_10002" sysid="SYS_06_01_001">我的學習中心<button id="smnBtn_10002" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的設定" href="/learn/personal/info.php" target="s_main" class="SMenuItemOut" id="smnItem_10003" sysid="SYS_06_01_003">我的設定<button id="smnBtn_10003" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的作業" href="/learn/my_homework.php" target="s_main" class="SMenuItemOut" id="smnItem_10004" sysid="SYS_06_01_004">我的作業<button id="smnBtn_10004" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的考試" href="/learn/my_exam.php" target="s_main" class="SMenuItemOut" id="smnItem_10005" sysid="SYS_06_01_005">我的考試<button id="smnBtn_10005" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的學習歷程" href="/learn/learn_stat.php" target="s_main" class="SMenuItemOut" id="smnItem_10006" sysid="SYS_06_01_006">我的學習歷程<button id="smnBtn_10006" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="行事曆" href="/learn/calendar/calendar.php" target="s_main" class="SMenuItemOut" id="smnItem_10007" sysid="SYS_06_01_007">行事曆<button id="smnBtn_10007" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="筆記本" href="/message/notebook.php" target="s_main" class="SMenuItemOut" id="smnItem_10008" sysid="SYS_06_01_008">筆記本<button id="smnBtn_10008" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="訊息中心" href="/message/index.php" target="s_main" class="SMenuItemOut" id="smnItem_10009" sysid="SYS_06_01_009">訊息中心<button id="smnBtn_10009" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="未讀文章" href="/learn/my_forum.php" target="s_main" class="SMenuItemOut" id="smnItem_10010" sysid="SYS_06_01_010">未讀文章<button id="smnBtn_10010" style="display:none"></button></a></td></tr></tbody></table><table id="mngp_10002" border="0" cellspacing="0" cellpadding="0" style="display: none;"><tbody><tr><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="最新消息" href="/learn/news/index_news.php" target="s_main" class="SMenuItemOut" id="smnItem_10011" sysid="SYS_07_01_001">最新消息<button id="smnBtn_10011" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="課程排行" href="/learn/course_ranking.php" target="s_main" class="SMenuItemOut" id="smnItem_10012" sysid="SYS_07_01_005">課程排行<button id="smnBtn_10012" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="學習榮譽榜" href="/learn/school_ranking.php" target="s_main" class="SMenuItemOut" id="smnItem_10013" sysid="SYS_07_01_006">學習榮譽榜<button id="smnBtn_10013" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="公共交談" href="/learn/chat/chat_sch_list.php" target="s_main" class="SMenuItemOut" id="smnItem_10014" sysid="SYS_07_01_009">公共交談<button id="smnBtn_10014" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="討論室紀錄" href="/learn/chatrec/school.php" target="s_main" class="SMenuItemOut" id="smnItem_10015" sysid="SYS_07_01_010">討論室紀錄<button id="smnBtn_10015" style="display:none"></button></a></td></tr></tbody></table></div></div><div class="MScroll" id="MScroll" style="left: 1163px;">
-                    <table border="0" cellspacing="0" cellpadding="0">
-                        <tbody><tr class="cssTr">
-                            <td class="cssTd" nowrap="">
-                    <span id="MLeft" style="visibility: hidden;"><a href="javascript:;" onclick="ScrollMenu(1)" title="左移"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/mleft.gif" alt="左移" width="16" height="16" border="0" align="absmiddle"></a></span>
-                            </td>
-                            <td class="cssTd" nowrap="">
-                    <span id="MRight" style="visibility: hidden;"><a href="javascript:;" onclick="ScrollMenu(2)" title="右移"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/mright.gif" alt="右移" width="16" height="16" border="0" align="absmiddle"></a></span>
-                            </td>
-                        </tr>
-                    </tbody></table>
-                    </div>
-                    <div class="SScroll" id="SScroll" style="left: 1163px;">
-                    <table border="0" cellspacing="0" cellpadding="0">
-                        <tbody><tr class="cssTr">
-                            <td class="cssTd" nowrap="">
-                    <span id="SLeft" style="visibility: hidden;"><a href="javascript:;" onclick="ScrollMenu(3)" title="左移"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/sleft.gif" alt="左移" width="16" height="16" border="0" align="absmiddle"></a></span>
-                            </td>
-                            <td class="cssTd" nowrap="">
-                    <span id="SRight" style="visibility: hidden;"><a href="javascript:;" onclick="ScrollMenu(4)" title="右移"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/sright.gif" alt="右移" width="16" height="16" border="0" align="absmiddle"></a></span>
-                            </td>
-                        </tr>
-                    </tbody></table>
-                    </div>
-                    <table border="0" cellspacing="0" cellpadding="0" class="sysOnline" id="SysOnline" style="left: 1178px;">
-                        <tbody><tr class="cssTr">
-                            <td nowrap="" class="sysOnlineFont">
-                    <a href="javascript:;" onclick="showUserList(); return false;" class="sysOnlineFont">全校 <span id="spanSchool">27</span> 人 | 全班 <span id="spanCourse">2</span> 人</a> | <a href="javascript:;" class="sysHelpFont" onclick="parent.logout();">登出</a>		</td>
-                        </tr>
-                    </tbody></table>
-                    <table border="0" cellspacing="0" cellpadding="0" class="sysHelp" id="SysHelp" style="left: 1354px;">
-                        <tbody><tr class="cssTr">
-                            <td nowrap="" id="admOffice1" style="display: none;"><pre class="sysHelpSplit">&nbsp;</pre></td>		<td nowrap="" id="admOffice" style="display: none;"><div><a href="javascript:;" class="sysEnvFont" onclick="parent.chgCourse(parent.csid, 1, 2);" title="辦公室">辦公室</a></div></td>
-                        </tr>
-                    </tbody></table>
-                    <table border="0" cellspacing="0" cellpadding="0" class="sysTime" id="SysTime" title="系統時間" style="left: 1296px;">
-                        <tbody><tr class="cssTr">
-                            <td nowrap="" class="sysTimeFont" id="tdSysTime">PM 06:55</td>
-                        </tr>
-                    </tbody></table>
-                    </div>
-                    
-                    <a href="#" id="toGo"></a>
-                    <script src="/lib/disable.js" type="text/javascript"></script>
-                    
-                    </body></html>
-            </div>    
-            <div cols="200,*" framespacing="3" frameborder="Yes" border="3" id="envClassRoom" bordercolor="#FFFFFF">
-                <div src="about:blank" name="s_catalog" id="s_catalog" frameborder="No" scrolling="Auto">
-                    <html><head>
-
-                        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                        <meta http-equiv="Content-Language" content="zh-tw">
-                        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-                        <title>課程群組 </title>
-                        <link rel="stylesheet" type="text/css" href="https://elearning.ntcu.edu.tw/theme/default/learn/wm.css">
-                        <!--<script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="/lib/xmlextras.js"></script>
-                        <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="./course_tree.js"></script>
-                        <script type="text/javascript" language="javascript">
-                        
-                            var MSG_SCHOOL_NAME   = "國立臺中教育大學 "; var MSG_FAVORITE      = "我的最愛"; var MSG_SYS_ERROR     = "JavaScript 執行發生一些錯誤，無法完成指定的動作！"; var MSG_LOADING       = "程式載入中，請稍後..."; var MSG_EXPAND        = "展開"; var MSG_COLLECT       = "收攏"; var MSG_ALL_SCHOOL    = "顯示全校所有課程"; var MSG_ALL_MAJOR     = "顯示所有修讀課程"; var MSG_ALL_TEACH     = "顯示所有任教課程"; var MSG_ALL_FAVORITE  = "顯示我的最愛中所有課程"; var MSG_TARGET        = "請勾選要目的地群組。"; var MSG_SEL_COURSE    = "請勾選欲加退選的課程。"; var MSG_COURSE_ADD    = "加入選課清單"; var MSG_COURSE_DEL    = "從選課清單中移除"; var MSG_SUCCESS       = "成功 "; var MSG_FAIL          = "失敗"; var MSG_NO_ELECTIVE   = "目前未有任何課程加入選課清單中"; var MSG_SEND_SUCCESS  = "選課清單已經送出"; var MSG_SEND_FAIL     = "選課清單送出失敗，請稍後再次嘗試"; var MSG_EDIT_FOLDER   = "[編輯]"; var MSG_ALT_EDFOLDER  = "編輯我的最愛的資料夾"; var MSG_NOT_MV_UP     = "無法再往上移動。"; var MSG_NOT_MV_DOWN   = "無法再往下移動。"; var MSG_SAME_COURSE   = "目的地群組已經有部份相同的課程存在，相同的課程將不再附屬或搬移"; var MSG_SAME_SRC_TGT  = "目的地群組不可以是來源群組"; var MSG_DROP_SUCCESS  = "退選成功！"; var MSG_DROP_FAIL  = "退選失敗！"; var cs_status = new Array( "關閉", "開課（可旁聽，且不受上課起訖日期限制）", "開課（可旁聽，並於上課開始前或結束後關閉）", "開課（不可旁聽，且不受上課起訖日期限制）", "開課（不可旁聽，並於上課開始前或結束後關閉）", "準備中（限教師）"); var theme = "default/learn"; var ticket = "887e3725e94bc7a3cfa8b916b17944cc"; var lang = "Big5"; var favorite = true; var obj = window.scrollbars; if ((typeof(obj) == "object") && (obj.visible == true)) { obj.visible = false; } window.onload = function () { document.body.scroll = "no"; chkBrowser(); do_func("list_group", "1"); }; window.onunload = function () { window.onresize = function () {}; document.body.scroll = "no"; top.FrameExpand(0, false, ''); }; 
-                        //
-                        </script>-->
-                        
-                        </head>
-                        <body class="cssTbBodyBg" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
-                        <table border="0" cellspacing="0" cellpadding="0" align="right">
-                            <tbody><tr class="cssTr">
-                                <td class="cssTd" style="padding: 6px 5px 0px 0px;">
-                        <a href="javascript:;" onclick="return winExpand(true)" id="IconExpand" style="display:none"><img src="https://elearning.ntcu.edu.tw/theme/default/academic/icon_expand.gif" border="0" alt="展開" title="展開"></a><a href="javascript:;" onclick="return winExpand(false)" id="IconCollection" style=""><img src="/theme/default/academic/icon_collection.gif" border="0" alt="收攏" title="收攏"></a>		</td>
-                            </tr>
-                        </tbody></table>
-                        <div id="ToolBar" class="cssToolbar" style="width: 188px; height: 849px; clip: auto; overflow: auto; visibility: visible;"><table width="150" border="0" cellspacing="0" cellpadding="0" style="width: 188px;">
-                            <tbody><tr class="cssTr">
-                                <td class="cssTd">
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody><tr class="cssTrEvn">
-                        <td width="3" valign="top" nowrap=""><img src="https://elearning.ntcu.edu.tw/theme/default/academic/cl2.gif" width="3" height="3" border="0"></td><td align="right" valign="top" nowrap=""><img src="https://elearning.ntcu.edu.tw/theme/default/academic/cl3.gif" width="3" height="3" border="0"></td>			</tr>
-                                    <tr class="cssTrEvn" onclick="showRoot();">
-                                        <td class="cssTd" colspan="2" nowrap="nowrap" id="allCSTitle" title="顯示所有修讀課程">
-                        &nbsp;<img src="https://elearning.ntcu.edu.tw/theme/default/academic/icon_book.gif" width="22" height="12" border="0" align="absmiddle" onclick="do_func('favorite', ''); event.cancelBubble = true;">&nbsp;<a href="javascript:;" class="cssTbHead" id="sname">國立臺中教育大學 </a><span id="editDir"><br><blockquote style="display: inline"></blockquote></span>				</td>
-                                    </tr>
-                                </tbody></table>
-                                </td>
-                            </tr>
-                            <tr class="cssTr">
-                                <td class="cssTd">
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="cssTbTable">
-                                    <tbody><tr class="cssTbTr">
-                                        <td colspan="2" class="cssTbTd" nowrap="" id="CGroup"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td nowrap=""><pre style="width: 15px; display: inline;">&nbsp;&nbsp;</pre><img src="https://elearning.ntcu.edu.tw/theme/default/learn/dot.gif" width="9" height="15" border="0" align="absmiddle"><span class="cssTbBlur" myattr="10010437" id="Div10010437" onmouseover="mouseEvent(this, 1)" onmouseout="mouseEvent(this, 2)" onclick="mouseEvent(this, 3)">資訊工程學系</span><div id="Group10010437" myattr="false" style="display:none"></div></td></tr></tbody></table><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td nowrap=""><pre style="width: 15px; display: inline;">&nbsp;&nbsp;</pre><img src="/theme/default/learn/dot.gif" width="9" height="15" border="0" align="absmiddle"><span class="cssTbBlur" myattr="10010242" id="Div10010242" onmouseover="mouseEvent(this, 1)" onmouseout="mouseEvent(this, 2)" onclick="mouseEvent(this, 3)">通識課程</span><div id="Group10010242" myattr="false" style="display:none"></div></td></tr></tbody></table><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td nowrap=""><pre style="width: 15px; display: inline;">&nbsp;&nbsp;</pre><img src="/theme/default/learn/dot.gif" width="9" height="15" border="0" align="absmiddle"><span class="cssTbBlur" myattr="10014429" id="Div10014429" onmouseover="mouseEvent(this, 1)" onmouseout="mouseEvent(this, 2)" onclick="mouseEvent(this, 3)">共選課程虛擬系所</span><div id="Group10014429" myattr="false" style="display:none"></div></td></tr></tbody></table></td>
-                                    </tr>
-                                </tbody></table>
-                                </td>
-                            </tr>
-                        </tbody></table>
-                        </div><div id="ToolBar" class="cssTbBugIE5">&nbsp;</div>
-                        
-                        <a href="#" id="toGo"></a>
-                        <!--<script src="/lib/disable.js" type="text/javascript"></script>-->
-                        
-                        </body></html>
-                </div>
-                <div src="about:blank" name="s_main" id="s_main" frameborder="No" scrolling="Auto">
-                    <html><head><link rel="stylesheet" type="text/css" media="all" href="/lib/jscalendar/calendar-system.css">
-                        <script type="text/javascript" src="/lib/jscalendar/calendar_stripped.js"></script>
-                        <script type="text/javascript" src="/lib/jscalendar/lang/calendar-big5-utf8.js"></script>
-                        <script type="text/javascript" src="/lib/jscalendar/calendar-setup_stripped.js"></script>
-                        
-                        
-                        
-                        
-                        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                        <meta http-equiv="Content-Language" content="zh-tw">
-                        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-                        <title>我的課程 </title>
-                        <link rel="stylesheet" type="text/css" href="https://elearning.ntcu.edu.tw/theme/default/learn/wm.css">
-                        <script type="text/javascript" language="javascript">
-                        <!--
-                            var MSG_NOW              = "即日起"; var MSG_FOREVER			 = "無限期"; var MSG_FROM2            = "從 "; var MSG_TO2              = "到 "; var MSG_FROM             = "從 "; var MSG_TO               = "至 "; var MSG_FAVORITE_SUCCESS = "已加入我的最愛"; var MSG_FAVORITE_FAIL    = "無法加入我的最愛"; var MSG_FAVORITE_EXIST   = "該課程已經存在"; var MSG_TARGET           = "請勾選要目的地群組。"; var MSG_SRC_COURSE       = "請勾選要動作的課程。"; var MSG_SYS_ERROR        = "JavaScript 執行發生一些錯誤，無法完成指定的動作！"; var MSG_SEL_COURSE       = "請勾選欲加退選的課程。"; var MSG_SELECT_ALL       = "全選"; var MSG_SELECT_CANCEL    = "全消"; var MSG_CORRECT_DATE     = "請輸入正確日期(yyyy-mm-dd)，例如：2004-08-01"; var MSG_CORRECT_DATE1    = "月份介在01和12之間 "; var MSG_CORRECT_DATE2    = "在一，三，五，七，八，十，十二月份日期介在01和31之間 "; var MSG_CORRECT_DATE3    = "二月份日期必介在01和29之間 "; var MSG_CORRECT_DATE4    = "二月份日期必介在01和28之間 "; var MSG_CORRECT_DATE5    = "在四，六，九，十一月份 \n日期必介在01到30之間 ! "; var MSG_ENROLL_DATE      = ""; var MSG_STUDY_DATE       = ""; var isTreeLoad = false; var nowTabNum  = 1; var ticket = ""; function defaultSort() { var obj = document.getElementById('actFm'); if ((typeof(obj) != "object") || (obj == null)) return false; obj.sortby.value = 'course_id'; obj.order.value = 'desc'; obj.submit(); } 
-                        //-->
-                        </script>
-                        <script type="text/javascript" language="javascript" lang="zh-tw" charset="Big5" src="index.js?1699698322"></script>
-                        
-                        </head>
-                        <body>
-                        <script type="text/javascript" language="javascript">
-                        <!--
-                         if (parent == self) document.write('<p align=center><input type=button value="回首頁" onclick="top.location.replace(\'/logout.php\');" class=cssBtn></p>');  
-                        //-->
-                        </script>
-                        <table width="760" align="center" border="0" cellspacing="0" cellpadding="0" id="ListTable">
-                            <tbody><tr class="cssTr">
-                                <td class="cssTd">
-                                <table border="0" cellspacing="0" cellpadding="0">
-                                    <tbody><tr class="cssTr">
-                                        <td class="cssTd"><img onselectstart="return false;" id="ImgL1" myattr="1" tabsidx="1" src="https://elearning.ntcu.edu.tw/theme/default/learn/title_off_01.gif" width="25" height="30" border="0" align="absbottom"> </td>
-                                        <td align="center" valign="bottom" nowrap="NoWrap" id="TitleID1" myattr="1" tabsidx="1" style="cursor: default; background-image: url(&quot;/theme/default/learn/title_off_02.gif&quot;);" class="cssTabs" onselectstart="return false;" onclick="tabsMouseEvent(this, 2)" onmouseover="tabsMouseEvent(this, 1)" onmouseout="tabsMouseEvent(this, 0)">我的最愛 </td>
-                                        <td class="cssTd"><img onselectstart="return false;" id="ImgR1" myattr="1" tabsidx="1" src="https://elearning.ntcu.edu.tw/theme/default/learn/title_off_03.gif" width="28" height="30" border="0" align="absbottom"> </td>
-                                        <td class="cssTd"><img onselectstart="return false;" id="ImgL2" myattr="2" tabsidx="1" src="https://elearning.ntcu.edu.tw/theme/default/learn/title_on_01.gif" width="25" height="30" border="0" align="absbottom"> </td>
-                                        <td align="center" valign="bottom" nowrap="NoWrap" id="TitleID2" myattr="2" tabsidx="1" style="cursor: default; background-image: url('https://elearning.ntcu.edu.tw/theme/default/learn/title_on_02.gif');" class="cssTabs" onselectstart="return false;" onclick="tabsMouseEvent(this, 2)" onmouseover="tabsMouseEvent(this, 1)" onmouseout="tabsMouseEvent(this, 0)">課程教室 </td>
-                                        <td class="cssTd"><img onselectstart="return false;" id="ImgR2" myattr="2" tabsidx="1" src="/theme/default/learn/title_on_03.gif" width="28" height="30" border="0" align="absbottom"> </td>
-                                        <td class="cssTd"><img onselectstart="return false;" id="ImgL3" myattr="3" tabsidx="1" src="/theme/default/learn/title_off_01.gif" width="25" height="30" border="0" align="absbottom"> </td>
-                                        <td align="center" valign="bottom" nowrap="NoWrap" id="TitleID3" myattr="3" tabsidx="1" style="cursor: default; background-image: url('/theme/default/learn/title_off_02.gif');" class="cssTabs" onselectstart="return false;" onclick="tabsMouseEvent(this, 2)" onmouseover="tabsMouseEvent(this, 1)" onmouseout="tabsMouseEvent(this, 0)">全校課程 </td>
-                                        <td class="cssTd"><img onselectstart="return false;" id="ImgR3" myattr="3" tabsidx="1" src="/theme/default/learn/title_off_03.gif" width="28" height="30" border="0" align="absbottom"> </td>
-                                        <td class="cssTd" width="100%">&nbsp; </td>
-                                        <td class="cssTd"><a href="javascript:" onclick="window.open('/base/10001/door/wmhelp/Big5/learn.mycourse.index.php.htm','aaa','height=300,width=400,resizable=1,scrollbars=1,toolbar=0')"><img border="0" src="/theme/default/learn/help.gif" width="21" height="21" align="middle" alt="Help" title="Help"></a> </td>
-                                    </tr>
-                                </tbody></table>
-                        <script type="text/javascript" language="javascript">
-                        <!--
-                            var ThemePath = "/theme/default/learn/"; var nowTitle = new Array(''); nowTitle[1] = "2"; var tabsActs  = new Object(); tabsActs['1'] = new Array('tabsFavorites', 'chgTabs(4);'); tabsActs['2'] = new Array('tabsCourse', 'chgTabs(1);'); tabsActs['3'] = new Array('tabsSchool', 'chgTabs(3);'); var btmImgs = [ [], [['/theme/default/learn/title_off_01.gif'], ['/theme/default/learn/title_on_01.gif']], [['/theme/default/learn/title_off_02.gif'], ['/theme/default/learn/title_on_02.gif']], [['/theme/default/learn/title_off_03.gif'], ['/theme/default/learn/title_on_03.gif']] ]; function tabsSelect(val) { var obj = null; var idx = val; if ((typeof(tabsActs[val]) == "undefined") || (tabsActs[val] == null)) return false; obj = document.getElementById("TitleID" + nowTitle[1]); if (obj != null) tabsMouseEvent(obj, 0); obj = document.getElementById("TitleID" + idx); if (obj != null) obj.onclick(); } function tabsMouseEvent(obj, envType) { var node = null, nodes = null, attr = null, idx = null; if ((typeof(obj) != "object") || (obj == null)) return false; attr = obj.getAttribute("MyAttr"); idx  = obj.getAttribute("tabsIdx"); if ((attr == null) || (idx == null) || (attr == nowTitle[idx])) return false; if ((envType == 2)) { if ((typeof(tabsActs[nowTitle[idx]]) == "object") && (tabsActs[nowTitle[idx]] != null)) { node = document.getElementById(tabsActs[nowTitle[idx]][0]); if (node != null) node.style.display = "none"; } node = document.getElementById("TitleID" + nowTitle[idx]); nowTitle[idx] = attr; tabsMouseEvent(node, 0); if ((typeof(tabsActs[nowTitle[idx]]) == "object") && (tabsActs[nowTitle[idx]] != null)) { node = document.getElementById(tabsActs[nowTitle[idx]][0]); if (node != null) node.style.display = ""; eval(tabsActs[nowTitle[idx]][1]); } } obj.style.backgroundImage = (envType ? ("url('" + btmImgs[2][1] + "')") : ("url('" + btmImgs[2][0] + "')")); node = document.getElementById("ImgL" + attr); if ((typeof(node) == "object") && (node != null)) { node.src = envType ? btmImgs[1][1] : btmImgs[1][0]; } node = document.getElementById("ImgR" + attr); if ((typeof(node) == "object") && (node != null)) { node.src = envType ? btmImgs[3][1] : btmImgs[3][0]; } }  
-                        //-->
-                        </script>
-                                </td>
-                            </tr>
-                            <tr class="cssTr">
-                                <td valign="top" id="CGroup" class="cssTd">
-                        <script type="text/javascript" language="javascript">
-                        <!--
-                            var total_page=3; function chgPageSort(sortby) { var obj = document.getElementById('actFm'); if ((typeof(obj) != "object") || (obj == null)) return false; if (obj.sortby.value != sortby) { obj.order.value = 'asc'; obj.sortby.value = sortby; } else obj.order.value = obj.order.value == 'asc' ? 'desc' : 'asc'; obj.submit(); } 
-                        //-->
-                        </script>
-                                <table width="760" border="0" cellspacing="1" cellpadding="3" class="cssTable" id="tabsCourse">
-                                    <tbody><tr class="cssTrHead">
-                                        <td class="cssTd" width="760" colspan="10">以下是您所修讀的課程，請點選課程名稱進入教室。 </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="nowrap" colspan="10" id="tb1">
-                        &nbsp;頁次：				<select name="ap" class="cssInput" onchange="go_page(this.value);">
-                                        <option value="0" title="全部">全部 </option>
-                                        <option value="1" title="1" selected="selected">1 </option>
-                                        <option value="2" title="2">2 </option>
-                                        <option value="3" title="3">3 </option>
-                                        </select>
-                                        <input type="button" value="首頁" class="cssBtn" onclick="go_page(-1)" disabled="disabled">
-                                        <input type="button" value="上頁" class="cssBtn" onclick="go_page(-2)" disabled="disabled">
-                                        <input type="button" value="下頁" class="cssBtn" onclick="go_page(-3)">
-                                        <input type="button" value="末頁" class="cssBtn" onclick="go_page(-4)">
-                        &nbsp;				</td>
-                                    </tr>
-                                    <tr class="cssTrHead">
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="chgPageSort('caption');"><a class="cssAnchor" href="javascript:;" onclick="return false;">課程名稱</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="chgPageSort('st_begin');"><a class="cssAnchor" href="javascript:;" onclick="return false;">開始上課</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="chgPageSort('st_end');"><a class="cssAnchor" href="javascript:;" onclick="return false;">截止上課</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="chgPageSort('post');"><a class="cssAnchor" href="javascript:;" onclick="return false;">新佈告</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="chgPageSort('homework');"><a class="cssAnchor" href="javascript:;" onclick="return false;">未繳作業</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="chgPageSort('exam');"><a class="cssAnchor" href="javascript:;" onclick="return false;">未寫考卷</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="chgPageSort('questionnaire');"><a class="cssAnchor" href="javascript:;" onclick="return false;">未填問卷</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="chgPageSort('progress');"><a class="cssAnchor" href="javascript:;" onclick="return false;">學習進度</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center">身分 </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center">最愛 </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="nowrap" onclick="parent.chgCourse(10028960, 1, 1);"><div style="width: 220px; overflow: hidden;" title="112-1資訊專題(II)(資四甲)"><a href="javascript:;" onclick="return false;" class="cssAnchor">112-1資訊專題(II)(資四甲)</a></div> </td>
-                                        <td class="cssTd" nowrap="nowrap">2023-09-11 </td>
-                                        <td class="cssTd" nowrap="nowrap">2024-01-31 </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028960,1,1,'SYS_04_01_005');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028960,1,1,'SYS_04_02_001');return false;">6</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028960,1,1,'SYS_04_02_002');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028960,1,1,'SYS_04_02_003');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
-                                        <td class="cssTd" nowrap="nowrap">
-                        正式生				</td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="add_favorite('10028960')"><a href="javascript:;" onclick="return false;" class="cssAnchor" title="加到我的最愛"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="nowrap" onclick="parent.chgCourse(10028920, 1, 1);"><div style="width: 220px; overflow: hidden;" title="112-1網際網路原理概論(資二甲)"><a href="javascript:;" onclick="return false;" class="cssAnchor">112-1網際網路原理概論(資二甲)</a></div> </td>
-                                        <td class="cssTd" nowrap="nowrap">即日起 </td>
-                                        <td class="cssTd" nowrap="nowrap">2024-01-21 </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028920,1,1,'SYS_04_01_005');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028920,1,1,'SYS_04_02_001');return false;">1</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028920,1,1,'SYS_04_02_002');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028920,1,1,'SYS_04_02_003');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap"><img src="/theme/default/learn/bar-p.gif" width="73" height="13"><img src="/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(73%) </td>
-                                        <td class="cssTd" nowrap="nowrap">
-                        正式生				</td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="add_favorite('10028920')"><a href="javascript:;" onclick="return false;" class="cssAnchor" title="加到我的最愛"><img src="/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="nowrap" onclick="parent.chgCourse(10028886, 1, 1);"><div style="width: 220px; overflow: hidden;" title="112-1健康生活－體重管理(大二通識)"><a href="javascript:;" onclick="return false;" class="cssAnchor">112-1健康生活－體重管理(大二通識)</a></div> </td>
-                                        <td class="cssTd" nowrap="nowrap">即日起 </td>
-                                        <td class="cssTd" nowrap="nowrap">無限期 </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028886,1,1,'SYS_04_01_005');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028886,1,1,'SYS_04_02_001');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028886,1,1,'SYS_04_02_002');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028886,1,1,'SYS_04_02_003');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap"><img src="/theme/default/learn/bar-p.gif" width="50" height="13"><img src="/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(50%) </td>
-                                        <td class="cssTd" nowrap="nowrap">
-                        正式生				</td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="add_favorite('10028886')"><a href="javascript:;" onclick="return false;" class="cssAnchor" title="加到我的最愛"><img src="/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="nowrap" onclick="parent.chgCourse(10028746, 1, 1);"><div style="width: 220px; overflow: hidden;" title="112-1資料庫系統(資二甲)"><a href="javascript:;" onclick="return false;" class="cssAnchor">112-1資料庫系統(資二甲)</a></div> </td>
-                                        <td class="cssTd" nowrap="nowrap">即日起 </td>
-                                        <td class="cssTd" nowrap="nowrap">無限期 </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028746,1,1,'SYS_04_01_005');return false;">1</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028746,1,1,'SYS_04_02_001');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028746,1,1,'SYS_04_02_002');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028746,1,1,'SYS_04_02_003');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap"><img src="/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
-                                        <td class="cssTd" nowrap="nowrap">
-                        正式生				</td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="add_favorite('10028746')"><a href="javascript:;" onclick="return false;" class="cssAnchor" title="加到我的最愛"><img src="/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="nowrap" onclick="parent.chgCourse(10028258, 1, 1);"><div style="width: 220px; overflow: hidden;" title="111-2機器學習(資三甲)"><a href="javascript:;" onclick="return false;" class="cssAnchor">111-2機器學習(資三甲)</a></div> </td>
-                                        <td class="cssTd" nowrap="nowrap">2023-06-30 </td>
-                                        <td class="cssTd" nowrap="nowrap">2023-07-31 </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028258,1,1,'SYS_04_01_005');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028258,1,1,'SYS_04_02_001');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028258,1,1,'SYS_04_02_002');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028258,1,1,'SYS_04_02_003');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap"><img src="/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
-                                        <td class="cssTd" nowrap="nowrap">
-                        正式生				</td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="add_favorite('10028258')"><a href="javascript:;" onclick="return false;" class="cssAnchor" title="加到我的最愛"><img src="/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="nowrap" onclick="parent.chgCourse(10028257, 1, 1);"><div style="width: 220px; overflow: hidden;" title="111-2程式能力檢定(資三甲)"><a href="javascript:;" onclick="return false;" class="cssAnchor">111-2程式能力檢定(資三甲)</a></div> </td>
-                                        <td class="cssTd" nowrap="nowrap">即日起 </td>
-                                        <td class="cssTd" nowrap="nowrap">無限期 </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028257,1,1,'SYS_04_01_005');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028257,1,1,'SYS_04_02_001');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028257,1,1,'SYS_04_02_002');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028257,1,1,'SYS_04_02_003');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap"><img src="/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
-                                        <td class="cssTd" nowrap="nowrap">
-                        正式生				</td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="add_favorite('10028257')"><a href="javascript:;" onclick="return false;" class="cssAnchor" title="加到我的最愛"><img src="/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="nowrap" onclick="parent.chgCourse(10028256, 1, 1);"><div style="width: 220px; overflow: hidden;" title="111-2資訊專題(I)(資三甲)"><a href="javascript:;" onclick="return false;" class="cssAnchor">111-2資訊專題(I)(資三甲)</a></div> </td>
-                                        <td class="cssTd" nowrap="nowrap">即日起 </td>
-                                        <td class="cssTd" nowrap="nowrap">無限期 </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028256,1,1,'SYS_04_01_005');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028256,1,1,'SYS_04_02_001');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028256,1,1,'SYS_04_02_002');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028256,1,1,'SYS_04_02_003');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap"><img src="/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
-                                        <td class="cssTd" nowrap="nowrap">
-                        正式生				</td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="add_favorite('10028256')"><a href="javascript:;" onclick="return false;" class="cssAnchor" title="加到我的最愛"><img src="/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="nowrap" onclick="parent.chgCourse(10028167, 1, 1);"><div style="width: 220px; overflow: hidden;" title="111-2經典的智慧(大三通識)"><a href="javascript:;" onclick="return false;" class="cssAnchor">111-2經典的智慧(大三通識)</a></div> </td>
-                                        <td class="cssTd" nowrap="nowrap">即日起 </td>
-                                        <td class="cssTd" nowrap="nowrap">無限期 </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028167,1,1,'SYS_04_01_005');return false;">2</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028167,1,1,'SYS_04_02_001');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028167,1,1,'SYS_04_02_002');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028167,1,1,'SYS_04_02_003');return false;">1</a> </td>
-                                        <td class="cssTd" nowrap="nowrap"><img src="/theme/default/learn/bar-p.gif" width="9" height="13"><img src="/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(9%) </td>
-                                        <td class="cssTd" nowrap="nowrap">
-                        正式生				</td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="add_favorite('10028167')"><a href="javascript:;" onclick="return false;" class="cssAnchor" title="加到我的最愛"><img src="/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="nowrap" onclick="parent.chgCourse(10028023, 1, 1);"><div style="width: 220px; overflow: hidden;" title="111-2資訊專題(I)(資三甲)"><a href="javascript:;" onclick="return false;" class="cssAnchor">111-2資訊專題(I)(資三甲)</a></div> </td>
-                                        <td class="cssTd" nowrap="nowrap">2023-02-16 </td>
-                                        <td class="cssTd" nowrap="nowrap">2023-06-30 </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028023,1,1,'SYS_04_01_005');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028023,1,1,'SYS_04_02_001');return false;">4</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028023,1,1,'SYS_04_02_002');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10028023,1,1,'SYS_04_02_003');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap"><img src="/theme/default/learn/bar-p.gif" width="100" height="13"><img src="/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(100%) </td>
-                                        <td class="cssTd" nowrap="nowrap">
-                        正式生				</td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="add_favorite('10028023')"><a href="javascript:;" onclick="return false;" class="cssAnchor" title="加到我的最愛"><img src="/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="nowrap" onclick="parent.chgCourse(10027231, 1, 1);"><div style="width: 220px; overflow: hidden;" title="110-2大二體育(二)(大二體育)"><a href="javascript:;" onclick="return false;" class="cssAnchor">110-2大二體育(二)(大二體育)</a></div> </td>
-                                        <td class="cssTd" nowrap="nowrap">即日起 </td>
-                                        <td class="cssTd" nowrap="nowrap">無限期 </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10027231,1,1,'SYS_04_01_005');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10027231,1,1,'SYS_04_02_001');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10027231,1,1,'SYS_04_02_002');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap" align="center"><a href="javascript:;" class="cssAnchor" onclick="parent.chgCourse(10027231,1,1,'SYS_04_02_003');return false;">0</a> </td>
-                                        <td class="cssTd" nowrap="nowrap"><img src="/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
-                                        <td class="cssTd" nowrap="nowrap">
-                        正式生				</td>
-                                        <td class="cssTd" nowrap="nowrap" align="center" onclick="add_favorite('10027231')"><a href="javascript:;" onclick="return false;" class="cssAnchor" title="加到我的最愛"><img src="/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="nowrap" colspan="10" id="tb2">
-                        &nbsp;頁次：				<select name="ap" class="cssInput" onchange="go_page(this.value);">
-                                        <option value="0" title="全部">全部 </option>
-                                        <option value="1" title="1" selected="selected">1 </option>
-                                        <option value="2" title="2">2 </option>
-                                        <option value="3" title="3">3 </option>
-                                        </select>
-                                        <input type="button" value="首頁" class="cssBtn" onclick="go_page(-1)" disabled="disabled">
-                                        <input type="button" value="上頁" class="cssBtn" onclick="go_page(-2)" disabled="disabled">
-                                        <input type="button" value="下頁" class="cssBtn" onclick="go_page(-3)">
-                                        <input type="button" value="末頁" class="cssBtn" onclick="go_page(-4)">
-                        &nbsp;				</td>
-                                    </tr>
-                                </tbody></table>
-                                </td>
-                            </tr>
-                        </tbody></table>
-                        <table width="760" align="center" border="0" cellspacing="0" cellpadding="0" id="DetailTable" style="display: none;">
-                            <tbody><tr class="cssTr">
-                                <td class="cssTd">
-                                <table border="0" cellspacing="0" cellpadding="0">
-                                    <tbody><tr class="cssTr">
-                                        <td class="cssTd"><img onselectstart="return false;" id="ImgL4" myattr="4" tabsidx="2" src="/theme/default/learn/title_on_01.gif" width="25" height="30" border="0" align="absbottom"> </td>
-                                        <td align="center" valign="bottom" nowrap="NoWrap" id="TitleID4" myattr="4" tabsidx="2" style="cursor: default; background-image: url('/theme/default/learn/title_on_02.gif');" class="cssTabs" onselectstart="return false;">課程詳細資料 </td>
-                                        <td class="cssTd"><img onselectstart="return false;" id="ImgR4" myattr="4" tabsidx="2" src="/theme/default/learn/title_on_03.gif" width="28" height="30" border="0" align="absbottom"> </td>
-                                        <td class="cssTd" width="100%">&nbsp; </td>
-                                        <td class="cssTd"><a href="javascript:" onclick="window.open('/base/10001/door/wmhelp/Big5/learn.mycourse.index.php.htm','aaa','height=300,width=400,resizable=1,scrollbars=1,toolbar=0')"><img border="0" src="/theme/default/learn/help.gif" width="21" height="21" align="middle" alt="Help" title="Help"></a> </td>
-                                    </tr>
-                                </tbody></table>
-                                </td>
-                            </tr>
-                            <tr class="cssTr">
-                                <td class="cssTd" valign="top" id="csDetail">
-                                <table width="700" border="0" cellspacing="1" cellpadding="3" class="cssTable">
-                                    <tbody><tr class="cssTrOdd">
-                                        <td class="cssTd" width="120" nowrap="">課程名稱 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_title">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="">開課教師 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_teacher">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="">教材使用 </td>
-                                        <td class="cssTd">&nbsp;<span id="cs_content">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="">報名起迄日期 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_enroll">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="">上課起迄日期 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_study">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="">課程狀態 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_status">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="">修課審核 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_review">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="">所屬課程群組 </td>
-                                        <td class="cssTd">&nbsp;<span id="cs_group">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="">教材或參考書 </td>
-                                        <td class="cssTd">&nbsp;<span id="cs_texts">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="">相關網站 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_url">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="">課程簡介 </td>
-                                        <td class="cssTd">&nbsp;<span id="cs_introduce">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="">學分數 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_credit">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="">正式生人數 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_n_limit">&nbsp;</span>&nbsp;人 </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="">旁聽生人數 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_a_limit">&nbsp;</span>&nbsp;人 </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="">教材空間上限 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_quota_limit">&nbsp;</span> KB </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" nowrap="">教材空間使用率 </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_quota_used_percent">&nbsp;</span>%&nbsp;(<span id="cs_quota_used">&nbsp;</span> KB) </td>
-                                    </tr>
-                                    <tr class="cssTrOdd">
-                                        <td class="cssTd" nowrap="">及格成績  </td>
-                                        <td class="cssTd" nowrap="">&nbsp;<span id="cs_fair_grade">&nbsp;</span> </td>
-                                    </tr>
-                                    <tr class="cssTrEvn">
-                                        <td class="cssTd" colspan="2" align="center">
-                                        <input type="button" value="關閉" class="cssBtn" onclick="closeDetail();">
-                                        </td>
-                                    </tr>
-                                </tbody></table>
-                                </td>
-                            </tr>
-                        </tbody></table>
-                        
-                        <form id="actFm" name="actFm" accept-charset="UTF-8" lang="zh-tw" action="index.php" method="post" enctype="multipart/form-data" style="display:none">
-                            <input type="hidden" name="sortby" id="sortby" value="">
-                            <input type="hidden" name="CourseName_SORT" value="" id="CourseName_SORT">
-                            <input type="hidden" name="order" id="order" value="">
-                            <input type="hidden" name="page" id="page" value="1">
-                            <input type="hidden" name="course_name" id="course_name" value="">
-                            <input type="hidden" name="teacher" id="teacher" value="">
-                            <input type="hidden" name="en_begin" id="en_begin" value="">
-                            <input type="hidden" name="en_end" id="en_end" value="">
-                            <input type="hidden" name="st_begin" id="st_begin" value="">
-                            <input type="hidden" name="st_end" id="st_end" value="">
-                            <input type="hidden" name="advqy" id="advqy" value="">
-                            <input type="hidden" name="isquery" id="isquery" value="">
-                            <input type="hidden" name="tabs" id="tabs" value="1">
-                            <input type="hidden" name="query_keyword" id="query_keyword" value="">
-                            <input type="hidden" name="query_type" id="query_type" value="">
-                            <input type="hidden" name="querykeyword" id="querykeyword" value="">
-                            <input type="hidden" name="querytype" id="querytype" value="">
-                        
-                        </form>
-                        
-                        <form id="chgFm" name="chgFm" accept-charset="UTF-8" lang="zh-tw" action="index.php" method="post" enctype="multipart/form-data" style="display:none;">
-                            <input type="hidden" name="tabs" id="tabs" value="1">
-                        
-                        </form>
-                        
-                        <form id="gpFm" name="gpFm" accept-charset="UTF-8" lang="zh-tw" action="index.php" method="post" enctype="multipart/form-data" style="display:none;">
-                            <input type="hidden" name="chgp" id="chgp" value="66">
-                            <input type="hidden" name="tabs" id="tabs" value="1">
-                        
-                        </form>
-                        
-                        <form id="importFm" name="importFm" accept-charset="UTF-8" lang="zh-tw" action="co_course_import.php" method="post" enctype="multipart/form-data" style="display:none;">
-                            <input type="hidden" name="courses" id="courses" value="">
-                        
-                        </form>
-                        
-                        
-                        <a href="#" id="toGo"></a>
-                        <script src="/lib/enable.js" type="text/javascript"></script>
-                        
-                        </body></html>
-                </div>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="Content-Language" content="zh-tw">
+            <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+            <title>教室工具列 </title>
+            <link rel="stylesheet" type="text/css" href="https://elearning.ntcu.edu.tw/theme/default/learn/sysbar.css">
+            
+            </head>
+            <body leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0">
+            <div style="height: 90px; overflow: hidden;"><table width="1359" border="0" cellspacing="0" cellpadding="0" id="SysLayout" style="width: 100%;">
+                <tbody><tr class="cssBg01">
+            <td id="logoTd"><div id="logoDiv" style="width: 200px; height: 66px; overflow: hidden;"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/logo.gif" border="0" id="logoImg"></div></td>		<td class="cssTd" valign="top" id="mainTd">
+            <div class="sysUsername">
+                <a id="user">acs</a> 您好！您正在<b>[教室環境]</b>中
+                <script>
+                    document.getElementById("user").innerText=sessionStorage.getItem("user");
+                </script>
+            </div>		</td>
+                </tr>
+                <tr class="cssBg02">
+                    <td width="200" height="24" align="center" valign="middle" class="SMenuItemOut">
+            <select size="1" name="selcourse" id="selcourse" class="cssInput" style="width:188px;" onchange="" onclick="event.cancelBubble = true;"><option value="10000000">我的課程</option></select>		</td>
+                    <td class="cssTd">&nbsp; </td>
+                </tr>
+            </tbody></table>
+            <div class="MContainer" id="MContainer" style="top: 44px; width: 953px;"><div class="MMenu" id="MMenu" style="left: 0px;"><table id="mngp_10000" border="0" cellspacing="2" cellpadding="2" style="display: block;"><tbody><tr><td nowrap="" id="mnItem_10001" class="MMenuItemOver"><a title="個人區" href="" class="MMenuItemFont" sysid="SYS_06_01_000">個人區<button id="mmnBtn_10000" style="display:none"></button></a></td><td nowrap="" id="mnItem_10002" class="MMenuItemOut"><a title="校園廣場" href="" class="MMenuItemFont" sysid="SYS_07_01_000">校園廣場<button id="mmnBtn_10001" style="display:none"></button></a></td></tr></tbody></table></div></div><div class="SContainer" id="SContainer" style="width: 953px;"><div class="SMenu" id="SMenu" style="left: 0px;"><table id="mngp_10001" border="0" cellspacing="0" cellpadding="0" style="display: block;"><tbody><tr><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的課程" href="" target="" class="SMenuItemOver" id="smnItem_10001" sysid="SYS_06_01_002">我的課程<button id="smnBtn_10001" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的學習中心" href="" target="" class="SMenuItemOut" id="smnItem_10002" sysid="SYS_06_01_001">我的學習中心<button id="smnBtn_10002" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的設定" href="" target="" class="SMenuItemOut" id="smnItem_10003" sysid="SYS_06_01_003">我的設定<button id="smnBtn_10003" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的作業" href="" target="" class="SMenuItemOut" id="smnItem_10004" sysid="SYS_06_01_004">我的作業<button id="smnBtn_10004" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的考試" href="" target="" class="SMenuItemOut" id="smnItem_10005" sysid="SYS_06_01_005">我的考試<button id="smnBtn_10005" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="我的學習歷程" href="" target="" class="SMenuItemOut" id="smnItem_10006" sysid="SYS_06_01_006">我的學習歷程<button id="smnBtn_10006" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="行事曆" href="" target="" class="SMenuItemOut" id="smnItem_10007" sysid="SYS_06_01_007">行事曆<button id="smnBtn_10007" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="筆記本" href="" target="" class="SMenuItemOut" id="smnItem_10008" sysid="SYS_06_01_008">筆記本<button id="smnBtn_10008" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="訊息中心" href="" target="" class="SMenuItemOut" id="smnItem_10009" sysid="SYS_06_01_009">訊息中心<button id="smnBtn_10009" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="未讀文章" href="" target="" class="SMenuItemOut" id="smnItem_10010" sysid="SYS_06_01_010">未讀文章<button id="smnBtn_10010" style="display:none"></button></a></td></tr></tbody></table><table id="mngp_10002" border="0" cellspacing="0" cellpadding="0" style="display: none;"><tbody><tr><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="最新消息" href="" target="" class="SMenuItemOut" id="smnItem_10011" sysid="SYS_07_01_001">最新消息<button id="smnBtn_10011" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="課程排行" href="" target="" class="SMenuItemOut" id="smnItem_10012" sysid="SYS_07_01_005">課程排行<button id="smnBtn_10012" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="學習榮譽榜" href="" target="" class="SMenuItemOut" id="smnItem_10013" sysid="SYS_07_01_006">學習榮譽榜<button id="smnBtn_10013" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="公共交談" href="" target="" class="SMenuItemOut" id="smnItem_10014" sysid="SYS_07_01_009">公共交談<button id="smnBtn_10014" style="display:none"></button></a></td><td nowrap="" class="SMenuItemOut"><pre class="SMenuItemSplit">&nbsp;</pre><a title="討論室紀錄" href="" target="" class="SMenuItemOut" id="smnItem_10015" sysid="SYS_07_01_010">討論室紀錄<button id="smnBtn_10015" style="display:none"></button></a></td></tr></tbody></table></div></div><div class="MScroll" id="MScroll" style="left: 1163px;">
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tbody><tr class="cssTr">
+                    <td class="cssTd" nowrap="">
+            <span id="MLeft" style="visibility: hidden;"><a href="" onclick="" title="左移"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/mleft.gif" alt="左移" width="16" height="16" border="0" align="absmiddle"></a></span>
+                    </td>
+                    <td class="cssTd" nowrap="">
+            <span id="MRight" style="visibility: hidden;"><a href="" onclick="" title="右移"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/mright.gif" alt="右移" width="16" height="16" border="0" align="absmiddle"></a></span>
+                    </td>
+                </tr>
+            </tbody></table>
             </div>
-        </div>
-        <!--<frame src="/online/online.php" name="session" id="session" frameborder="No" scrolling="No" noresize="">-->
-        <div name="record" id="record" frameborder="No" scrolling="No" noresize="">
-        <div src="" name="empty" id="empty" frameborder="No" scrolling="No" noresize="">
-        <!-- SCORM2004 Start -->
-        <div name="sequencing" src="">
-        <div name="tocstatus" src="">
-        <div name="check" src="">
-        <div name="functions" src="">
-        <div name="engine" src="">
-        <!-- SCORM2004 End -->
+            <div class="SScroll" id="SScroll" style="left: 1163px;">
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tbody><tr class="cssTr">
+                    <td class="cssTd" nowrap="">
+            <span id="SLeft" style="visibility: hidden;"><a href="" onclick="" title="左移"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/sleft.gif" alt="左移" width="16" height="16" border="0" align="absmiddle"></a></span>
+                    </td>
+                    <td class="cssTd" nowrap="">
+            <span id="SRight" style="visibility: hidden;"><a href="" onclick="" title="右移"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/sright.gif" alt="右移" width="16" height="16" border="0" align="absmiddle"></a></span>
+                    </td>
+                </tr>
+            </tbody></table>
+            </div>
+            <table border="0" cellspacing="0" cellpadding="0" class="sysOnline" id="SysOnline" style="left: 1746px;">
+                <tbody><tr class="cssTr">
+                    <td nowrap="" class="sysOnlineFont">
+            <a href="" onclick="" class="sysOnlineFont">全校 <span id="spanSchool">1</span> 人 | 全班 <span id="spanCourse">1</span> 人</a> | <a href="" class="sysHelpFont" onclick="logout();">登出</a>		</td>
+                </tr>
+            </tbody></table>
+            <table border="0" cellspacing="0" cellpadding="0" class="sysHelp" id="SysHelp" style="left: 1354px;">
+                <tbody><tr class="cssTr">
+                    <td nowrap="" id="admOffice1" style="display: none;"><pre class="sysHelpSplit">&nbsp;</pre></td>		<td nowrap="" id="admOffice" style="display: none;"><div><a href="" class="sysEnvFont" onclick="parent.chgCourse(parent.csid, 1, 2);" title="辦公室">辦公室</a></div></td>
+                </tr>
+            </tbody></table>
+            <table border="0" cellspacing="0" cellpadding="0" class="sysTime" id="SysTime" title="系統時間" style="left: 1857px;">
+                <tbody><tr class="cssTr">
+                    <td nowrap="" class="sysTimeFont" id="tdSysTime">PM 12:00</td>
+                </tr>
+            </tbody></table>
+            </div>
+            
+            <a href="#" id="toGo"></a>
+            
+        </body></html>
     </div>
+    <div style="display:flex; height: 100%-90px;">
+        <div border="No" style="height: 100%; width: 200px; padding: 0 0 0 0;">
+            <img src="../img/sidebar.png">
+        </div>
+        <div border="No" style="height: 100%; width: 100%; padding: 0 0 0 0;">
+            <html><head><link rel="stylesheet" type="text/css" media="all" href="https://elearning.ntcu.edu.tw/lib/jscalendar/calendar-system.css">
+                
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <meta http-equiv="Content-Language" content="zh-tw">
+                <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+                <title>我的課程 </title>
+                <link rel="stylesheet" type="text/css" href="https://elearning.ntcu.edu.tw/theme/default/learn/wm.css">
+                
+                </head>
+                <body>
+                
+                <br>
+                <table width="760" align="center" border="0" cellspacing="0" cellpadding="0" id="ListTable">
+                    <tbody><tr class="cssTr">
+                        <td class="cssTd">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody><tr class="cssTr">
+                                <td class="cssTd"><img onselectstart="" id="ImgL1" myattr="1" tabsidx="1" src="https://elearning.ntcu.edu.tw/theme/default/learn/title_off_01.gif" width="25" height="30" border="0" align="absbottom"> </td>
+                                <td align="center" valign="bottom" nowrap="NoWrap" id="TitleID1" myattr="1" tabsidx="1" style="cursor: default; background-image: url(&quot;https://elearning.ntcu.edu.tw/theme/default/learn/title_off_02.gif&quot;);" class="cssTabs" onselectstart="" onclick="" onmouseover="" onmouseout="">我的最愛 </td>
+                                <td class="cssTd"><img onselectstart="" id="ImgR1" myattr="1" tabsidx="1" src="https://elearning.ntcu.edu.tw/theme/default/learn/title_off_03.gif" width="28" height="30" border="0" align="absbottom"> </td>
+                                <td class="cssTd"><img onselectstart="" id="ImgL2" myattr="2" tabsidx="1" src="https://elearning.ntcu.edu.tw/theme/default/learn/title_on_01.gif" width="25" height="30" border="0" align="absbottom"> </td>
+                                <td align="center" valign="bottom" nowrap="NoWrap" id="TitleID2" myattr="2" tabsidx="1" style="cursor: default; background-image: url('https://elearning.ntcu.edu.tw/theme/default/learn/title_on_02.gif');" class="cssTabs" onselectstart="" onclick="" onmouseover="" onmouseout="">課程教室 </td>
+                                <td class="cssTd"><img onselectstart="" id="ImgR2" myattr="2" tabsidx="1" src="https://elearning.ntcu.edu.tw/theme/default/learn/title_on_03.gif" width="28" height="30" border="0" align="absbottom"> </td>
+                                <td class="cssTd"><img onselectstart="" id="ImgL3" myattr="3" tabsidx="1" src="https://elearning.ntcu.edu.tw/theme/default/learn/title_off_01.gif" width="25" height="30" border="0" align="absbottom"> </td>
+                                <td align="center" valign="bottom" nowrap="NoWrap" id="TitleID3" myattr="3" tabsidx="1" style="cursor: default; background-image: url('https://elearning.ntcu.edu.tw/theme/default/learn/title_off_02.gif');" class="cssTabs" onselectstart="" onclick="" onmouseover="" onmouseout="">全校課程 </td>
+                                <td class="cssTd"><img onselectstart="" id="ImgR3" myattr="3" tabsidx="1" src="https://elearning.ntcu.edu.tw/theme/default/learn/title_off_03.gif" width="28" height="30" border="0" align="absbottom"> </td>
+                                <td class="cssTd" width="100%">&nbsp; </td>
+                                <td class="cssTd"><a href="" onclick=""><img border="0" src="https://elearning.ntcu.edu.tw/theme/default/learn/help.gif" width="21" height="21" align="middle" alt="Help" title="Help"></a> </td>
+                            </tr>
+                        </tbody></table>
+                
+                        </td>
+                    </tr>
+                    <tr class="cssTr">
+                        <td valign="top" id="CGroup" class="cssTd">
+                
+                        <table width="760" border="0" cellspacing="1" cellpadding="3" class="cssTable" id="tabsCourse">
+                            <tbody><tr class="cssTrHead">
+                                <td class="cssTd" width="760" colspan="10">以下是您所修讀的課程，請點選課程名稱進入教室。 </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="nowrap" colspan="10" id="tb1">
+                &nbsp;頁次：				<select name="ap" class="cssInput" onchange="">
+                                <option value="0" title="全部" selected="selected">全部 </option>
+                                <option value="1" title="1">1 </option>
+                                <option value="2" title="2">2 </option>
+                                <option value="3" title="3">3 </option>
+                                </select>
+                                <input type="button" value="首頁" class="cssBtn" onclick="">
+                                <input type="button" value="上頁" class="cssBtn" onclick="">
+                                <input type="button" value="下頁" class="cssBtn" onclick="">
+                                <input type="button" value="末頁" class="cssBtn" onclick="">
+                &nbsp;				</td>
+                            </tr>
+                            <tr class="cssTrHead">
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a class="cssAnchor" href="" onclick="">課程名稱</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a class="cssAnchor" href="" onclick="">開始上課</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a class="cssAnchor" href="" onclick="">截止上課</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a class="cssAnchor" href="" onclick="">新佈告</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a class="cssAnchor" href="" onclick="">未繳作業</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a class="cssAnchor" href="" onclick="">未寫考卷</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a class="cssAnchor" href="" onclick="">未填問卷</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a class="cssAnchor" href="" onclick="">學習進度</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center">身分 </td>
+                                <td class="cssTd" nowrap="nowrap" align="center">最愛 </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="nowrap" onclick=""><div style="width: 220px; overflow: hidden;" title="109-2計算機網路(資一甲)"><a href="" onclick="" class="cssAnchor">109-2計算機網路(資一甲)</a></div> </td>
+                                <td class="cssTd" nowrap="nowrap">即日起 </td>
+                                <td class="cssTd" nowrap="nowrap">無限期 </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
+                                <td class="cssTd" nowrap="nowrap">
+                正式生				</td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a href="" onclick="" class="cssAnchor" title="加到我的最愛"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="nowrap" onclick=""><div style="width: 220px; overflow: hidden;" title="110-1資料結構(資二甲)"><a href="" onclick="" class="cssAnchor">110-1資料結構(資二甲)</a></div> </td>
+                                <td class="cssTd" nowrap="nowrap">即日起 </td>
+                                <td class="cssTd" nowrap="nowrap">無限期 </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href=";" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
+                                <td class="cssTd" nowrap="nowrap">
+                正式生				</td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a href="" onclick="" class="cssAnchor" title="加到我的最愛"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="nowrap" onclick=""><div style="width: 220px; overflow: hidden;" title="110-1系統程式(資二甲)"><a href="" onclick="" class="cssAnchor">110-1系統程式(資二甲)</a></div> </td>
+                                <td class="cssTd" nowrap="nowrap">即日起 </td>
+                                <td class="cssTd" nowrap="nowrap">無限期 </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
+                                <td class="cssTd" nowrap="nowrap">
+                正式生				</td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a href="" onclick="" class="cssAnchor" title="加到我的最愛"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="nowrap" onclick=""><div style="width: 220px; overflow: hidden;" title="110-2演算法(資二甲)"><a href="" onclick="" class="cssAnchor">110-2演算法(資二甲)</a></div> </td>
+                                <td class="cssTd" nowrap="nowrap">即日起 </td>
+                                <td class="cssTd" nowrap="nowrap">無限期 </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
+                                <td class="cssTd" nowrap="nowrap">
+                正式生				</td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a href="" onclick="" class="cssAnchor" title="加到我的最愛"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="nowrap" onclick=""><div style="width: 220px; overflow: hidden;" title="110-2軟體工程(資二甲)"><a href="" onclick="" class="cssAnchor">110-2軟體工程(資二甲)</a></div> </td>
+                                <td class="cssTd" nowrap="nowrap">即日起 </td>
+                                <td class="cssTd" nowrap="nowrap">無限期 </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
+                                <td class="cssTd" nowrap="nowrap">
+                正式生				</td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a href="" onclick="" class="cssAnchor" title="加到我的最愛"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="nowrap" onclick=""><div style="width: 220px; overflow: hidden;" title="111-1作業系統(資三甲)"><a href="" onclick="" class="cssAnchor">111-1作業系統(資三甲)</a></div> </td>
+                                <td class="cssTd" nowrap="nowrap">即日起 </td>
+                                <td class="cssTd" nowrap="nowrap">無限期 </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
+                                <td class="cssTd" nowrap="nowrap">
+                正式生				</td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a href="" onclick="" class="cssAnchor" title="加到我的最愛"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="nowrap" onclick=""><div style="width: 220px; overflow: hidden;" title="111-1計算機組織(資三甲)"><a href="" onclick="" class="cssAnchor">111-1計算機組織(資三甲)</a></div> </td>
+                                <td class="cssTd" nowrap="nowrap">即日起 </td>
+                                <td class="cssTd" nowrap="nowrap">無限期 </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
+                                <td class="cssTd" nowrap="nowrap">
+                正式生				</td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a href="" onclick="" class="cssAnchor" title="加到我的最愛"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="nowrap" onclick=""><div style="width: 220px; overflow: hidden;" title="111-2程式能力檢定(資三甲)"><a href="" onclick="" class="cssAnchor">111-2程式能力檢定(資三甲)</a></div> </td>
+                                <td class="cssTd" nowrap="nowrap">即日起 </td>
+                                <td class="cssTd" nowrap="nowrap">無限期 </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
+                                <td class="cssTd" nowrap="nowrap">
+                正式生				</td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a href="" onclick="" class="cssAnchor" title="加到我的最愛"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="nowrap" onclick=""><div style="width: 220px; overflow: hidden;" title="111-2資訊專題(I)(資三甲)"><a href="" onclick="" class="cssAnchor">111-2資訊專題(I)(資三甲)</a></div> </td>
+                                <td class="cssTd" nowrap="nowrap">即日起 </td>
+                                <td class="cssTd" nowrap="nowrap">無限期 </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
+                                <td class="cssTd" nowrap="nowrap">
+                正式生				</td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a href="" onclick="" class="cssAnchor" title="加到我的最愛"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="nowrap" onclick=""><div style="width: 220px; overflow: hidden;" title="112-1資訊專題(II)(資四甲)"><a href="" onclick="" class="cssAnchor">112-1資訊專題(II)(資四甲)</a></div> </td>
+                                <td class="cssTd" nowrap="nowrap">即日起 </td>
+                                <td class="cssTd" nowrap="nowrap">無限期 </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap" align="center"><a href="" class="cssAnchor" onclick="">0</a> </td>
+                                <td class="cssTd" nowrap="nowrap"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/bar-p-1.gif" width="4" height="13">&nbsp;(0%) </td>
+                                <td class="cssTd" nowrap="nowrap">
+                正式生				</td>
+                                <td class="cssTd" nowrap="nowrap" align="center" onclick=""><a href="" onclick="" class="cssAnchor" title="加到我的最愛"><img src="https://elearning.ntcu.edu.tw/theme/default/learn/favorite.gif" width="17" height="17" border="0"></a> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="nowrap" colspan="10" id="tb2">
+                &nbsp;頁次：				<select name="ap" class="cssInput" onchange="">
+                                <option value="0" title="全部" selected="selected">全部 </option>
+                                <option value="1" title="1">1 </option>
+                                <option value="2" title="2">2 </option>
+                                <option value="3" title="3">3 </option>
+                                </select>
+                                <input type="button" value="首頁" class="cssBtn" onclick="">
+                                <input type="button" value="上頁" class="cssBtn" onclick="">
+                                <input type="button" value="下頁" class="cssBtn" onclick="">
+                                <input type="button" value="末頁" class="cssBtn" onclick="">
+                &nbsp;				</td>
+                            </tr>
+                        </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+                <table width="760" align="center" border="0" cellspacing="0" cellpadding="0" id="DetailTable" style="display: none;">
+                    <tbody><tr class="cssTr">
+                        <td class="cssTd">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody><tr class="cssTr">
+                                <td class="cssTd"><img onselectstart="" id="ImgL4" myattr="4" tabsidx="2" src="https://elearning.ntcu.edu.tw/theme/default/learn/title_on_01.gif" width="25" height="30" border="0" align="absbottom"> </td>
+                                <td align="center" valign="bottom" nowrap="NoWrap" id="TitleID4" myattr="4" tabsidx="2" style="cursor: default; background-image: url('https://elearning.ntcu.edu.tw/theme/default/learn/title_on_02.gif');" class="cssTabs" onselectstart="">課程詳細資料 </td>
+                                <td class="cssTd"><img onselectstart="" id="ImgR4" myattr="4" tabsidx="2" src="https://elearning.ntcu.edu.tw/theme/default/learn/title_on_03.gif" width="28" height="30" border="0" align="absbottom"> </td>
+                                <td class="cssTd" width="100%">&nbsp; </td>
+                                <td class="cssTd"><a href="javascript:" onclick=""><img border="0" src="https://elearning.ntcu.edu.tw/theme/default/learn/help.gif" width="21" height="21" align="middle" alt="Help" title="Help"></a> </td>
+                            </tr>
+                        </tbody></table>
+                        </td>
+                    </tr>
+                    <tr class="cssTr">
+                        <td class="cssTd" valign="top" id="csDetail">
+                        <table width="700" border="0" cellspacing="1" cellpadding="3" class="cssTable">
+                            <tbody><tr class="cssTrOdd">
+                                <td class="cssTd" width="120" nowrap="">課程名稱 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_title">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="">開課教師 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_teacher">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="">教材使用 </td>
+                                <td class="cssTd">&nbsp;<span id="cs_content">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="">報名起迄日期 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_enroll">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="">上課起迄日期 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_study">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="">課程狀態 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_status">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="">修課審核 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_review">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="">所屬課程群組 </td>
+                                <td class="cssTd">&nbsp;<span id="cs_group">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="">教材或參考書 </td>
+                                <td class="cssTd">&nbsp;<span id="cs_texts">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="">相關網站 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_url">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="">課程簡介 </td>
+                                <td class="cssTd">&nbsp;<span id="cs_introduce">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="">學分數 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_credit">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="">正式生人數 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_n_limit">&nbsp;</span>&nbsp;人 </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="">旁聽生人數 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_a_limit">&nbsp;</span>&nbsp;人 </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="">教材空間上限 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_quota_limit">&nbsp;</span> KB </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" nowrap="">教材空間使用率 </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_quota_used_percent">&nbsp;</span>%&nbsp;(<span id="cs_quota_used">&nbsp;</span> KB) </td>
+                            </tr>
+                            <tr class="cssTrOdd">
+                                <td class="cssTd" nowrap="">及格成績  </td>
+                                <td class="cssTd" nowrap="">&nbsp;<span id="cs_fair_grade">&nbsp;</span> </td>
+                            </tr>
+                            <tr class="cssTrEvn">
+                                <td class="cssTd" colspan="2" align="center">
+                                <input type="button" value="關閉" class="cssBtn" onclick="">
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+                
+                <form id="actFm" name="actFm" accept-charset="UTF-8" lang="zh-tw" action="index.php" method="post" enctype="multipart/form-data" style="display:none">
+                    <input type="hidden" name="sortby" id="sortby" value="">
+                    <input type="hidden" name="CourseName_SORT" value="" id="CourseName_SORT">
+                    <input type="hidden" name="order" id="order" value="">
+                    <input type="hidden" name="page" id="page" value="1">
+                    <input type="hidden" name="course_name" id="course_name" value="">
+                    <input type="hidden" name="teacher" id="teacher" value="">
+                    <input type="hidden" name="en_begin" id="en_begin" value="">
+                    <input type="hidden" name="en_end" id="en_end" value="">
+                    <input type="hidden" name="st_begin" id="st_begin" value="">
+                    <input type="hidden" name="st_end" id="st_end" value="">
+                    <input type="hidden" name="advqy" id="advqy" value="">
+                    <input type="hidden" name="isquery" id="isquery" value="">
+                    <input type="hidden" name="tabs" id="tabs" value="1">
+                    <input type="hidden" name="query_keyword" id="query_keyword" value="">
+                    <input type="hidden" name="query_type" id="query_type" value="">
+                    <input type="hidden" name="querykeyword" id="querykeyword" value="">
+                    <input type="hidden" name="querytype" id="querytype" value="">
+                
+                </form>
+                
+                <form id="chgFm" name="chgFm" accept-charset="UTF-8" lang="zh-tw" action="index.php" method="post" enctype="multipart/form-data" style="display:none;">
+                    <input type="hidden" name="tabs" id="tabs" value="1">
+                
+                </form>
+                
+                <form id="gpFm" name="gpFm" accept-charset="UTF-8" lang="zh-tw" action="index.php" method="post" enctype="multipart/form-data" style="display:none;">
+                    <input type="hidden" name="chgp" id="chgp" value="66">
+                    <input type="hidden" name="tabs" id="tabs" value="1">
+                
+                </form>
+                
+                <form id="importFm" name="importFm" accept-charset="UTF-8" lang="zh-tw" action="co_course_import.php" method="post" enctype="multipart/form-data" style="display:none;">
+                    <input type="hidden" name="courses" id="courses" value="">
+                
+                </form>
+                
+                
+                <a href="#" id="toGo"></a>
+                <!--<script src="/lib/enable.js" type="text/javascript"></script>-->
+                
+            </body></html>
+        </div>
+    </div>
+    </body>
 </html>
