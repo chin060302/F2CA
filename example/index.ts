@@ -114,8 +114,8 @@ let loggedInUserId = 'internalUserId';
 import mysql from 'mysql2';
 
 var con = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
+  host: "f2ca-database.cqu2x3hha8ky.ap-southeast-2.rds.amazonaws.com",
+  user: "admin",
   password: "f2capassword"
 });
 
