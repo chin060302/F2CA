@@ -14,12 +14,16 @@
     <audio id="BeepFail" >
       <source src="https://www.soundjay.com/buttons/sounds/beep-05.mp3" type="audio/mpeg">
     </audio>
+    <audio id="opendoor" >
+      <source src="../img/open.mp3" type="audio/mpeg">
+    </audio>
     <script>
       const { startAuthentication } = SimpleWebAuthnBrowser;
     </script>
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="permission.css" />
     <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="door.css">
     <title>Permission for library</title>
   </head>
 
@@ -78,29 +82,70 @@
                   <h2 class="head-title">Library Access Control <br></h2>
                   <p>Welcome to the library, please use your phone to scan the barcode for access verification!</p>
                   <div class="header-button">
+                    <!--
                     <a href="permission.html" class="btn btn-border-filled">Cancel</a>
                     
                     <a class="btn btn-border" id="btnAuthBegin">Get Started</a>
+                  -->
                     
                   </div>
                 </div>
               </div>
+            <!--
               <div class="col-lg-5 col-md-12 col-xs-12">
                 <div class="intro-img">
                   <img src="../img/library.jpg" alt="">
                 </div>            
               </div>
+            -->
+            <div id="doorBox" class="door-box">
+              <div class="wall">
+                  <div class="door-border">
+                      <div class="door-frame">
+                          <!-- 门 -->
+                          <div id="door" class="door">
+                              <!-- 门后的光线 -->
+                              <div id="light" class="light" style="opacity: .8;" hidden=""></div>
+                              <!-- 门后 -->
+                              <div class="door-face-0"></div>
+                              <!-- 三个面 -->
+                              <div class="door-face-2"></div>            
+                              <div class="door-face-1">
+                                  <!-- 门上的挂牌
+                                  
+                                  <div class="door-card">我的书房</div>
+                                  -->
+                                  <!-- 进入按钮 -->
+                                  <div class="door-btn">
+                                      
+                                      <!--<a href="permission.html" class="btn btn-border-filled">Cancel</a>-->
+                                      <a id="btnAuthBegin" class="btn btn-border-filled">Started</a>
+                                  </div>
+                              </div>
+                              <div class="door-face-3"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- 书房 
+
+          <img src="../img/backend.jpg" class="room-img" width="375" height="500">
+          -->
+          <div hidden><audio id="audioOpen" src="open.mp3" preload></audio></div>
             </div> 
           </div>             
         </header>
     
         <script>
           const { browserSupportsWebAuthn, startRegistration } = SimpleWebAuthnBrowser;
+          /*
           let list = [];
           if (localStorage.getItem('library')){
             list = localStorage.getItem('library').split(",");
           }
           let counter = list.length;
+          */
           function stopSubmit(event) {
             event.preventDefault();
           }
@@ -129,7 +174,39 @@
             
               const elemError = document.querySelector('#authError');
               const resp = await fetch('/generate-authentication-options');
-    
+              var eleDoor = document.getElementById('door');
+              var eleLight = document.getElementById('light');
+              var eleDoorBox = document.getElementById('doorBox');
+              // 开门音效mp3
+              var eleAudioOpen = document.getElementById('audioOpen');
+              var percentDoor = 0;
+              var fnOpenDoor = function () {
+              percentDoor++;
+              // 门完全打开后，进入下一个画面
+              if (percentDoor == 100) {
+              eleDoorBox.classList.add('active');
+              return;
+              }
+              // 门打开
+              eleDoor.style.transform = 'rotateY('+ (-90 * percentDoor / 100) +'deg)';
+              eleLight.removeAttribute('hidden');
+              // 光线变化
+              eleLight.style.opacity = 0.8 - 0.9 * percentDoor / 100;
+
+              setTimeout(fnOpenDoor, 16);
+              
+              };
+              function jumpUrl(){
+                var arr = new Array(
+                    "../img/library2.jpg",
+                    "../img/library3.jpg",
+                    "../img/library4.jpg",
+                    "../img/library5.jpg",
+                );
+             
+                window.location.href = arr[Math.floor(Math.random() * arr.length)];
+            
+            }
               let asseResp;
               try {
                 const opts = await resp.json();
@@ -151,36 +228,37 @@
               const user = asseResp.response.userHandle;
               if (verificationJSON && verificationJSON.verified ) {
                 
-                if(!list.includes(user))
+                
                   
-                {
-                  list.push(user)
+                
+                  
                   if(user[0] == 'P'){
-                  await document.getElementById('BeepIn').play();
-                  alert('Professor : ' + user + '\n\nWelcome library!');
+                  await document.getElementById('opendoor').play();
                   
+                  eleAudioOpen.play();
+                  fnOpenDoor();
+                  setTimeout(function () {jumpUrl();},2700);
+                  //alert('Professor : ' + user + '\n\nWelcome library!');
                   }
                   else if(user[0] == 'A'){
-                    await document.getElementById('BeepIn').play();
-                    alert('College Student : ' + user + '\n\n Welcome library!');
+                    await document.getElementById('opendoor').play();
+                    eleAudioOpen.play();
+                    fnOpenDoor();
+                    setTimeout(function () {jumpUrl();},2700);
                     
-                    //writefile(time.toLocaleString() +'  User'+ user + ' Clock In')
+                    //alert('College Student : ' + user + '\n\n Welcome library!');
+                    
                   }
                   else if(user[0] == 'B'){
-                    await document.getElementById('BeepIn').play();
-                    alert('Graduate Student : ' + user + '\n\nWelcome library!');
+                    await document.getElementById('opendoor').play();
                     
+                    eleAudioOpen.play();
+                    fnOpenDoor();
+                    setTimeout(function () {jumpUrl();},2700);
+                    //alert('Graduate Student : ' + user + '\n\nWelcome library!');
                   }
-                }
-                else{
-                  await document.getElementById('BeepOut').play();
-                  alert('User Name : ' + user +'\n\nGoodbye! ');
-                  list.splice(list.indexOf(user),1);
-    
-                }
-                counter = list.length
-                localStorage.setItem('library',list);
-                //alert('Authenticate success!');
+                
+                
               } else {
                 await document.getElementById('BeepFail').play();
                 elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
