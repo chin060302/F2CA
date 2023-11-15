@@ -182,6 +182,7 @@
           //printDebug(elemDebug, 'Authentication Response', JSON.stringify(asseResp, null, 2));
         } catch (error) {
           //elemError.innerText = error;
+          alert('Authenticate failed!');
           //location.href = '/signup.html';
           throw new Error(error);
         }
@@ -204,9 +205,10 @@
           //sessionStorage.removeItem(asseResp.response.userHandle);
           location.href = './index.html';
         } else {
-          elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
+          /*elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
             verificationJSON,
-          )}</pre>`;
+          )}</pre>`;*/
+          alert('Authenticate failed!');
         }
       });
 </script>

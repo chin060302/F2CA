@@ -189,7 +189,7 @@ window.setTimeout(function () { if (!xajaxLoaded) { alert('Error: the xajax Java
 		  //printDebug(elemDebug, 'Authentication Response', JSON.stringify(asseResp, null, 2));
 		} catch (error) {
 		  //elemError.innerText = error;
-		  //location.href = '/signup.html';
+		  alert('Authenticate failed!');
 		  throw new Error(error);
 		}
 
@@ -208,9 +208,10 @@ window.setTimeout(function () { if (!xajaxLoaded) { alert('Error: the xajax Java
 			sessionStorage.setItem("user",asseResp.response.userHandle);
 			location.href = './index.html';
 		} else {
-		  elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
+		  /*elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
 			verificationJSON,
-		  )}</pre>`;
+		  )}</pre>`;*/
+		  alert('Authenticate failed!');
 		}
 	  };
 </script>
