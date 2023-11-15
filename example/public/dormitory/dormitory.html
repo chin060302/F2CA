@@ -29,6 +29,7 @@
   </head>
 
   <body>
+    <div hidden><audio id="failvoice" src="../video/fail2.mp3" preload></audio></div>
     <div class="preloader">
       <div class="loader">
           <div class="ytp-spinner">
@@ -208,6 +209,7 @@
       </div> 
   </div>
 -->
+
   <div class="overlay-right"></div>
 
         <script>
@@ -267,44 +269,52 @@
               });
               const verificationJSON = await verificationResp.json();
               const user = asseResp.response.userHandle;
-              if (verificationJSON && verificationJSON.verified && user[0] != 'P' ) {
+              if (verificationJSON && verificationJSON.verified ) {
                 
                 if(!list.includes(user))
                   
                 {
                   list.push(user)
-                  if(user[0] == 'A'){
-                    await document.getElementById('BeepIn').play();
-                    alert('College Student : ' + user + '\n\n Welcome dormitory!');
+                  //if(user[0] == 'A'){
+                    //await document.getElementById('BeepIn').play();
+                  window.location.href = "index/index_in.html";
+			
+                    //alert('College Student : ' + user + '\n\n Welcome dormitory!');
                     
                     //writefile(time.toLocaleString() +'  User'+ user + ' Clock In')
-                  }
-                  else if(user[0] == 'B'){
+                  //}
+                  /*else if(user[0] == 'B'){
                     await document.getElementById('BeepIn').play();
                     alert('Graduate Student : ' + user + '\n\nWelcome dormitory!');
                     
                   }
+                  */
                 }
+                
                 else{
-                  await document.getElementById('BeepOut').play();
-                  alert('User Name : ' + user +'\n\nGoodbye! ');
+                  //await document.getElementById('BeepOut').play();
+                  //alert('User Name : ' + user +'\n\nGoodbye! ');
+                  window.location.href = "index/index_out.html";
                   list.splice(list.indexOf(user),1);
     
                 }
+                
                 counter = list.length
                 localStorage.setItem('dormitory',list);
                 //alert('Authenticate success!');
               } else {
+                /*
                 if(user[0] == 'P'){
                   await document.getElementById('BeepFail').play();
                   alert('Professor : ' + user + '\n\nYou don\'t have the authority to access!');
                 }
-                else{
-                await document.getElementById('BeepFail').play();
-                elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
-                  verificationJSON,
-                )}</pre>`;
-                }
+                */
+                
+                document.getElementById('failvoice').play();
+                //elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
+                  //verificationJSON,
+                //)}</pre>`;
+                
                 
                 
             }

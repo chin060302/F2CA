@@ -427,7 +427,7 @@ if (ENABLE_HTTPS) {
       console.log(`🚀 Sign Up at ${expectedOrigin}/signup.html`);
       console.log(`🚀 Elearning at ${expectedOrigin}/elearning.ntcu.edu.tw/login.html`);
       console.log(`🚀 校務行政系統 at ${expectedOrigin}/ecsb.ntcu.edu.tw/login.html`);
-      console.log(`🚀 宿舍 at ${expectedOrigin}/dormitory/dormitory.html`);
+      console.log(`🚀 dormitory in at ${expectedOrigin}/dormitory/dormitory.html`);
       console.log(`🚀 library at ${expectedOrigin}/library/permission.html`);
     });
 } else {

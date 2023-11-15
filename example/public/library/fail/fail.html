@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+<html>
+	<link rel="stylesheet" href="../permission.css"> 
+<body> 
+<div class="video-button" data-aperture="closed">
+    <div class="video-container" >
+	
+	<div><img id="img" class = "imgtest2" src="../../img/fail.jpg" onclick="history.back()"></div>
+      <div class="play-button__aperture--left"></div>
+      <div class="play-button__aperture--top-right"></div>
+      <div class="play-button__aperture--bottom-right"></div>
+      <div hidden><audio id="failvoice" src="../../video/fail2.mp3" preload></audio></div>
+    </div>
+    </div>
+</body>
+<script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.es5.umd.min.js"></script>
+<script>
+   
+    document.getElementById('failvoice').play();   
+			
+			
+		
+</script>

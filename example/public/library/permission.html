@@ -14,9 +14,8 @@
     <audio id="BeepFail" >
       <source src="https://www.soundjay.com/buttons/sounds/beep-05.mp3" type="audio/mpeg">
     </audio>
-    <audio id="opendoor" >
-      <source src="../img/open.mp3" type="audio/mpeg">
-    </audio>
+    
+    
     <script>
       const { startAuthentication } = SimpleWebAuthnBrowser;
     </script>
@@ -28,11 +27,14 @@
   </head>
 
   <body>
+
+   
+   
     <!-- Header Section Start -->
         <header id="home" class="hero-area-2"> 
                
           <div class="overlay"></div>
-          
+         
           <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
             <div class="container">
               <!--<a href="index.html" class="navbar-brand"><img src="img/logo.png" alt=""></a> -->  
@@ -132,9 +134,13 @@
 
           <img src="../img/backend.jpg" class="room-img" width="375" height="500">
           -->
-          <div hidden><audio id="audioOpen" src="open.mp3" preload></audio></div>
+          <div hidden><audio id="audioOpen" src="../video/open.mp3" preload></audio></div>
+            </div>
+            
             </div> 
-          </div>             
+          </div>
+
+          <!--<div class = fail></div> -->     
         </header>
     
         <script>
@@ -198,15 +204,16 @@
               };
               function jumpUrl(){
                 var arr = new Array(
-                    "../img/library2.jpg",
-                    "../img/library3.jpg",
-                    "../img/library4.jpg",
-                    "../img/library5.jpg",
+                    "index/index1.html",
+                    "index/index2.html",
+                    "index/index3.html",
+                    "index/index4.html",
                 );
              
                 window.location.href = arr[Math.floor(Math.random() * arr.length)];
             
             }
+           
               let asseResp;
               try {
                 const opts = await resp.json();
@@ -232,14 +239,17 @@
                   
                 
                   
-                  if(user[0] == 'P'){
-                  await document.getElementById('opendoor').play();
+                  //if(user[0] == 'P'){
+                  //await document.getElementById('opendoor').play();
                   
                   eleAudioOpen.play();
                   fnOpenDoor();
                   setTimeout(function () {jumpUrl();},2700);
+                  
+                  
                   //alert('Professor : ' + user + '\n\nWelcome library!');
-                  }
+                  //}
+                  /*
                   else if(user[0] == 'A'){
                     await document.getElementById('opendoor').play();
                     eleAudioOpen.play();
@@ -257,21 +267,32 @@
                     setTimeout(function () {jumpUrl();},2700);
                     //alert('Graduate Student : ' + user + '\n\nWelcome library!');
                   }
+                  */
                 
                 
               } else {
-                await document.getElementById('BeepFail').play();
-                elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
-                  verificationJSON,
-                )}</pre>`;
+                
+                location.href='fail/fail.html';
+                //location.href='../img/fail.jpg';
+                
+                
+                
+                
+                //setTimeout("location.href='../img/fail.jpg'",2000);
+                //elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
+                  //verificationJSON,
+                //)}</pre>`;
                 
                 
             }
               //location.reload();
             });
           }
+          
         </script>
         
+        
+         
       
         <!--</div>
         -->

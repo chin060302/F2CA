@@ -97,6 +97,11 @@ p {
   color: #ffffff;
   margin: 0px;
   font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif; }
+  .videotest{
+    width: 100%; 
+    margin: auto; 
+    display: block
+  }
 
 .bg_cover {
   background-position: center center;
@@ -2294,5 +2299,6 @@ p {
   .back-to-top:hover {
     color: #121212;
     background-color: #38f9d7; }
+  
 
 /*# sourceMappingURL=style.css.map */
