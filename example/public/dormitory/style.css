@@ -103,30 +103,27 @@ p {
     display: block
   }
   .imgtest{
-    width: 8%;
-    height:5%;
-    
+    width: 90%;
+    margin: auto;
     position:relative;
     float : right;
     /*
     z-index:9999;
     */
-    top : 10px;
-    right:370px;
-      
-      
-      
+    width: 5%;
+    top : 520px;
+    right:600px;
       /*animation-name:fadenum;
       opacity:0;
       animation-duration:2s;
       */
   }
   .actual-video{
-    width: 100%;
-    
-   
+    width: 90%;
     margin: auto; 
     display: block;
+  }.content{
+    visibility: hidden;
   }
 
 .bg_cover {

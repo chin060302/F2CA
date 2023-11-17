@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  #myVideo {
+    position: fixed;
+    width: 90%; 
+    left: 5%;
+  }
+  .content0{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+  }
+  .content0 img{
+    margin-left: 40%;
+    margin-bottom: 15%;
+    visibility: hidden;
+  }
+  .content {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+  }
+  .content img{
+      margin-left: 69%;
+      margin-bottom: 19%;
+      cursor: pointer;
+  }
+  .content1 {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+  }
+  .content1 img{
+      margin-left: 70%;
+      margin-bottom: 22.5%;
+      cursor: pointer;
+  }

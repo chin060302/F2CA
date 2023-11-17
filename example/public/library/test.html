@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style1.css">
+</head>
+<body>
+<audio id="BeepFail" >
+	<source src="https://www.soundjay.com/buttons/sounds/beep-05.mp3" type="audio/mpeg">
+</audio>
+<div>
+	<video id="myVideo">
+  		<source src="../video/library.mp4">
+	</video>
+	<div class="content0">
+		<img id="fail" src="../img/fail2.png">
+  	</div>
+	<div class="content">
+  		<img src="../img/library.png" onclick="authenticate()">
+	</div>
+</div>
+<script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.es5.umd.min.js"></script>
+<script>
+    
+    const { startAuthentication } = SimpleWebAuthnBrowser;
+	async function authenticate() {
+        sessionStorage.clear();
+		var test = 0;
+		//const elemSuccess = document.querySelector('#authSuccess');
+		const elemError = document.querySelector('#authError');
+		//const elemDebug = document.querySelector('#authDebug');
+
+		// Reset success/error messages
+		//elemSuccess.innerHTML = '';
+		//elemError.innerHTML = '';
+		//elemDebug.innerHTML = '';
+	  
+		const resp = await fetch('/generate-authentication-options');
+
+		let asseResp;
+		try {
+		  const opts = await resp.json();
+		  //printDebug(elemDebug, 'Authentication Options', JSON.stringify(opts, null, 2));
+
+		  //hideAuthForm();
+
+		  asseResp = await startAuthentication(opts);
+		  //console.log(asseResp);
+		  //printDebug(elemDebug, 'Authentication Response', JSON.stringify(asseResp, null, 2));
+		} catch (error) {
+		  //elemError.innerText = error;
+		  //alert('Authenticate failed!');
+		  autherr();
+		  throw new Error(error);
+		}
+
+		
+		const verificationResp = await fetch('/verify-authentication', {
+		  method: 'POST',
+		  headers: {
+			'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify(asseResp),
+		});
+
+		const verificationJSON = await verificationResp.json();
+		//printDebug(elemDebug, 'Server Response', JSON.stringify(verificationJSON, null, 2));
+		if (verificationJSON && verificationJSON.verified) {
+            let video = document.getElementById('myVideo');
+			video.play();
+			setTimeout('location.reload()',6000);
+			
+		} else {
+		  /*elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
+			verificationJSON,
+		  )}</pre>`;*/
+		  //alert('Authenticate failed!');
+		  autherr();
+		}
+		function autherr(){
+			document.getElementById('BeepFail').play();
+			document.getElementById("fail").style.visibility = "visible";
+			setTimeout('location.reload()',1000);
+	  	}
+	};
+</script>

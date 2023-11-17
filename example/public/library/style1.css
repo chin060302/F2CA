@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  #myVideo {
+    position: fixed;
+    width: 90%; 
+    left: 5%;
+  }
+  .content0{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+  }
+  .content0 img{
+    margin-left: 40%;
+    margin-bottom: 15%;
+    visibility: hidden;
+  }
+  .content {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+  }
+  .content img{
+      margin-left: 76.5%;
+      margin-bottom: 15%;
+      cursor: pointer;
+  }
