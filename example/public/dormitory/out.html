@@ -3,7 +3,7 @@
 <body> 
 <div class="video-button" data-aperture="closed">
     <div class="video-container" >
-      <video id='video' class="actual-video" style="width: 90%; margin: auto; display: block;" onclick="authenticate()">
+      <video id='video' class="actual-video" style="width: 100%; margin: auto; display: block;" onclick="authenticate()">
         <source src="../video/宿舍內到外.mp4" type="video/mp4">
       </video>
       <div class="play-button__aperture--left"></div>
@@ -59,6 +59,7 @@
 		if (verificationJSON && verificationJSON.verified) {
             let video = document.getElementById('video');
 			video.play();
+			setTimeout('location.href = "in.html"',8000);
 		} else {
 		  /*elemError.innerHTML = `Oh no, something went wrong! Response: <pre>${JSON.stringify(
 			verificationJSON,
