@@ -114,9 +114,9 @@ let loggedInUserId = 'internalUserId';
 import mysql from 'mysql2';
 
 var con = mysql.createConnection({
-  host: "db-1.cel5xmxxast7.ap-southeast-2.rds.amazonaws.com",
-  user: "admin",
-  password: "F2CApassword"
+  host: "127.0.0.1",
+  user: "root",
+  password: "password"
 });
 
 con.connect(function(err) {
@@ -273,7 +273,7 @@ app.post('/verify-registration', async (req, res) => {
       user.devices.push(newDevice);
     }
     var sql = "INSERT INTO `inMemoryUserDeviceDB` (`id`, `username`, `devices`) VALUES (?,?,?)";
-    const value = [user.id,user.username,JSON.stringify(user.devices)];
+    const value = [user.id.toUpperCase(),user.username,JSON.stringify(user.devices)];
     con.query(sql, value, function (err, result) {
       if (err) throw err;
       console.log("User Inserted");
@@ -281,6 +281,7 @@ app.post('/verify-registration', async (req, res) => {
   }
   req.session.currentChallenge = undefined;
   //console.log(inMemoryUserDeviceDB);
+  
   res.send({ verified });
 });
 
@@ -427,8 +428,8 @@ if (ENABLE_HTTPS) {
       console.log(`🚀 Sign Up at ${expectedOrigin}/signup.html`);
       console.log(`🚀 Elearning at ${expectedOrigin}/elearning.ntcu.edu.tw/login.html`);
       console.log(`🚀 校務行政系統 at ${expectedOrigin}/ecsb.ntcu.edu.tw/login.html`);
-      console.log(`🚀 dormitory in at ${expectedOrigin}/dormitory/dormitory.html`);
-      console.log(`🚀 library at ${expectedOrigin}/library/permission.html`);
+      console.log(`🚀 dormitory in at ${expectedOrigin}/dormitory/in.html`);
+      console.log(`🚀 library at ${expectedOrigin}/library/test.html`);
     });
 } else {
   const host = 'localhost';
