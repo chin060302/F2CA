@@ -1,0 +1,494 @@
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;"><head><title>
+	國立臺中教育大學
+</title>
+
+
+    <style type="text/css">
+
+        @media all and (max-width:800px) {
+            .Smart_Block {
+                width: 90%;
+                border-style: solid;
+            }
+        }
+
+        @media all and (min-width: 1024px) {
+            .Smart_Block {
+                width: 1002px;
+            }
+        }
+
+    </style>
+    <script type="text/javascript" src="../Inc/PubJScript.js"></script>
+    <script type="text/javascript">
+        var objRequest = createHttpRequestObject();
+        var blnProcess = false;
+
+        function init() {
+            if (document.getElementById('PortalLanguage') != undefined) {
+                document.getElementById('PortalLanguage').style.visibility = 'visible';
+                var sLanguage = '';
+
+                if (sLanguage == 'en') {
+                    InitLanguageList();
+                }
+                
+                search_selectByValue(document.getElementById('PortalLanguage'),sLanguage);
+            }            
+        }
+
+        function OpenUrl(FunID, sUrl, sTarget, sFunName) {
+            wirteUrlLog(FunID, sUrl, sTarget, sFunName);
+        }
+
+        function wirteUrlLog(FunID, sUrl, sTarget, sFunName) {
+            var params = 'ModuleName=WriteLogData&FunURL=' + sUrl + '&FunID=' + FunID + '&FunName=' + sFunName;
+
+            blnProcess = true;
+            objRequest.onreadystatechange = function () { showLogResult(sUrl, sTarget); };
+            sendHttpRequestSyn('Main_total.aspx', params, true);
+        }
+
+        function showLogResult(sUrl, sTarget) {
+            if (objRequest.readyState == 4) {
+                blnProcess = false;
+                window.open(sUrl, sTarget);
+            }
+        }
+    </script>
+<link href="https://ecsb.ntcu.edu.tw/JsScripts/datePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css"><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.qhDXWpKopYk.L.W.O/am=CAM/d=0/rs=AN8SPfqeKn8wA30q4viup18yaci8udUjKQ/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.zh_TW.SF3yuTXOUFM.O/d=1/exm=el_conf/ed=1/rs=AN8SPfoOq8MQQwjKtKN1bqqi1xgf1Nb5TA/m=el_main"></script></head>
+<body onload="init();" style="position: relative; min-height: 100%; top: 0px;">
+    <form name="form1" method="post" action="./Main_total.aspx?SysID=STDWEB" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8E5B19F3">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+</div>
+        <input type="hidden" name="tmpFun" id="tmpFun">
+        <input type="hidden" name="tmpRow" id="tmpRow">
+        <input type="hidden" name="tmpOrder" id="tmpOrder">
+        <input type="hidden" name="tmpRow_C" id="tmpRow_C">
+        <div style="width:100%; margin:0 auto; margin-left:0px; margin-top:0px;">
+            
+
+<link href="https://ecsb.ntcu.edu.tw/Styles/thickbox.css" rel="stylesheet">
+<link href="https://ecsb.ntcu.edu.tw/Styles/JSCookMenu.css" rel="stylesheet">
+<link href="https://ecsb.ntcu.edu.tw/Styles/public.css" rel="stylesheet">
+<link href="https://ecsb.ntcu.edu.tw/Styles/tabsJ.css" rel="stylesheet">
+<link href="https://ecsb.ntcu.edu.tw/Styles/SysSubMenu.css" rel="stylesheet">
+<link href="https://ecsb.ntcu.edu.tw/Inc/stylec.css" rel="stylesheet">
+<link href="https://ecsb.ntcu.edu.tw/Inc/css_menuTitle.css" rel="stylesheet">
+<link href="https://ecsb.ntcu.edu.tw/Inc/buttonStyle.css" rel="stylesheet">
+<link href="https://ecsb.ntcu.edu.tw/Inc/GridStyle.css" rel="stylesheet">
+<link href="https://ecsb.ntcu.edu.tw/Inc/Menu_Title.css" rel="stylesheet">
+<link href="https://ecsb.ntcu.edu.tw/Inc/Header_Style.css" rel="stylesheet">
+
+<script type="text/javascript">
+    var the_web_path = "/";
+</script>
+
+<!--<script src="/JsScripts/thickbox/thickbox.js"></script>-->
+<script src="/JsScripts/MyUtility.js"></script>
+<script src="/JsScripts/Date.js"></script>
+<script src="/JsScripts/Inc/SysSubMenu.js?ver=2023/11/23 下午 11:54:04"></script>
+<script src="/JsScripts/datePicker/WdatePicker.js"></script>
+<script src="/JsScripts/JSCookMenu/JSCookMenu.js"></script>
+<script src="/JsScripts/JSCookMenu/theme.js"></script>
+<script src="/JsScripts/jquery/jquery.min.js"></script>
+<script src="/JsScripts/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/Inc/GridScroll.js?ver=2023/11/23 下午 11:54:04"></script>
+<script type="text/javascript" src="/Inc/PubJScript.js?ver=2023/11/23 下午 11:54:04"></script>
+<script src="/Inc/Console.js"></script>     
+<script type="text/javascript"> 
+    function OpenVisible() {
+        
+        //alert(location.pathname);
+        var path = location.pathname.split("/");
+        for (var i in path) {
+            if (path[i] == 'index.aspx' || path[i] == 'indexSTD.aspx' || path[i] == 'indexParents.aspx') {
+                document.getElementById('thisSubmaster_OpenMenuLink').style.visibility = "hidden";
+            }
+            if (path[i] == 'WebSite.aspx') {
+                document.getElementById('thisSubmaster_OpenMenuLink').style.visibility = "hidden";
+                //document.getElementById('thisSubmaster_lb_Location').InnerHTML = '使用手冊及網站地圖';
+                //alert(document.getElementById('thisSubmaster_lb_Location').innerHTML);
+                document.getElementById('thisSubmaster_lb_Location').innerHTML = '使用手冊及網站地圖';
+            }
+        }
+    }
+
+    function OpenFunWin(sURL,sTarget) {
+        var objform = document.getElementById('form1') || document.getElementById('myform') || document.getElementById('aspnetform');
+
+        objform.action = sURL;
+        objform.target = sTarget;
+        objform.submit();
+    }
+</script>
+<script type="text/javascript">
+    var objRequest = createHttpRequestObject();
+    var blnProcess = false;
+
+    function OpenUrl(FunID, sUrl, sTarget, sFunName) {
+        wirteUrlLog(FunID, sUrl, sTarget, sFunName);
+    }
+
+    function wirteUrlLog(FunID, sUrl, sTarget, sFunName) {
+        var params = 'ModuleName=WriteLogData&FunURL=' + sUrl + '&FunID=' + FunID + '&FunName=' + sFunName;
+        var main_path = (the_web_path == '/') ? '..' : the_web_path;
+
+        //console.log('the_web_path=' + the_web_path + ',main_path=' + main_path);
+
+        blnProcess = true;
+        objRequest.onreadystatechange = function () { showLogResult(sUrl, sTarget); };
+        sendHttpRequestSyn(main_path + '/Portal/Main_total.aspx', params, true);
+    }
+
+    function showLogResult(sUrl, sTarget) {
+        if (objRequest.readyState == 4) {
+            blnProcess = false;
+            //console.log('objRequest.responseText='+objRequest.responseText);
+            window.open(sUrl, sTarget);
+        }
+    }
+</script>
+<style>
+    .School_Name{
+        border-collapse:collapse;
+    }
+    .School_Name td{
+        padding:0px;
+    }
+</style>
+
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'zh-TW', includedLanguages: 'zh-TW,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+    }
+</script>
+<style type="text/css">
+iframe.goog-te-banner-frame{ 
+    display: none !important;
+}
+body {
+    position: static !important; top:0px !important;
+}
+.goog-te-gadget-simple {
+    background-color: transparent !important;
+    white-space: nowrap !important;
+    height:0px;
+    font-family: font_2 !important;
+    font-size:10px !important;
+    border:none;
+}
+</style>
+
+
+
+
+
+<div style="display: none; visibility: visible; background-color: #E6E6E6;" id="PleaseWaitForMeDiv">
+    <table border="0" width="100%">
+        <tbody><tr>
+            <td style="font-size: 13px; font-weight: bold; text-align: center; height: 100px; vertical-align: middle; color: Black;">
+                <img id="PleaseWaitForMeImg" src="/images/thickbox/loadingAnimation.gif" alt="處理中">
+                <br><br><div id="PleaseWaitForMeMessage">處理中，請稍候...</div>
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+<input type="hidden" name="thisSubmaster$hidSchname" id="thisSubmaster_hidSchname" value="國立臺中教育大學">
+<div id="main1" class="Header_BG" style="width:100%; margin:0 auto; min-height:50px;">
+
+    <!--<div style="border-style:none; border-color:yellow; width:1000px; margin:0 auto;">-->
+
+        <!--<div class="School_Name" style="width:1000px; height:100%; overflow:hidden;">-->
+            <table border="0" style="width:100%; border-collapse:collapse; ">
+                <tbody><tr>
+                    <td class="top_word01" style="width:50%;text-align:left;vertical-align:middle;">
+                        <span id="thisSubmaster_SchoolName">國立臺中教育大學</span>
+                    </td>
+                    <td style="width:50%;">
+                        <table border="0" style="width:600px;border:0px solid #ffffff;float:right;vertical-align:middle; font-family:微軟正黑體;font-size:13px;" class="top_word03">
+                            <tbody><tr>
+                                <td style="text-align:right;"><span id="thisSubmaster_thisSubmaster_Name">王仁杰</span></td>
+                                <td>&nbsp;&nbsp;&nbsp;</td>
+                                
+                                <td style="text-align:center;">
+                                    <p style="margin:3px;"><a href="../login.aspx" id="thisSubmaster_logout">登出</a></p>
+                                </td>
+                                <td style="width:40px;text-align:center;">
+                                    <input src="https://ecsb.ntcu.edu.tw/Images/homeicon.png" name="thisSubmaster$thisSubmaster_home" type="image" id="thisSubmaster_thisSubmaster_home" onclick="location.href = the_web_path + 'Portal/indexSTD.aspx'; return false;" style="border-width: 0px;">
+                                </td>
+                                
+                                <td id="google_translate_element" style="width:90px;text-align:center;vertical-align:top;">
+								<div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" class="goog-te-gadget-simple" style="white-space: nowrap;"><img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="VIpgJd-ZVi9od-xl07Ob-lTBxed" href="#"><span>請選取語言</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span aria-hidden="true" style="color: rgb(118, 118, 118);">▼</span></a></span></div></div></td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+       <!--  
+        </div>
+    -->
+        
+        <div id="thisSubmaster_stm_menubar" class="stm_menubar" style="text-align:left;">
+            <div id="ShowHeaderMenuDiv" style="border-style:none; text-align:left;"><table summary="main menu" class="ThemePanelMenu" cellspacing="0"><tbody><tr><td class="ThemePanelMainItem" onmouseover="" onmousedown="" onmouseout="" onmouseup=""><span class="ThemePanelMainItemLeft"><img alt="" src="/images/JSCookMenu/blank.gif"></span><span class="ThemePanelMainItemText">進入學生資訊系統</span><span class="ThemePanelMainItemRight"><img alt="" src="/images/JSCookMenu/blank.gif"></span></td></tr></tbody></table></div>
+            <!--<span id="thisSubmaster_TagHeaderMenu_MenuList"><script type="text/javascript">var demoMenu = [
+[null, '進入學生資訊系統', the_web_path + 'Portal/Main_total.aspx?SysID=STDWEB', '_self', '進入學生資訊系統']
+];
+cmDraw('ShowHeaderMenuDiv', demoMenu, 'hbr', cmThemePanel, 'ThemePanel');
+</script></span>
+-->
+
+        </div>
+   <!--
+    </div>
+-->
+</div>
+<div id="main2" class="Header_BG2" style="width:100%; height:30px; margin:0 auto; overflow:hidden; ">
+    <div style="border-style:none; border-color:yellow; width:1000px; height:100%; margin:0 auto;">
+            
+        
+        <div id="thisSubmaster_LocationTable" style="width:100%; height:100%; font-family:微軟正黑體; font-size:14px; overflow:hidden;  margin-top:3px;">
+            <div style="text-align:left; vertical-align:middle; width:17px; float:left;">
+                <img src="https://ecsb.ntcu.edu.tw/images/roadicon.png" id="thisSubmaster_Img1" style="width:16px; height:18px; vertical-align:middle; margin-top:1px;" alt="現在位置">
+            </div>
+            <div style="text-align:left; vertical-align:middle; margin-top:2px; float:left; ">
+                <span style="color:#132b79; ">現在位置：</span>
+                <span id="thisSubmaster_lb_Location">進入學生資訊系統</span>
+            </div>
+            <div style="text-align:right; font-weight:bold; vertical-align:middle; margin-top:2px; float:right;">
+                
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+<div id="main3" class="" style="width:100%; margin:0 auto; border-style:none; border-color:#FFFFFF; overflow:hidden; ">
+    
+    <div id="thisSubmaster_SysSubMenuDiv" style="width:1024px;margin:0 auto;margin-top:5px;border-style:none;display:none;">
+        <div style="width:100%; height:650px; overflow-y:auto;">
+            <div id="thisSubmaster_div_content" style="width:100%; border-style:none; text-align:left;"></div>
+        </div>
+        <div style="display:none;">
+            <div>
+                <!--
+                選擇子系統：
+                <select name="thisSubmaster$REC_SysID" id="thisSubmaster_REC_SysID">
+</select>-->
+            </div>
+            <div style="vertical-align:top;">
+                <div id="thisSubmaster_DivBlock" class="blockDiv" style="width: 100%; overflow: auto;"></div>
+            </div>
+            <div>
+                <div id="thisSubmaster_DivMenuBlock" style="width:99%; overflow: auto; text-align: left;"><table border="0" width="95%"><tbody><tr style="font-size: 20px; height: 150px; text-align: center; color: red; vertical-align: middle; font-weight: bold;"><td id="no_data">很抱歉，並沒有功能可使用!!</td></tr></tbody></table></div>
+            </div>
+        </div>
+        <br>
+        <script type="text/javascript">
+            InitialSysSubMenu("thisSubmaster");
+        </script>
+    </div>
+    
+</div>
+
+
+
+        </div>
+
+        <div class="content" id="TheWebMasterContent" style="text-align:center; ">
+            <div>
+                <p style="margin:6px;font-size:0px;">&nbsp;</p>
+            </div>
+            
+            
+                <div id="div_content" class="Smart_Block" style="text-align:left; border-style:none; margin:0 auto;"><div style="width:100%; height:100%; overflow:hidden;"><div style="width:100%; border-style:none; clear:both;">
+<div style="vertical-align:top; margin-left:5px; margin-right:5px; float:left; ">   <div style="width:240px; text-align:left; box-sizing:border-box; ">       <div class="Title_BG titleword001" style="width:100%; margin-top:10px; padding:3px; box-sizing:border-box; ">           基本資料       </div>       <div style="width:236px; text-align:left; background-color:#FBFBFB; border-style:solid; border-color:#CCCCCC; border-width:2px; margin-top:0px; ">           <div style="width:100%; height:3px; ">&nbsp;</div>           <div class="word001" style="width:100%; text-align:left;"><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727237677807','../ACAD/STDWEB/STD_Modify.aspx','_self');" title="個人基本資料">個人基本資料</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237677007','../STDWEB/STD_PwdChange.aspx','_self');" title="學生密碼變更">學生密碼變更</a> <a style="cursor: pointer" href="./signup.html" title="新增通行密鑰">&emsp;&emsp;新增通行密鑰</a>
+</div><div style="padding:3px 6px 3px 6px;">                                                                                                                       
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728272723767707809','../STDWEB/STDGAForm.aspx','_self');" title="繳費單下載">繳費單下載</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728272723767707909','../STDWEB/STDW0032.aspx','_self');" title="學雜費公告">學雜費公告</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272827237690707','../STDWEB/STDW230.aspx','_self');" title="賃居資料維護">賃居資料維護</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272827237690807','../STDWEB/STDW231.aspx','_self');" title="交通意外回報">交通意外回報</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272827237690907','../STDWEB/STDW232.aspx','_self');" title="機車調查暨自行車申請">機車調查暨自行車申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272828237690007','../STDWEB/STDW233.aspx','_self');" title="公告資訊">公告資訊</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272828237690107','../STDWEB/STDW234.aspx','_self');" title="預警紀錄">預警紀錄</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272828237690207','../STDWEB/STDW235.aspx','_self');" title="輔導紀錄">輔導紀錄</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272828237690307','../STDWEB/COU_QuestionList.aspx','_self');" title="問卷清單">問卷清單</a>
+</div>                   </div>                   <div style="font-size: 2px; height:5px; ">&nbsp;</div>               </div>           </div>       </div><div style="vertical-align:top; margin-left:5px; margin-right:5px; float:left; ">   <div style="width:240px; text-align:left; box-sizing:border-box; ">       <div class="Title_BG titleword001" style="width:100%; margin-top:10px; padding:3px; box-sizing:border-box; ">           學籍申請       </div>       <div style="width:236px; text-align:left; background-color:#FBFBFB; border-style:solid; border-color:#CCCCCC; border-width:2px; margin-top:0px; ">           <div style="width:100%; height:3px; ">&nbsp;</div>           <div class="word001" style="width:100%; text-align:left;"><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727237698707','../STDWEB/STDW210.aspx','_self');" title="輔系雙主修申請/放棄">輔系雙主修申請/放棄</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237698507','../STDWEB/STDW218.aspx','_self');" title="學雜費減免申請">學雜費減免申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237677507','../STDWeb/STDW008.aspx','_self');" title="申請延長修業年限">申請延長修業年限</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727237698807','../STDWEB/STDW211.aspx','_self');" title="轉系申請">轉系申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237697507','../StdAff/STDWeb/STD0101.aspx?Applytype=P','_self');" title="論文口試申請">論文口試申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237677207','../StdAff/STDWeb/STD0101.aspx?Applytype=D','_self');" title="休學申請">休學申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237677407','../StdAff/STDWeb/STD0101.aspx?Applytype=B','_self');" title="復學申請">復學申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237677307','../StdAff/STDWeb/STD0101.aspx?Applytype=Q','_self');" title="退學申請">退學申請</a>
+</div>                   </div>                   <div style="font-size: 2px; height:5px; ">&nbsp;</div>               </div>           </div>       </div><div style="vertical-align:top; margin-left:5px; margin-right:5px; float:left; ">   <div style="width:240px; text-align:left; box-sizing:border-box; ">       <div class="Title_BG titleword001" style="width:100%; margin-top:10px; padding:3px; box-sizing:border-box; ">           一般申請       </div>       <div style="width:236px; text-align:left; background-color:#FBFBFB; border-style:solid; border-color:#CCCCCC; border-width:2px; margin-top:0px; ">           <div style="width:100%; height:3px; ">&nbsp;</div>           <div class="word001" style="width:100%; text-align:left;"><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237687607','../STDWEB/STD_MilitaryApplication.aspx','_self');" title="兵役線上申請">兵役線上申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727237688707','../STDWEB/STDW110.aspx','_self');" title="宿舍線上申請">宿舍線上申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727237688807','../STDWEB/STDW111.aspx','_self');" title="外宿線上申請">外宿線上申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727237688907','../STDWEB/STDW112.aspx','_self');" title="宿舍修繕線上申請">宿舍修繕線上申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237688007','../STDWEB/STDW113.aspx','_self');" title="門禁線上申請">門禁線上申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272828237690407','../STDWEB/STDW237.aspx','_self');" title="外宿清冊(宿委)">外宿清冊(宿委)</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727237698907','../STDWEB/STDW212.aspx','_self');" title="就學貸款申請">就學貸款申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237698007','../STDWEB/STDW213.aspx','_self');" title="弱勢助學金減免申請">弱勢助學金減免申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31293127272727262797807','../SCS/Apply.aspx','_self');" title="校內外獎助學金申請">校內外獎助學金申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31293127272727262797907','../SCS/QueryApply.aspx','_self');" title="查詢獎助學金申請紀錄">查詢獎助學金申請紀錄</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237688107','../STDWEB/STD_CNC_Side.aspx','_self');" title="場地課表查詢">場地課表查詢</a>
+</div>                   </div>                   <div style="font-size: 2px; height:5px; ">&nbsp;</div>               </div>           </div>       </div><div style="vertical-align:top; margin-left:5px; margin-right:5px; float:left; ">   <div style="width:240px; text-align:left; box-sizing:border-box; ">       <div class="Title_BG titleword001" style="width:100%; margin-top:10px; padding:3px; box-sizing:border-box; ">           選課系統       </div>       <div style="width:236px; text-align:left; background-color:#FBFBFB; border-style:solid; border-color:#CCCCCC; border-width:2px; margin-top:0px; ">           <div style="width:100%; height:3px; ">&nbsp;</div>           <div class="word001" style="width:100%; text-align:left;"><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727237687807','../STDWEB/SelChoose/SelChooseMain.aspx','STDW101');" title="進入選課系統　(此功能為另開視窗)">進入選課系統</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727292376878408','../STDWEB/SelChoose/SelChooseMain.aspx?language=en','STDW101A');" title="進入選課系統(英文版)　(此功能為另開視窗)">進入選課系統(英文版)</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237687207','../STDWEB/SelChoose/SELChooseSetLotNo.aspx','_self');" title="第一階段登記選課籤號查詢">第一階段登記選課籤號查詢</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237687007','../STDWEB/SelChoose/SELChooseSetLotNo.aspx?Result=Y','STDW103');" title="查詢第一階段登記選課結果　(此功能為另開視窗)">查詢第一階段登記選課結果</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237687307','../StdAff/STDWeb/STD0101.aspx?Applytype=SP','_self');" title="人工加退選線上申請">人工加退選線上申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237687407','../StdAff/STDWeb/STD0101.aspx?Applytype=RV','_self');" title="期中停修線上申請">期中停修線上申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728322723768744809','../STDWeb/STDRevokeList.aspx','_self');" title="期中停修已核准紀錄查詢">期中停修已核准紀錄查詢</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727292376878508','../STDWEB/SelChoose/SelChooseSetGradCredit.aspx','_self');" title="大學部上修碩士班／碩士班上修博士班科目設定是否當畢業學分">大學部上修碩士班／碩士班上修博士班科目設定是否當畢業學分</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727237689707','../STDWEB/SelChoose/SelChooseConfirm.aspx','_self');" title="選課確認作業">選課確認作業</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237688607','../SEL/STDQuerySelRecord.aspx','_self');" title="選課紀錄(Log)查詢">選課紀錄(Log)查詢</a>
+</div>                   </div>                   <div style="font-size: 2px; height:5px; ">&nbsp;</div>               </div>           </div>       </div>       </div><div style="width:100%; border-style:none; clear:both;">
+<div style="vertical-align:top; margin-left:5px; margin-right:5px; float:left; ">   <div style="width:240px; text-align:left; box-sizing:border-box; ">       <div class="Title_BG titleword001" style="width:100%; margin-top:10px; padding:3px; box-sizing:border-box; ">           成績查詢       </div>       <div style="width:236px; text-align:left; background-color:#FBFBFB; border-style:solid; border-color:#CCCCCC; border-width:2px; margin-top:0px; ">           <div style="width:100%; height:3px; ">&nbsp;</div>           <div class="word001" style="width:100%; text-align:left;"><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727237697807','../ACAD/STDWEB/GRD_GRDQry.aspx','_self');" title="學期成績查詢">學期成績查詢</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272727237697907','../ACAD/STDWEB/GRD_GRDQry_All.aspx','_self');" title="歷年成績查詢">歷年成績查詢</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237698307','../STDWEB/GRDYearsScore.aspx','_self');" title="歷年成績查詢(新)">歷年成績查詢(新)</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237697007','../ACAD/STDWEB/GRD_Warning_Report.aspx','_self');" title="成績臨界警示">成績臨界警示</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237697407','../STDWeb/GRDCredits.aspx','_self');" title="成績抵免申請">成績抵免申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237698407','../STDWeb/GRDCreditsEdu.aspx','_self');" title="師培預修科目與跨師資類科抵免申請">師培預修科目與跨師資類科抵免申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237698207','../STDWEB/STDContrastSetCur.aspx','_self');" title="畢業審查科目設定">畢業審查科目設定</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237698607','../STDWeb/TchEduGradItem.aspx','_self');" title="師培與通識語文畢業門檻">師培與通識語文畢業門檻</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237697607','../SVC/SVC0501.aspx','_self');" title="服務學習時數查詢">服務學習時數查詢</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931272728237698107','../STDWEB/STDW214.aspx','_self');" title="班級幹部服務證明書">班級幹部服務證明書</a>
+</div>                   </div>                   <div style="font-size: 2px; height:5px; ">&nbsp;</div>               </div>           </div>       </div><div style="vertical-align:top; margin-left:5px; margin-right:5px; float:left; ">   <div style="width:240px; text-align:left; box-sizing:border-box; ">       <div class="Title_BG titleword001" style="width:100%; margin-top:10px; padding:3px; box-sizing:border-box; ">           課表查詢       </div>       <div style="width:236px; text-align:left; background-color:#FBFBFB; border-style:solid; border-color:#CCCCCC; border-width:2px; margin-top:0px; ">           <div style="width:100%; height:3px; ">&nbsp;</div>           <div class="word001" style="width:100%; text-align:left;"><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282727237607807','../STDWEB/Sel_Student.aspx','_self');" title="我的課表">我的課表</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282727237607907','../pub/Cur_Class.aspx','_self');" title="班級課表查詢">班級課表查詢</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282728237607007','../pub/Cur_Teachers.aspx','_self');" title="教師課表查詢">教師課表查詢</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282728237607107','../pub/Cur_Classroom.aspx','_self');" title="教室課表查詢">教室課表查詢</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282727237617807','../pub/TchSchedule_Search.aspx','STDW401');" title="全校課程資訊　(此功能為另開視窗)">全校課程資訊</a>
+</div>                   </div>                   <div style="font-size: 2px; height:5px; ">&nbsp;</div>               </div>           </div>       </div><div style="vertical-align:top; margin-left:5px; margin-right:5px; float:left; ">   <div style="width:240px; text-align:left; box-sizing:border-box; ">       <div class="Title_BG titleword001" style="width:100%; margin-top:10px; padding:3px; box-sizing:border-box; ">           請假、缺曠與獎懲       </div>       <div style="width:236px; text-align:left; background-color:#FBFBFB; border-style:solid; border-color:#CCCCCC; border-width:2px; margin-top:0px; ">           <div style="width:100%; height:3px; ">&nbsp;</div>           <div class="word001" style="width:100%; text-align:left;"><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282728237637607','../StdAff/STDWeb/ABS0101_2.aspx','_self');" title="線上請假(文字)">線上請假(文字)</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282727237637907','../StdAff/STDWeb/ABS_SearchSACP.aspx','_self');" title="個人請假缺曠記錄">個人請假缺曠記錄</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282728237637007','../StdAff/STDWeb/ABS_SearchSRPP.aspx','_self');" title="個人獎懲記錄">個人獎懲記錄</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282728237637107','../StdAff/STDWeb/Teacher_Care.aspx','_self');" title="預警訊息">預警訊息</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282728237637207','../StdAff/STDWeb/ABS_SearchCos.aspx','_self');" title="單一科目缺矌紀錄查詢">單一科目缺矌紀錄查詢</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282728237637307','../StdAff/STDWeb/ABS0102.aspx','_self');" title="開放家長查詢設定">開放家長查詢設定</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282728237637407','../StdAff/STDWeb/SAC0001.aspx','_self');" title="操行資料查詢">操行資料查詢</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282728237637507','../StdAff/STDWeb/ABS_SACP_Detail.aspx','_self');" title="個人考勤記錄統計表">個人考勤記錄統計表</a>
+</div>                   </div>                   <div style="font-size: 2px; height:5px; ">&nbsp;</div>               </div>           </div>       </div><div style="vertical-align:top; margin-left:5px; margin-right:5px; float:left; ">   <div style="width:240px; text-align:left; box-sizing:border-box; ">       <div class="Title_BG titleword001" style="width:100%; margin-top:10px; padding:3px; box-sizing:border-box; ">           OfficeHour       </div>       <div style="width:236px; text-align:left; background-color:#FBFBFB; border-style:solid; border-color:#CCCCCC; border-width:2px; margin-top:0px; ">           <div style="width:100%; height:3px; ">&nbsp;</div>           <div class="word001" style="width:100%; text-align:left;"><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282727237647807','../STDWEB/Tch_OHselect.aspx','_self');" title="OfficeHour申請">OfficeHour申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282727237647907','../STDWEB/Tch_OHrecord.aspx','_self');" title="OfficeHour紀錄">OfficeHour紀錄</a>
+</div>                   </div>                   <div style="font-size: 2px; height:5px; ">&nbsp;</div>               </div>           </div>       </div>       </div><div style="width:100%; border-style:none; clear:both;">
+<div style="vertical-align:top; margin-left:5px; margin-right:5px; float:left; ">   <div style="width:240px; text-align:left; box-sizing:border-box; ">       <div class="Title_BG titleword001" style="width:100%; margin-top:10px; padding:3px; box-sizing:border-box; ">           計網中心及其他       </div>       <div style="width:236px; text-align:left; background-color:#FBFBFB; border-style:solid; border-color:#CCCCCC; border-width:2px; margin-top:0px; ">           <div style="width:100%; height:3px; ">&nbsp;</div>           <div class="word001" style="width:100%; text-align:left;"><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931292727237647807','http://campus.ntcu.edu.tw/ntctc/other/santivirus.asp','_self');" title="防毒軟體安裝-校外請透過本校VPN">防毒軟體安裝-校外請透過本校VPN</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931282727237667907','https://docs.google.com/forms/d/e/1FAIpQLSf0m4aXfQdrxUmnmsyb136czHX-YR0AT4TNaj4dVpdjyA1vuQ/viewform?usp=pp_url','STDW902');" title="GM電子郵件(Workspace)帳號申請　(此功能為另開視窗)">GM電子郵件(Workspace)帳號申請</a>
+</div><div style="padding:3px 6px 3px 6px;">
+<a style="cursor: pointer" href="javascript:OpenUrl('31312931292728237647007','http://mailsystem.ntcu.edu.tw/login.php','_self');" title="郵務管理系統">郵務管理系統</a>
+</div><div style="font-size: 2px; height:5px; ">&nbsp;</div>                   </div>               </div>           </div>       </div>   </div></div><div style="width:100%; height:50px; min-height:50px;"></div></div>
+            </div>
+        
+        
+<link href="https://ecsb.ntcu.edu.tw/Inc/Footer_Style.css" rel="stylesheet" type="text/css">
+
+
+<div class="Footer_BG" style="width:100%; ">
+    <div class="" style="width:1000px; height:100%; margin:0 auto; margin-top:39px; vertical-align:bottom; ">
+        <img src="../images/foot_copy.gif" id="MySubmasterFooter_Img1" style="width:295px; height:16px; margin-bottom:0px;">
+    </div>
+</div>
+
+
+
+
+
+
+
+    
+<script type="text/javascript">window.document.onkeypress=function(){return EnterDisable(event);};</script></form><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class=" VIpgJd-yAWNEb-hvhgNd-l4eHX-i3jM8c"><img src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24" alt=""></div><div class=" VIpgJd-yAWNEb-hvhgNd-k77Iif-i3jM8c"><div class="VIpgJd-yAWNEb-hvhgNd-IuizWc" dir="ltr">原文</div><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">為這個翻譯評分</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">你的意見回饋將用於協助改善 Google 翻譯品質</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="良好的翻譯" aria-label="良好的翻譯" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="不佳的翻譯" aria-label="不佳的翻譯" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0"></iframe></div></div></div>
+
+
+<div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><iframe frameborder="0" class="VIpgJd-ZVi9od-xl07Ob-OEVmcd skiptranslate" title="語言翻譯小工具" style="visibility: visible; box-sizing: content-box; width: 89px; height: 63px; display: none;"></iframe></body></html>

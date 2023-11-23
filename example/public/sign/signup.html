@@ -5,27 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.es5.umd.min.js"></script>
     <link rel="stylesheet" href="./signup.css" />
+    <div class="overlay"></div>
     
-    <div class="container">
-      <h1>Sign Up<p>Please fill in this form to create an account.</p></h1>
+    <div class = contain>
+    <img src="../img/main-logo.png" class = img alt="Logo">
+    <img src="../img/f2ca-title.png" class = img2 alt="Logo">
+    <div class="container2">
+      
+      <h1>註冊<p>請填寫此表格以建立密鑰</p></h1>
 
       <div class="form"> 
         <div class="input">
-          <label for="username"><b>User Name</b></label>
-          <input type="text" id="username" placeholder="Enter User Name" name="username" oninput="validateModuleCode()" required>
+          <label for="username"><b>帳號</b></label>
+          <input type="text" id="username" placeholder="輸入使用者帳號" name="username" oninput="validateModuleCode()" required>
         </div> 
         <label>
-          <strong>Remember me<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"></strong>
+          <strong>記住我<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"></strong>
         </label>
       </div>
+      
   
       
   
       <div class="clearfix">
-        <button type="button" class="btnSignup" id="btnRegBegin"><strong>Sign Up</strong></button>
-        <button type="button" class="btnCancel" onclick="location.reload()"><strong>Cancel</strong></button>
+        <button type="button" class="btnSignup" id="btnRegBegin"><strong>註冊</strong></button>
+        <button type="button" class="btnCancel" onclick="location.reload()"><strong>取消</strong></button>
       </div>
-    </div>
+      </div>
+      </div>
+    
+    
   </body>
   
   

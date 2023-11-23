@@ -425,7 +425,7 @@ if (ENABLE_HTTPS) {
     )
     .listen(port, host, () => {
       console.log(`🚀 Server ready at ${expectedOrigin} (${host}:${port})`);
-      console.log(`🚀 Sign Up at ${expectedOrigin}/signup.html`);
+      console.log(`🚀 Sign Up at ${expectedOrigin}/sign/login.html`);
       console.log(`🚀 Elearning at ${expectedOrigin}/elearning.ntcu.edu.tw/login.html`);
       console.log(`🚀 校務行政系統 at ${expectedOrigin}/ecsb.ntcu.edu.tw/login.html`);
       console.log(`🚀 dormitory in at ${expectedOrigin}/dormitory/in.html`);
