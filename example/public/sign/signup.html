@@ -41,7 +41,7 @@
   <script>
     function validateModuleCode() {
       var m = document.getElementById("username").value;
-      if (m && (/^[A,B,P]\w{8}$/.test(m) === false)) {
+      if (m && (/^[A,B,P,a,b,p]\w{8}$/.test(m) === false)) {
         
         return false;
       } else {
@@ -62,9 +62,13 @@
       elemSuccess.innerHTML = '';
       elemError.innerHTML = '';
       elemDebug.innerHTML = '';
-*/if(validateModuleCode()){
+      
+*/
+//alert(typeof document.getElementById("username").value)
+if(validateModuleCode()){
+  
       const sendvalue = {
-        username: document.getElementById("username").value
+        username: document.getElementById("username").value.toString().toUpperCase()
       };
 /**/
       const founduser = await fetch('/testuser', {
