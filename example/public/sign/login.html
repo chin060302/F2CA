@@ -163,7 +163,7 @@
         sessionStorage.clear();
         const password = "123456", id = "ACS109162", check_password = "29541";
 
-        if(password == document.getElementById("User_Password").value && id == document.getElementById("User_Account").value && check_password == document.getElementById("Check_Code").value ){
+        if(password == document.getElementById("User_Password").value && id == document.getElementById("User_Account").value.toUpperCase() && check_password == document.getElementById("Check_Code").value ){
             sessionStorage.setItem("user",id)
             location.href="index.html";
             //alert("成功");
