@@ -91,13 +91,13 @@ b{
 }
 
 .img2{
-    width: 20%;
+    width: 10%;
     position:absolute;
     /*
     z-index:9999;
     */
-    top : 35px;
-    right:608px;
+    top : 60px;
+    right:690px;
 }
 .img3{
     width: 26%;
